@@ -1,0 +1,90 @@
+﻿@model FinessaAesthetica.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Color.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Color.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Key)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Key)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Desciption)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Desciption)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitMeasurement)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitMeasurement)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StandardRetailPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StandardRetailPrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

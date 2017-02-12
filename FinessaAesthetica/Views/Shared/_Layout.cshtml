@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Finessa Aesthetica</title>
+    @RenderSection("css", required: false)
+    @Styles.Render("~/dist/css")
+    <link href="~/dist/css/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+<body>
+    @Html.Partial("_Navigation")
+    <div class="navbar navbar-static-top toolbar">
+        <ul class="nav navbar-nav navbar-left toolbar-left">
+            @RenderSection("toolbarleft", required: false)
+        </ul>
+        <ul class="nav navbar-nav navbar-right toolbar-right">
+            @RenderSection("toolbarright", required: false)
+        </ul>
+    </div>
+    <div class="container">
+        <div class="header">
+            <div class="pull-left">
+                <div class="current-entity">@ViewBag.CurrentEntity</div>
+                <div class="entity-display">@ViewBag.WebPageTitle</div>
+            </div>
+            <div class="pull-right">
+                @RenderSection("content-header", required: false)
+            </div>
+        </div>
+        @RenderBody()
+        <div id="modal-container"></div>
+    </div>
+
+
+    @Scripts.Render("~/dist/js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
