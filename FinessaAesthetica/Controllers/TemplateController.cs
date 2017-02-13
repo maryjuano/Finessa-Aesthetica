@@ -13,8 +13,7 @@ namespace FinessaAesthetica.Controllers
         //
         // GET: /Template/
         public ActionResult Modal(ModalTemplate model)
-        {
-            ViewBag.Id = model.Id;
+        {          
             return View(model);
         }
 	}

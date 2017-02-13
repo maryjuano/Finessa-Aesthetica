@@ -177,9 +177,12 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BranchController.cs" />
+    <Compile Include="Controllers\BranchInventoryController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ColorsController.cs" />
+    <Compile Include="Controllers\ConsigneeController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\MainInventoryController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
@@ -224,14 +227,21 @@
     <Compile Include="Migrations\201702120502179_Seeding-Added.Designer.cs">
       <DependentUpon>201702120502179_Seeding-Added.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702121135066_Inventory_Consignee_Initial.cs" />
+    <Compile Include="Migrations\201702121135066_Inventory_Consignee_Initial.Designer.cs">
+      <DependentUpon>201702121135066_Inventory_Consignee_Initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Audit.cs" />
     <Compile Include="Models\Auth.cs" />
     <Compile Include="Models\BaseModels.cs" />
     <Compile Include="Models\Branch.cs" />
+    <Compile Include="Models\BranchInventory.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Color.cs" />
+    <Compile Include="Models\BaseInventory.cs" />
+    <Compile Include="Models\Consignee.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Service.cs" />
     <Compile Include="Models\Status.cs" />
@@ -349,6 +359,21 @@
     <Content Include="Views\Service\Details.cshtml" />
     <Content Include="Views\Service\Edit.cshtml" />
     <Content Include="Views\Service\Index.cshtml" />
+    <Content Include="Views\Consignee\Create.cshtml" />
+    <Content Include="Views\Consignee\Delete.cshtml" />
+    <Content Include="Views\Consignee\Details.cshtml" />
+    <Content Include="Views\Consignee\Edit.cshtml" />
+    <Content Include="Views\Consignee\Index.cshtml" />
+    <Content Include="Views\MainInventory\Create.cshtml" />
+    <Content Include="Views\MainInventory\Delete.cshtml" />
+    <Content Include="Views\MainInventory\Details.cshtml" />
+    <Content Include="Views\MainInventory\Edit.cshtml" />
+    <Content Include="Views\MainInventory\Index.cshtml" />
+    <Content Include="Views\BranchInventory\Create.cshtml" />
+    <Content Include="Views\BranchInventory\Delete.cshtml" />
+    <Content Include="Views\BranchInventory\Details.cshtml" />
+    <Content Include="Views\BranchInventory\Edit.cshtml" />
+    <Content Include="Views\BranchInventory\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -384,6 +409,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702120502179_Seeding-Added.resx">
       <DependentUpon>201702120502179_Seeding-Added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702121135066_Inventory_Consignee_Initial.resx">
+      <DependentUpon>201702121135066_Inventory_Consignee_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

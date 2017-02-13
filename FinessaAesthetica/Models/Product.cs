@@ -11,10 +11,8 @@ namespace FinessaAesthetica.Models
     {
         [Key]
         public int ProductId { get; set; }
-        public string Key { get; set; }
-        public string Code { get; set; }
-        public string Desciption { get; set; }
-       
+        public string ProductCode { get; set; }
+        public string Desciption { get; set; }       
         public int CategoryId { get; set; }          
         public Category Category { get; set; }
         public int ColorId { get; set; }        

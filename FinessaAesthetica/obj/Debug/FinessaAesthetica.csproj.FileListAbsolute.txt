@@ -71,6 +71,7 @@ C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Fines
 C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.pdb
 C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.SeedingAdded.resources
 C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.csprojResolveAssemblyReference.cache
+C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\bin\EntityFramework.xml
 C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\bin\FinessaAesthetica.dll.config
 C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\bin\FinessaAesthetica.dll
 C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\bin\FinessaAesthetica.pdb
@@ -117,7 +118,6 @@ C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Fines
 C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\bin\System.Net.Http.Formatting.xml
 C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\bin\System.Web.Http.xml
 C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\bin\System.Web.Http.WebHost.xml
-C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\bin\EntityFramework.xml
 C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\bin\EntityFramework.SqlServer.xml
 C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\bin\Microsoft.AspNet.Identity.Core.xml
 C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\bin\Microsoft.AspNet.Identity.Owin.xml
@@ -131,7 +131,6 @@ C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Fines
 C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\obj\Debug\FinessaAesthetica.csprojResolveAssemblyReference.cache
 C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.InitialCreate.resources
 C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.UserUpdate.resources
 C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.InitialSupplier_InitialStatus.resources
@@ -144,3 +143,5 @@ C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Fines
 C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\obj\Debug\FinessaAesthetica.csproj.GenerateResource.Cache
 C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\obj\Debug\FinessaAesthetica.dll
 C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\obj\Debug\FinessaAesthetica.pdb
+C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.Inventory_Consignee_Initial.resources
+C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\FinessaAesthetica\Finessa\FinessaAesthetica\obj\Debug\FinessaAesthetica.csprojResolveAssemblyReference.cache

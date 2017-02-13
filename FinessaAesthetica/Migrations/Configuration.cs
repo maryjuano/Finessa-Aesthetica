@@ -28,7 +28,7 @@ namespace FinessaAesthetica.Migrations
                     Password = "pass@word1",
                     FirstName = "Alyssa Janelle",
                     LastName = "Dominguez",
-                    MiddleName = "Quilendrino"
+                    MiddleName = "Quilenderino"
                 },
                 new Users
                 {
