@@ -1,42 +1,66 @@
 ﻿@model FinessaAesthetica.Models.Category
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Category Details";
+    ViewBag.CurrentEntity = "Category";
+    ViewBag.WebPageTitle = Model.Code;
 }
 
-<h2>Details</h2>
+@section toolbarleft {
+    <li class="breadcrumb-item"><a href="~/Category/"><i class="fa fa-home"></i> Category List</a></li>
+    <li class="breadcrumb-item actions">Category Details</li>
+}
 
-<div>
-    <h4>Category</h4>
-	<hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Status.Description)
-        </dt>
+@section toolbarright {
+    <li><a href="#" id="btnEditTrigger" title="Edit Category"><span class="fa fa-pencil"></span>&nbsp;Edit</a></li>
+}
+<div class="form-horizontal">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="page-header">
+                <h4>Category Information</h4>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Status.Description)
-        </dd>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Status.Description)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Code)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Status.Description)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Code)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Code)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Code)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
 
-    </dl>
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+            </dl>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CategoryId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<span hidden="hidden">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CategoryId }, new { @class = "EditTrigger" })
+</span>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $('#btnEditTrigger').click(function () {
+            $('.EditTrigger')[0].click();
+            return false;
+        });
+    </script>
+}

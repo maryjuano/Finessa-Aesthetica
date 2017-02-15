@@ -1,90 +1,109 @@
 ﻿@model FinessaAesthetica.Models.Product
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Product Details";
+    ViewBag.CurrentEntity = "Product";
+    ViewBag.WebPageTitle = Model.Desciption;
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Product</h4>
-	<hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Category.Code)
-        </dt>
+@section toolbarleft {
+    <li class="breadcrumb-item"><a href="~/Product/"><i class="fa fa-home"></i> Product List</a></li>
+    <li class="breadcrumb-item actions">Product Details</li>
+}
 
-        <dd>
-            @Html.DisplayFor(model => model.Category.Code)
-        </dd>
+@section toolbarright {
+    <li><a href="#" id="btnEditTrigger" title="Edit Product"><span class="fa fa-pencil"></span>&nbsp;Edit</a></li>
+}
+<div class="form-horizontal">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="page-header">
+                <h4>Product Information</h4>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Color.Code)
-        </dt>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProductCode)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ProductCode)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Color.Code)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Desciption)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Desciption)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Supplier.Code)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Category.Code)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Category.Code)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Supplier.Code)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Supplier.Code)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Supplier.Code)
+                </dd>
+            </dl>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Key)
-        </dt>
+        <div class="col-sm-6">
+            <div class="page-header">
+                <h4>Product Description</h4>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Key)
-        </dd>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Color.Code)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Code)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Color.Code)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Code)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.UnitMeasurement)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.UnitMeasurement)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Desciption)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.UnitPrice)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.UnitPrice)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Desciption)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UnitMeasurement)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UnitMeasurement)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UnitPrice)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UnitPrice)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.StandardRetailPrice)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StandardRetailPrice)
-        </dd>
-
-    </dl>
+                <dt>
+                    @Html.DisplayNameFor(model => model.StandardRetailPrice)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.StandardRetailPrice)
+                </dd>
+            </dl>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<span hidden="hidden">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }, new { @class = "EditTrigger" })
+</span>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $('#btnEditTrigger').click(function () {
+            $('.EditTrigger')[0].click();
+            return false;
+        });
+    </script>
+}
+
+

@@ -1,93 +1,126 @@
 ﻿@model FinessaAesthetica.Models.Supplier
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit Supplier";
+    ViewBag.CurrentEntity = "Supplier";
+    ViewBag.WebPageTitle = Model.Code;
 }
 
-<h2>Edit</h2>
+@section toolbarleft {
+    <li class="breadcrumb-item"><a href="~/Supplier/"><i class="fa fa-home"></i> Supplier List</a></li>
+    <li class="breadcrumb-item actions">Edit Supplier</li>
+}
 
+@section toolbarright {
+    <li><a href="#" id="btnSaveTrigger" title="Save Supplier"><span class="fa fa-save"></span>&nbsp;Save</a></li>
+    <li><a href="#" id="btnDeleteTrigger" title="Delete Supplier"><span class="fa fa-trash"></span>&nbsp;Delete</a></li>
+}
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>Supplier</h4>
-        <hr />
-        @Html.ValidationSummary(true)
-        @Html.HiddenFor(model => model.SupplierId)
+    <div class="ibox-content">
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.SupplierId)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Code, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Code)
-                @Html.ValidationMessageFor(model => model.Code)
-            </div>
-        </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="page-header">
+                        <h4>Summary Details</h4>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name)
-                @Html.ValidationMessageFor(model => model.Name)
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Code, new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.Code, new { @class = "form-control", @placeholder = "Supplier code . . ." })
+                            @Html.ValidationMessageFor(model => model.Code)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Address, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Address)
-                @Html.ValidationMessageFor(model => model.Address)
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Supplier name . . ." })
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TelephoneNumber, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TelephoneNumber)
-                @Html.ValidationMessageFor(model => model.TelephoneNumber)
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TIN, new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.TIN, new { @class = "form-control", @placeholder = "Supplier TIN . . ." })
+                            @Html.ValidationMessageFor(model => model.TIN)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.MobileNumber, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MobileNumber)
-                @Html.ValidationMessageFor(model => model.MobileNumber)
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.StatusId, "StatusId", new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">
+                            @Html.DropDownListFor(model => model.StatusId,
+                                         (SelectList)ViewBag.StatusId,
+                                         new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.StatusId)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ContactPerson, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ContactPerson)
-                @Html.ValidationMessageFor(model => model.ContactPerson)
-            </div>
-        </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="page-header">
+                        <h4>Contact Details</h4>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Address, new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @placeholder = "Supplier address . . ." })
+                            @Html.ValidationMessageFor(model => model.Address)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TIN, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TIN)
-                @Html.ValidationMessageFor(model => model.TIN)
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TelephoneNumber, new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.TelephoneNumber, new { @class = "form-control", @placeholder = "Supplier telephone number . . ." })
+                            @Html.ValidationMessageFor(model => model.TelephoneNumber)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.StatusId, "StatusId", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("StatusId", String.Empty)
-                @Html.ValidationMessageFor(model => model.StatusId)
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MobileNumber, new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.MobileNumber, new { @class = "form-control", @placeholder = "Supplier mobile number . . ." })
+                            @Html.ValidationMessageFor(model => model.MobileNumber)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ContactPerson, new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.ContactPerson, new { @class = "form-control", @placeholder = "Supplier contact person . . ." })
+                            @Html.ValidationMessageFor(model => model.ContactPerson)
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <div hidden="hidden">
+        @Html.ActionLink("Delete", "Delete", new { id = Model.SupplierId }, new { @class = "DeleteTrigger" })
+        <input id="submitButton" type="submit" />
+    </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $('#btnSaveTrigger').click(function () {
+            $('#submitButton').click();
+            return false;
+        });
+        $('#btnDeleteTrigger').click(function () {
+            $('.DeleteTrigger')[0].click();
+            return false;
+        });
+    </script>
+}

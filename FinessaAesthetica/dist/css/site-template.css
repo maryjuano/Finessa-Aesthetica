@@ -122,15 +122,15 @@
 }
 
 
-.toolbar > ul > li > a {
-    padding-top: 10px;
-    padding-bottom: 8px;
-    padding-left: 0px;
-    padding-right: 0px;
-    line-height: 5px;
-    color: #000;
-    font-size: 12px;
-    height: 30px;
+.toolbar > ul > li > a, .toolbar > ul > li > button {
+    padding-top: 7px;
+    /*padding-bottom: 8px;*/
+    padding-left: 8px;
+    padding-right: 8px;
+    line-height: 0px;
+    color: #365899;
+    font-size: 14px;
+    height: 29px;
     /*width: 100px;
     overflow: hidden;
      white-space: nowrap;
@@ -148,9 +148,9 @@
     width: auto;
 }
 
-.toolbar > ul > li > a:hover,
-.toolbar-right .dropdown.open > a,
-.toolbar-right .dropdown .dropdown-menu > li > a:hover {
+.toolbar > ul > li > a:hover, .toolbar > ul > li > button:hover,
+.toolbar-right .dropdown.open > a, .toolbar-right .dropdown.open > button,
+.toolbar-right .dropdown .dropdown-menu > li > a:hover, .toolbar-right .dropdown .dropdown-menu > li > button:hover {
         color: #fff;
         background-color: rgb(0, 120, 215);
 }
@@ -627,4 +627,8 @@
     border-top: 1px solid #f4f4f4;
     padding: 10px;
     background-color: #ffffff;
+}
+
+.label-left {
+    text-align: left !important;
 }

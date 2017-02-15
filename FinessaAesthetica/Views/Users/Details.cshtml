@@ -1,74 +1,99 @@
 ﻿@model FinessaAesthetica.Models.Users
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "User Details";
+    ViewBag.CurrentEntity = "User";
+    ViewBag.WebPageTitle = Model.FullName;
 }
 
-<h2>Details</h2>
+@section toolbarleft {
+    <li class="breadcrumb-item"><a href="~/Users/"><i class="fa fa-home"></i> User List</a></li>
+    <li class="breadcrumb-item actions">User Details</li>
+}
 
-<div>
-    <h4>Users</h4>
-	<hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.UserName)
-        </dt>
+@section toolbarright {
+    <li><a href="#" id="btnEditTrigger" title="Edit User"><span class="fa fa-pencil"></span>&nbsp;Edit</a></li>
+}
+<div class="form-horizontal">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-header">
+                <h4>General Information</h4>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.UserName)
-        </dd>
+            <div class="row">
+                <div class="col-sm-6">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.EmployeeId)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.EmployeeId)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.UserName)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EmployeeId)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.UserName)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.EmployeeId)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Password)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Password)
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-sm-6">
+                    <dl class="dl-horizontal">
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FirstName)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MiddleName)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.FirstName)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MiddleName)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MiddleName)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.MiddleName)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.LastName)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FullName)
-        </dd>
-
-    </dl>
+                        <dd>
+                            @Html.DisplayFor(model => model.LastName)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<span hidden="hidden">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "EditTrigger" })
+</span>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $('#btnEditTrigger').click(function () {
+            $('.EditTrigger')[0].click();
+            return false;
+        });
+    </script>
+}
+
+

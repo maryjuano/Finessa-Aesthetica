@@ -1,92 +1,124 @@
 ﻿@model FinessaAesthetica.Models.Product
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "New Product";
+    ViewBag.CurrentEntity = "Product";
+    ViewBag.WebPageTitle = "New Product";
 }
 
-<h2>Create</h2>
+@section toolbarleft {
+    <li class="breadcrumb-item"><a href="~/Product/"><i class="fa fa-home"></i> Product List</a></li>
+    <li class="breadcrumb-item actions">New Product</li>
+}
 
-@using (Html.BeginForm()) 
+@section toolbarright {
+    <li><a href="#" id="btnSaveTrigger" title="Create Product"><span class="fa fa-save"></span>&nbsp;Create</a></li>
+}
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Product</h4>
-        <hr />
-        @Html.ValidationSummary(true)
+      <div class="ibox-content">
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ProductCode, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ProductCode)
-                @Html.ValidationMessageFor(model => model.ProductCode)
-            </div>
-        </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="page-header">
+                        <h4>Product Information</h4>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ProductCode, new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.ProductCode, new { @class = "form-control", @placeholder = "Product code . . ." })
+                            @Html.ValidationMessageFor(model => model.ProductCode)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Desciption, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Desciption)
-                @Html.ValidationMessageFor(model => model.Desciption)
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Desciption, new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.Desciption, new { @class = "form-control", @placeholder = "Product description . . ." })
+                            @Html.ValidationMessageFor(model => model.Desciption)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CategoryId, "CategoryId", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CategoryId", String.Empty)
-                @Html.ValidationMessageFor(model => model.CategoryId)
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CategoryId, "CategoryId", new { @class = "control-label col-md-3 label-left" })
+                        <div class="col-md-9">
+                            @Html.DropDownListFor(model => model.CategoryId,
+                                         (SelectList)ViewBag.CategoryId,
+                                         "Select category . . .",
+                                         new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CategoryId)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ColorId, "ColorId", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ColorId", String.Empty)
-                @Html.ValidationMessageFor(model => model.ColorId)
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SupplierId, "SupplierId", new { @class = "control-label col-md-3 label-left" })
+                        <div class="col-md-9">
+                            @Html.DropDownListFor(model => model.SupplierId,
+                                         (SelectList)ViewBag.SupplierId,
+                                         "Select supplier . . .",
+                                         new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.SupplierId)
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="page-header">
+                        <h4>Product Description</h4>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ColorId, "ColorId", new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">
+                            @Html.DropDownListFor(model => model.ColorId,
+                                         (SelectList)ViewBag.ColorId,
+                                         "Select product color . . .",
+                                         new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ColorId)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.SupplierId, "SupplierId", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("SupplierId", String.Empty)
-                @Html.ValidationMessageFor(model => model.SupplierId)
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.UnitMeasurement, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UnitMeasurement)
-                @Html.ValidationMessageFor(model => model.UnitMeasurement)
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UnitMeasurement, new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.UnitMeasurement, new { @class = "form-control", @placeholder = "Product unit measurement . . ." })
+                            @Html.ValidationMessageFor(model => model.UnitMeasurement)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.UnitPrice, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UnitPrice)
-                @Html.ValidationMessageFor(model => model.UnitPrice)
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UnitPrice, new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.UnitPrice, new { @class = "form-control", @placeholder = "Product price . . ." })
+                            @Html.ValidationMessageFor(model => model.UnitPrice)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.StandardRetailPrice, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.StandardRetailPrice)
-                @Html.ValidationMessageFor(model => model.StandardRetailPrice)
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.StandardRetailPrice, new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.StandardRetailPrice, new { @class = "form-control", @placeholder = "Product standard retail price . . ." })
+                            @Html.ValidationMessageFor(model => model.StandardRetailPrice)
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
         </div>
     </div>
+
+    <input id="submitButton" type="submit" class="hidden" />
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $('#btnSaveTrigger').click(function () {
+            $('#submitButton').click();
+            return false;
+        });
+    </script>
+}

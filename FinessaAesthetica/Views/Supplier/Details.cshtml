@@ -1,82 +1,114 @@
 ﻿@model FinessaAesthetica.Models.Supplier
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Supplier Details";
+    ViewBag.CurrentEntity = "Supplier";
+    ViewBag.WebPageTitle = Model.Code;
 }
 
-<h2>Details</h2>
+@section toolbarleft {
+    <li class="breadcrumb-item"><a href="~/Supplier/"><i class="fa fa-home"></i> Supplier List</a></li>
+    <li class="breadcrumb-item actions">Supplier Details</li>
+}
 
-<div>
-    <h4>Supplier</h4>
-	<hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Status.Description)
-        </dt>
+@section toolbarright {
+    <li><a href="#" id="btnEditTrigger" title="Edit Supplier"><span class="fa fa-pencil"></span>&nbsp;Edit</a></li>
+}
+<div class="form-horizontal">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="page-header">
+                <h4>Summary Details</h4>
+            </div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Status.Description)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Status.Description)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Status.Description)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Code)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Code)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Code)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Code)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                                
+                <dt>
+                    @Html.DisplayNameFor(model => model.TIN)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.TIN)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
+            </dl>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TelephoneNumber)
-        </dt>
+        <div class="col-sm-6">
+            <div class="page-header">
+                <h4>Contact Details</h4>
+            </div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Address)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TelephoneNumber)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Address)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MobileNumber)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.TelephoneNumber)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MobileNumber)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.TelephoneNumber)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ContactPerson)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.MobileNumber)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ContactPerson)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.MobileNumber)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TIN)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ContactPerson)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TIN)
-        </dd>
-
-    </dl>
+                <dd>
+                    @Html.DisplayFor(model => model.ContactPerson)
+                </dd>
+            </dl>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SupplierId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<span hidden="hidden">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SupplierId }, new { @class = "EditTrigger" })
+</span>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $('#btnEditTrigger').click(function () {
+            $('.EditTrigger')[0].click();
+            return false;
+        });
+    </script>
+}
+
+
