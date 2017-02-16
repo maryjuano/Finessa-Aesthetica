@@ -8,8 +8,9 @@ namespace FinessaAesthetica.Models
 {
     public class Status
     {
-          [Key]
+        [Key]
         public int StatusId { get; set; }
-        public string Description { get; set; }      
+        [Display(Name = "Status")]
+        public string Description { get; set; }
     }
 }

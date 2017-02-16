@@ -9,13 +9,18 @@ namespace FinessaAesthetica.Models
 {
     public class Supplier
     {
-          [Key]
+        [Key]
         public int SupplierId { get; set; }
-        public string Code { get; set; }        
+        [Display(Name = "Supplier Code")]
+        public string Code { get; set; }
+        [Display(Name = "Supplier Name")]
         public string Name { get; set; }
-        public string Address { get; set; }    
+        public string Address { get; set; }
+        [Display(Name = "Telephone Number")]
         public int TelephoneNumber { get; set; }
+         [Display(Name = "Mobile Number")]
         public int MobileNumber { get; set; }
+         [Display(Name = "Contact Person")]
         public string ContactPerson { get; set; }
         public string TIN { get; set; }
         public int StatusId { get; set; }

@@ -11,8 +11,10 @@ namespace FinessaAesthetica.Models
     {
         [Key]
         public int ServiceId { get; set; }
+        [Display(Name = "Service Code")]
         public string Code { get; set; }
         public string Description { get; set; }
+        [Display(Name = "Service Type")]
         public string Type { get; set; }
         [DataType(DataType.Currency)]
         public double Amount { get; set; }

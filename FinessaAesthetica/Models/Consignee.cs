@@ -10,9 +10,12 @@ namespace FinessaAesthetica.Models
     {
         [Key]
         public int ConsigneeId { get; set; }
+        [Display(Name = "Consignee Code")]
         public string ConsigneeCode { get; set; }
+        [Display(Name = "Consignee Name")]
         public string Name { get; set; }
         public string Address { get; set; }
+        [Display(Name = "Mobile Number")]
         public int MobileNumber { get; set; }
     }
 }

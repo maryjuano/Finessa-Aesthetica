@@ -9,7 +9,7 @@ namespace FinessaAesthetica.Models
 {
     public abstract class BaseDescriptionalModel
     {        
-        public string Code { get; set; }
+        public virtual string Code { get; set; }
         public string Description { get; set; }
         public int StatusId { get; set; }
         [ForeignKey("StatusId")]
