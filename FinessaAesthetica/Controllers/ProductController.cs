@@ -50,7 +50,7 @@ namespace FinessaAesthetica.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="ProductId,Key,Code,Desciption,CategoryId,ColorId,SupplierId,UnitMeasurement,UnitPrice,StandardRetailPrice")] Product product)
+        public ActionResult Create([Bind(Include="ProductId,ProductCode,Desciption,CategoryId,ColorId,SupplierId,UnitMeasurement,UnitPrice,StandardRetailPrice")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace FinessaAesthetica.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="ProductId,Key,Code,Desciption,CategoryId,ColorId,SupplierId,UnitMeasurement,UnitPrice,StandardRetailPrice")] Product product)
+        public ActionResult Edit([Bind(Include = "ProductId,ProductCode,Desciption,CategoryId,ColorId,SupplierId,UnitMeasurement,UnitPrice,StandardRetailPrice")] Product product)
         {
             if (ModelState.IsValid)
             {

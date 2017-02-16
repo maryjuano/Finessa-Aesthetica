@@ -23,5 +23,10 @@ namespace FinessaAesthetica.Models
         public int MinimumThreshold { get; set; }
         [Display(Name = "Maximum Threshold")]
         public int MaximumThreshold { get; set; }
+
+        public void SetTotalAmount(Product product)
+        {
+            this.TotalAmount = this.Quantity * product.UnitPrice;
+        }
     }
 }

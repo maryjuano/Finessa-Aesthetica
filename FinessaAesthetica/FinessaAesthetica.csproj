@@ -231,13 +231,17 @@
     <Compile Include="Migrations\201702121135066_Inventory_Consignee_Initial.Designer.cs">
       <DependentUpon>201702121135066_Inventory_Consignee_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702160550164_Model_Updates.cs" />
+    <Compile Include="Migrations\201702160550164_Model_Updates.Designer.cs">
+      <DependentUpon>201702160550164_Model_Updates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Audit.cs" />
     <Compile Include="Models\Auth.cs" />
     <Compile Include="Models\BaseModels.cs" />
     <Compile Include="Models\Branch.cs" />
-    <Compile Include="Models\BranchInventory.cs" />
+    <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Color.cs" />
     <Compile Include="Models\BaseInventory.cs" />
@@ -412,6 +416,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702121135066_Inventory_Consignee_Initial.resx">
       <DependentUpon>201702121135066_Inventory_Consignee_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702160550164_Model_Updates.resx">
+      <DependentUpon>201702160550164_Model_Updates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

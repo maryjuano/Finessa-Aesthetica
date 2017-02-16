@@ -293,3 +293,4 @@ C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAes
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.csproj.GenerateResource.Cache
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.dll
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.pdb
+C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.Model_Updates.resources

@@ -48,50 +48,7 @@ namespace FinessaAesthetica.Migrations
                     LastName = "Perdido",
                     MiddleName = "Ian"
                 });
-
-
-            // add default statuses
-
-            context.Status.AddOrUpdate(
-               p => p.Description,
-               new Status
-               {
-                   Description = "Active"                 
-               },
-               new Status
-               {
-                   Description = "Inactive"                  
-               });
-
-            context.Categories.AddOrUpdate(
-             p => p.Description,
-             new Category
-             {
-                 StatusId = 1,        
-                 Code = "CAT-01",
-                 Description = "Sample Category 1"
-             },
-             new Category
-             {
-                 StatusId = 1,        
-                 Code = "CAT-02",
-                 Description = "Sample Category 2"
-             });
-
-            context.Colors.AddOrUpdate(
-            p => p.Description,
-            new Color
-            {
-                StatusId = 1,               
-                Code = "Blue",
-                Description = "Colorful"
-            },
-            new Color
-            {
-                StatusId = 1,        
-                Code = "Red",
-                Description = "Colorful"
-            });
+          
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -15,20 +16,20 @@ namespace FinessaAesthetica.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: /MainInventory/
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
             var maininventories = db.MainInventories.Include(m => m.Product).Include(m => m.Status);
-            return View(maininventories.ToList());
+            return View(await maininventories.ToListAsync());
         }
 
         // GET: /MainInventory/Details/5
-        public ActionResult Details(int? id)
+        public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MainInventory maininventory = db.MainInventories.Find(id);
+            MainInventory maininventory = await db.MainInventories.FindAsync(id);
             if (maininventory == null)
             {
                 return HttpNotFound();
@@ -49,12 +50,15 @@ namespace FinessaAesthetica.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="MainInventoryId,ProductId,Quantity,UnitPrice,TotalAmount,StatusId,MinimumThreshold,MaximumThreshold")] MainInventory maininventory)
+        public async Task<ActionResult> Create([Bind(Include = "MainInventoryId,ProductId,Quantity,StatusId,MinimumThreshold,MaximumThreshold")] MainInventory maininventory)
         {
             if (ModelState.IsValid)
             {
-                db.MainInventories.Add(maininventory);
-                db.SaveChanges();
+                // update total amount 
+                var iv = await SetTotalAmount(maininventory);
+                // create record
+                db.MainInventories.Add(iv);
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
@@ -64,13 +68,13 @@ namespace FinessaAesthetica.Controllers
         }
 
         // GET: /MainInventory/Edit/5
-        public ActionResult Edit(int? id)
+        public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MainInventory maininventory = db.MainInventories.Find(id);
+            MainInventory maininventory = await db.MainInventories.FindAsync(id);
             if (maininventory == null)
             {
                 return HttpNotFound();
@@ -85,12 +89,15 @@ namespace FinessaAesthetica.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="MainInventoryId,ProductId,Quantity,UnitPrice,TotalAmount,StatusId,MinimumThreshold,MaximumThreshold")] MainInventory maininventory)
+        public async Task<ActionResult> Edit([Bind(Include = "MainInventoryId,ProductId,Quantity,StatusId,MinimumThreshold,MaximumThreshold")] MainInventory maininventory)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(maininventory).State = EntityState.Modified;
-                db.SaveChanges();
+                // update total amount 
+                var iv = await SetTotalAmount(maininventory);
+                // update record
+                db.Entry(iv).State = EntityState.Modified;
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductCode", maininventory.ProductId);
@@ -99,13 +106,13 @@ namespace FinessaAesthetica.Controllers
         }
 
         // GET: /MainInventory/Delete/5
-        public ActionResult Delete(int? id)
+        public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MainInventory maininventory = db.MainInventories.Find(id);
+            MainInventory maininventory = await db.MainInventories.FindAsync(id);
             if (maininventory == null)
             {
                 return HttpNotFound();
@@ -116,12 +123,21 @@ namespace FinessaAesthetica.Controllers
         // POST: /MainInventory/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            MainInventory maininventory = db.MainInventories.Find(id);
+            MainInventory maininventory = await db.MainInventories.FindAsync(id);
             db.MainInventories.Remove(maininventory);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+
+        private async Task<MainInventory> SetTotalAmount(MainInventory inventory)
+        {
+            Product product = await db.Products.SingleOrDefaultAsync(p => p.ProductId == inventory.ProductId);
+
+            inventory.SetTotalAmount(product);
+
+            return inventory;
         }
 
         protected override void Dispose(bool disposing)

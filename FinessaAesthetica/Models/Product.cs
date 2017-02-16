@@ -26,7 +26,7 @@ namespace FinessaAesthetica.Models
         public double UnitMeasurement { get; set; }
         [DataType(DataType.Currency)]
         [Display(Name = "Unit Price")]
-        public double UnitPrice { get; set; }
+        public float UnitPrice { get; set; }
         [DataType(DataType.Currency)]
         [Display(Name = "SRP")]
         public double StandardRetailPrice { get; set; }
