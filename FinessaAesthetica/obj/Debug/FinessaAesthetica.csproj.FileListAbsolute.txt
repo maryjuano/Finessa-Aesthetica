@@ -297,3 +297,4 @@ C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAes
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.updatedatabasenow.resources
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.StatusAdded_Users.resources
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.update_currency_datatype.resources
+C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.updatedrecordinformationalschema.resources

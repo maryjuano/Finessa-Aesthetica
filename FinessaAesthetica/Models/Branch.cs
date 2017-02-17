@@ -7,7 +7,7 @@ using System.Web;
 
 namespace FinessaAesthetica.Models
 {
-    public class Branch
+    public class Branch : RecordInformation
     {
         public int Id { get; set; }
         [Display(Name = "Branch Code")]
@@ -17,10 +17,6 @@ namespace FinessaAesthetica.Models
         public string Address { get; set; }
         [Display(Name = "Branch Manager")]
         public string Manager { get; set; }
-        public int Telephone { get; set; }
-        [Display(Name = "Status")]
-        public int StatusId { get; set; }
-        [ForeignKey("StatusId")]
-        public Status Status { get; set; }
+        public int Telephone { get; set; }      
     }
 }

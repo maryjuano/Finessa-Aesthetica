@@ -6,7 +6,7 @@ using System.Web;
 
 namespace FinessaAesthetica.Models
 {
-    public class Consignee
+    public class Consignee : RecordInformation
     {
         [Key]
         public int ConsigneeId { get; set; }

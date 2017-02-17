@@ -7,7 +7,7 @@ using System.Web;
 
 namespace FinessaAesthetica.Models
 {
-    public class Product
+    public class Product : RecordInformation
     {
         [Key]
         public int ProductId { get; set; }

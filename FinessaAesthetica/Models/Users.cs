@@ -7,10 +7,10 @@ using System.Web;
 
 namespace FinessaAesthetica.Models
 {
-    public class Users
+    public class Users :RecordInformation
     {
         [Key]
-        public int Id { get; set; }
+        public int UsersId { get; set; }
         [Required(ErrorMessage = "This field is required")]
         [Display(Name = "Username")]
         public string UserName { get; set; }

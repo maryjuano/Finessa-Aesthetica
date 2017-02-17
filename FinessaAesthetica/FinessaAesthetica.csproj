@@ -248,6 +248,8 @@
     <Compile Include="Migrations\201702170816065_update_currency_datatype.Designer.cs">
       <DependentUpon>201702170816065_update_currency_datatype.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702170952578_updated-recordinformational-schema\.cs" />
+    <Compile Include="Migrations\201702170952578_updated-recordinformational-schema\.Designer.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Audit.cs" />
@@ -260,6 +262,7 @@
     <Compile Include="Models\BaseInventory.cs" />
     <Compile Include="Models\Consignee.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\RecordInformation.cs" />
     <Compile Include="Models\Service.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Models\Supplier.cs" />
@@ -442,6 +445,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702170816065_update_currency_datatype.resx">
       <DependentUpon>201702170816065_update_currency_datatype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702170952578_updated-recordinformational-schema\.resx">
+      <DependentUpon>.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

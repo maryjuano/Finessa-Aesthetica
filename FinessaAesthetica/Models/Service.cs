@@ -7,7 +7,7 @@ using System.Web;
 
 namespace FinessaAesthetica.Models
 {
-    public class Service
+    public class Service : RecordInformation
     {
         [Key]
         public int ServiceId { get; set; }
@@ -17,10 +17,6 @@ namespace FinessaAesthetica.Models
         [Display(Name = "Service Type")]
         public string Type { get; set; }
         [DataType(DataType.Currency)]
-        public float Amount { get; set; }
-           [Display(Name = "Status")]
-        public int StatusId { get; set; }
-        [ForeignKey("StatusId")]
-        public Status Status { get; set; }
+        public float Amount { get; set; }       
     }
 }

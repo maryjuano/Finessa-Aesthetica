@@ -7,7 +7,7 @@ using System.Web;
 
 namespace FinessaAesthetica.Models
 {
-    public class Supplier
+    public class Supplier : RecordInformation
     {
         [Key]
         public int SupplierId { get; set; }
@@ -23,9 +23,6 @@ namespace FinessaAesthetica.Models
          [Display(Name = "Contact Person")]
         public string ContactPerson { get; set; }
         public string TIN { get; set; }
-           [Display(Name = "Status")]
-        public int StatusId { get; set; }
-        [ForeignKey("StatusId")]
-        public Status Status { get; set; }
+        
     }
 }
