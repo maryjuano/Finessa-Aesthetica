@@ -188,6 +188,7 @@
     <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Controllers\TemplateController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Customizations\CustomHtmlHelpers.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -242,6 +243,10 @@
     <Compile Include="Migrations\201702161316306_StatusAdded_Users.cs" />
     <Compile Include="Migrations\201702161316306_StatusAdded_Users.Designer.cs">
       <DependentUpon>201702161316306_StatusAdded_Users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702170816065_update_currency_datatype.cs" />
+    <Compile Include="Migrations\201702170816065_update_currency_datatype.Designer.cs">
+      <DependentUpon>201702170816065_update_currency_datatype.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -434,6 +439,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702161316306_StatusAdded_Users.resx">
       <DependentUpon>201702161316306_StatusAdded_Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702170816065_update_currency_datatype.resx">
+      <DependentUpon>201702170816065_update_currency_datatype.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

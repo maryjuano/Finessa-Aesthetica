@@ -48,8 +48,8 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Type)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Amount)
+                <td>                  
+                    @Html.DisplayForCurrency(item.Amount)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Status.Description)

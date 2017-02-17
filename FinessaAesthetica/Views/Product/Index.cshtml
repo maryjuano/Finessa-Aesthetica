@@ -67,11 +67,11 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.UnitMeasurement)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UnitPrice)
+                <td>                  
+                    @Html.DisplayForCurrency(item.UnitPrice)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.StandardRetailPrice)
+                    @Html.DisplayForCurrency(item.StandardRetailPrice)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |

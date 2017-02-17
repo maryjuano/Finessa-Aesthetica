@@ -22,6 +22,7 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Product.UnitPrice)
+      
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TotalAmount)
@@ -47,10 +48,10 @@
             @Html.DisplayFor(modelItem => item.Quantity)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Product.UnitPrice)
+            @Html.DisplayForCurrency(item.Product.UnitPrice)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalAmount)
+        <td>        
+            @Html.DisplayForCurrency(item.TotalAmount)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MinimumThreshold)
