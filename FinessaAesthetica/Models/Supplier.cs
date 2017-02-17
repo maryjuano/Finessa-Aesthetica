@@ -23,6 +23,7 @@ namespace FinessaAesthetica.Models
          [Display(Name = "Contact Person")]
         public string ContactPerson { get; set; }
         public string TIN { get; set; }
+           [Display(Name = "Status")]
         public int StatusId { get; set; }
         [ForeignKey("StatusId")]
         public Status Status { get; set; }

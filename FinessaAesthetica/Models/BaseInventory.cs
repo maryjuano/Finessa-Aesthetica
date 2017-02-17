@@ -9,13 +9,14 @@ namespace FinessaAesthetica.Models
 {
     public class BaseInventory
     {
+        [Display(Name = "Product")]
         public int ProductId { get; set; }
         [ForeignKey("ProductId")]
         public Product Product { get; set; }
         public int Quantity { get; set; }
         [Display(Name = "Total Amount")]
         public float TotalAmount { get; set; }
-
+        [Display(Name = "Status")]
         public int StatusId { get; set; }
         [ForeignKey("StatusId")]
         public Status Status { get; set; }

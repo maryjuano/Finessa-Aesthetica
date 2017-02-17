@@ -15,8 +15,10 @@ namespace FinessaAesthetica.Models
         public string ProductCode { get; set; }
         [Display(Name = "Product Desciption")]
         public string Desciption { get; set; }
+        [Display(Name = "Category")]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+        [Display(Name = "Color")]
         public int ColorId { get; set; }
         public Color Color { get; set; }
         public int SupplierId { get; set; }

@@ -22,7 +22,7 @@ namespace FinessaAesthetica.Models
         public DbSet<Service> Services { get; set; }
         public DbSet<MainInventory> MainInventories { get; set; }
         public DbSet<BranchInventory> BranchInventory { get; set; }
-        public DbSet<Consignee> Consignees { get; set; }
+        public DbSet<Consignee> Consignees { get; set; }     
 
     }
 }

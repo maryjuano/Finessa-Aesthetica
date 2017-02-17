@@ -16,5 +16,10 @@ namespace FinessaAesthetica.Controllers
         {          
             return View(model);
         }
+
+        public ActionResult ModalForm(ModalTemplate model)
+        {
+            return View(model);
+        }
 	}
 }

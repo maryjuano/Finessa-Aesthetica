@@ -28,6 +28,7 @@
         @*<ul class="nav navbar-nav navbar-right toolbar-right">
             @RenderSection("toolbarright", required: false)
         </ul>*@
+        
     </div>
     <div class="container">
         <div class="header">
@@ -42,9 +43,8 @@
         </div>
         <div id="modal-container"></div>
     </div>
-
-
     @Scripts.Render("~/dist/js")
+    @Scripts.Render("~/bundles/jqueryval")
     @RenderSection("scripts", required: false)
 </body>
 </html>

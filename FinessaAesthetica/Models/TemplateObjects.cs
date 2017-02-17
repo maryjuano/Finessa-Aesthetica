@@ -11,5 +11,7 @@ namespace FinessaAesthetica.Models
         public string HeaderTitle { get; set; }
         public string HeaderIcon { get; set; }
         public string Body { get; set; }
+
+        public string PartialUrlPath { get; set; }
     }
 }

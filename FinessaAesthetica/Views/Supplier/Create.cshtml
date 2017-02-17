@@ -12,7 +12,7 @@
 }
 
 @section toolbarright {
-    <li><a href="#" id="btnSaveTrigger" title="Create Supplier"><span class="fa fa-save"></span>&nbsp;Create</a></li>
+    <li><a href="#" id="btnSaveTrigger" title="Create Supplier"><span class="fa fa-save"></span>&nbsp;SAVE</a></li>
 }
 
 @using (Html.BeginForm()) 
@@ -107,8 +107,7 @@
     <input id="submitButton" type="submit" class="hidden" />
 }
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+@section Scripts {  
     <script>
         $('#btnSaveTrigger').click(function () {
             $('#submitButton').click();

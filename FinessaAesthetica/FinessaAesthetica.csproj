@@ -235,6 +235,14 @@
     <Compile Include="Migrations\201702160550164_Model_Updates.Designer.cs">
       <DependentUpon>201702160550164_Model_Updates.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702160653178_update-database-now.cs" />
+    <Compile Include="Migrations\201702160653178_update-database-now.Designer.cs">
+      <DependentUpon>201702160653178_update-database-now.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702161316306_StatusAdded_Users.cs" />
+    <Compile Include="Migrations\201702161316306_StatusAdded_Users.Designer.cs">
+      <DependentUpon>201702161316306_StatusAdded_Users.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Audit.cs" />
@@ -378,6 +386,7 @@
     <Content Include="Views\BranchInventory\Details.cshtml" />
     <Content Include="Views\BranchInventory\Edit.cshtml" />
     <Content Include="Views\BranchInventory\Index.cshtml" />
+    <Content Include="Views\Template\ModalForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -419,6 +428,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702160550164_Model_Updates.resx">
       <DependentUpon>201702160550164_Model_Updates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702160653178_update-database-now.resx">
+      <DependentUpon>201702160653178_update-database-now.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702161316306_StatusAdded_Users.resx">
+      <DependentUpon>201702161316306_StatusAdded_Users.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

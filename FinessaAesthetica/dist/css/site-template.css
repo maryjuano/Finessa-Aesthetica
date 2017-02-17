@@ -632,3 +632,8 @@
 .label-left {
     text-align: left !important;
 }
+
+.field-validation-error {
+    font-weight: 600;
+    color: #f03d25;
+}

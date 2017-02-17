@@ -18,6 +18,7 @@ namespace FinessaAesthetica.Models
         public string Type { get; set; }
         [DataType(DataType.Currency)]
         public float Amount { get; set; }
+           [Display(Name = "Status")]
         public int StatusId { get; set; }
         [ForeignKey("StatusId")]
         public Status Status { get; set; }
