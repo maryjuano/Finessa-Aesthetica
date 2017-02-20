@@ -1,6 +1,8 @@
-﻿@*<div class="jumbotron">
-        <h1> Hello World!</h1>
-    </div>*@
+﻿@section ToolbarRight {
+    <li><a href="#" title="New User"><span class="fa fa-money"></span>&nbsp;PAYMENT</a></li>
+    <li><a href="#" title="New User"><span class="fa fa-ban"></span>&nbsp;CANCEL</a></li>
+}
+
 
 <h1 style="margin-top: 0px;margin-left:10px;margin-bottom: 10px;">
     <span class="fa fa-cart-arrow-down"></span> Cashiering
@@ -42,8 +44,20 @@
                                 <td class="text-justified">Some other form of service.</td>
                                 <td><button class="btn btn-link"><i class="fa fa-close text-danger"></i></button></td>
                             </tr>
+                            <tr>
+                                <td>Facial Wash</td>
+                                <td>150</td>
+                                <td class="text-justified">Protects you from acne</td>
+                                <td><button class="btn btn-link"><i class="fa fa-close text-danger"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>P800</td>
+                                <td class="text-justified">Some other form of service.</td>
+                                <td><button class="btn btn-link"><i class="fa fa-close text-danger"></i></button></td>
+                            </tr>
                         </tbody>
-                        <tfoot>                           
+                        <tfoot>
                         </tfoot>
                     </table>
                 </div>
@@ -57,6 +71,18 @@
             </div>
         </div>
     </div>
+    <div class="form-group">
+        <span style="font-size:16px;font-weight:bold;">Customer Details</span>
+    </div>
+
+    <div class="form-group">
+        <label for="fullname" class="control-label col-sm-3 label-left">Fullname:</label>
+        <span name="fullname" class="col-sm-3" style="font-size:14px;font-weight:400;">Joseph Fabillar Cadiao</span>
+        <label for="mobile" class="control-label col-sm-3">Mobile Number:</label>
+        <span name="mobile" class="col-sm-3" style="font-size:14px;font-weight:400;">09154660725</span>
+    </div>
+ 
+    
 </div>
 <div class="col-md-4">
     <div class="box box-primary">
@@ -126,4 +152,5 @@
         </div>
     </div>
 </div>
+
 
