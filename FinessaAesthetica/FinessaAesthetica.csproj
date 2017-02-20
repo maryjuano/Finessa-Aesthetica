@@ -176,6 +176,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BranchController.cs" />
     <Compile Include="Controllers\BranchInventoryController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -189,67 +190,14 @@
     <Compile Include="Controllers\TemplateController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Customizations\CustomHtmlHelpers.cs" />
+    <Compile Include="Customizations\Encryption.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201702111134065_InitialCreate.cs" />
-    <Compile Include="Migrations\201702111134065_InitialCreate.Designer.cs">
-      <DependentUpon>201702111134065_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201702190900200_InitialMigrate.cs" />
+    <Compile Include="Migrations\201702190900200_InitialMigrate.Designer.cs">
+      <DependentUpon>201702190900200_InitialMigrate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201702111506233_UserUpdate.cs" />
-    <Compile Include="Migrations\201702111506233_UserUpdate.Designer.cs">
-      <DependentUpon>201702111506233_UserUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702120305245_InitialSupplier_InitialStatus.cs" />
-    <Compile Include="Migrations\201702120305245_InitialSupplier_InitialStatus.Designer.cs">
-      <DependentUpon>201702120305245_InitialSupplier_InitialStatus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702120312352_SupplierFK_Update.cs" />
-    <Compile Include="Migrations\201702120312352_SupplierFK_Update.Designer.cs">
-      <DependentUpon>201702120312352_SupplierFK_Update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702120318187_Status_Seeding.cs" />
-    <Compile Include="Migrations\201702120318187_Status_Seeding.Designer.cs">
-      <DependentUpon>201702120318187_Status_Seeding.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702120355240_Initial_Product.cs" />
-    <Compile Include="Migrations\201702120355240_Initial_Product.Designer.cs">
-      <DependentUpon>201702120355240_Initial_Product.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702120357349_InitialProduct_WithUpdate.cs" />
-    <Compile Include="Migrations\201702120357349_InitialProduct_WithUpdate.Designer.cs">
-      <DependentUpon>201702120357349_InitialProduct_WithUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702120453498_Branch_Service_InitialCreate.cs" />
-    <Compile Include="Migrations\201702120453498_Branch_Service_InitialCreate.Designer.cs">
-      <DependentUpon>201702120453498_Branch_Service_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702120502179_Seeding-Added.cs" />
-    <Compile Include="Migrations\201702120502179_Seeding-Added.Designer.cs">
-      <DependentUpon>201702120502179_Seeding-Added.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702121135066_Inventory_Consignee_Initial.cs" />
-    <Compile Include="Migrations\201702121135066_Inventory_Consignee_Initial.Designer.cs">
-      <DependentUpon>201702121135066_Inventory_Consignee_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702160550164_Model_Updates.cs" />
-    <Compile Include="Migrations\201702160550164_Model_Updates.Designer.cs">
-      <DependentUpon>201702160550164_Model_Updates.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702160653178_update-database-now.cs" />
-    <Compile Include="Migrations\201702160653178_update-database-now.Designer.cs">
-      <DependentUpon>201702160653178_update-database-now.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702161316306_StatusAdded_Users.cs" />
-    <Compile Include="Migrations\201702161316306_StatusAdded_Users.Designer.cs">
-      <DependentUpon>201702161316306_StatusAdded_Users.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702170816065_update_currency_datatype.cs" />
-    <Compile Include="Migrations\201702170816065_update_currency_datatype.Designer.cs">
-      <DependentUpon>201702170816065_update_currency_datatype.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702170952578_updated-recordinformational-schema\.cs" />
-    <Compile Include="Migrations\201702170952578_updated-recordinformational-schema\.Designer.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Audit.cs" />
@@ -272,6 +220,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="dist\js\angular\angular.min.js" />
     <Content Include="dist\css\font-awesome-4.5.0\css\font-awesome.css" />
     <Content Include="dist\css\font-awesome-4.5.0\css\font-awesome.min.css" />
     <Content Include="dist\css\font-awesome-4.5.0\fonts\fontawesome-webfont.svg" />
@@ -280,6 +229,9 @@
     <Content Include="dist\css\login.css" />
     <Content Include="dist\css\metro-bootstrap.min.css" />
     <Content Include="dist\css\site-template.css" />
+    <Content Include="dist\js\angular\Controllers\supplierController.js" />
+    <Content Include="dist\js\angular\Services\supplierService.js" />
+    <Content Include="dist\js\angular\supplierModule.js" />
     <Content Include="dist\js\app.js" />
     <Content Include="dist\js\bootstrap.min.js" />
     <Content Include="dist\js\inspinia\inspinia.js" />
@@ -398,56 +350,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="dist\js\angular\Directives\" />
+    <Folder Include="dist\js\angular\Filters\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702111134065_InitialCreate.resx">
-      <DependentUpon>201702111134065_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702111506233_UserUpdate.resx">
-      <DependentUpon>201702111506233_UserUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702120305245_InitialSupplier_InitialStatus.resx">
-      <DependentUpon>201702120305245_InitialSupplier_InitialStatus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702120312352_SupplierFK_Update.resx">
-      <DependentUpon>201702120312352_SupplierFK_Update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702120318187_Status_Seeding.resx">
-      <DependentUpon>201702120318187_Status_Seeding.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702120355240_Initial_Product.resx">
-      <DependentUpon>201702120355240_Initial_Product.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702120357349_InitialProduct_WithUpdate.resx">
-      <DependentUpon>201702120357349_InitialProduct_WithUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702120453498_Branch_Service_InitialCreate.resx">
-      <DependentUpon>201702120453498_Branch_Service_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702120502179_Seeding-Added.resx">
-      <DependentUpon>201702120502179_Seeding-Added.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702121135066_Inventory_Consignee_Initial.resx">
-      <DependentUpon>201702121135066_Inventory_Consignee_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702160550164_Model_Updates.resx">
-      <DependentUpon>201702160550164_Model_Updates.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702160653178_update-database-now.resx">
-      <DependentUpon>201702160653178_update-database-now.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702161316306_StatusAdded_Users.resx">
-      <DependentUpon>201702161316306_StatusAdded_Users.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702170816065_update_currency_datatype.resx">
-      <DependentUpon>201702170816065_update_currency_datatype.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702170952578_updated-recordinformational-schema\.resx">
-      <DependentUpon>.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702190900200_InitialMigrate.resx">
+      <DependentUpon>201702190900200_InitialMigrate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

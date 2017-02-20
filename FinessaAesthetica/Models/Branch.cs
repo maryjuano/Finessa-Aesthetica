@@ -9,7 +9,7 @@ namespace FinessaAesthetica.Models
 {
     public class Branch : RecordInformation
     {
-        public int Id { get; set; }
+        public int BranchId { get; set; }
         [Display(Name = "Branch Code")]
         public string Name { get; set; }
         [Display(Name = "Branch Code")]

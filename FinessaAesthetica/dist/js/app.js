@@ -12,3 +12,7 @@ function OpenDropDown(nav, e) {
     $(nav).parents('div').siblings().find('.dropdown.open').removeClass('open');
     e.stopPropagation();
 }
+
+function OpenRecord(url) {
+    window.location.href = url;
+}

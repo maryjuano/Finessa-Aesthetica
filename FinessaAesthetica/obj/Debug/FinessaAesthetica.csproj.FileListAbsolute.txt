@@ -219,12 +219,12 @@ C:\Users\GimuIan\Documents\GitHub\Finessa-Aesthetica\FinessaAesthetica\obj\Debug
 C:\Users\GimuIan\Documents\GitHub\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.csproj.GenerateResource.Cache
 C:\Users\GimuIan\Documents\GitHub\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.dll
 C:\Users\GimuIan\Documents\GitHub\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.pdb
+C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\bin\EntityFramework.dll
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\bin\FinessaAesthetica.dll.config
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\bin\FinessaAesthetica.dll
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\bin\FinessaAesthetica.pdb
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\bin\Antlr3.Runtime.dll
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\bin\AutoMapper.dll
-C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\bin\EntityFramework.dll
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\bin\EntityFramework.SqlServer.dll
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\bin\Microsoft.AspNet.Identity.Core.dll
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\bin\Microsoft.AspNet.Identity.EntityFramework.dll
@@ -280,21 +280,7 @@ C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAes
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.csprojResolveAssemblyReference.cache
-C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.InitialCreate.resources
-C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.UserUpdate.resources
-C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.InitialSupplier_InitialStatus.resources
-C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.SupplierFK_Update.resources
-C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.Status_Seeding.resources
-C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.Initial_Product.resources
-C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.InitialProduct_WithUpdate.resources
-C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.Branch_Service_InitialCreate.resources
-C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.SeedingAdded.resources
-C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.Inventory_Consignee_Initial.resources
-C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.csproj.GenerateResource.Cache
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.dll
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.pdb
-C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.Model_Updates.resources
-C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.updatedatabasenow.resources
-C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.StatusAdded_Users.resources
-C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.update_currency_datatype.resources
-C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.updatedrecordinformationalschema.resources
+C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.InitialMigrate.resources
+C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.csproj.GenerateResource.Cache

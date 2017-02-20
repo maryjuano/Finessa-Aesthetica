@@ -7,10 +7,10 @@ using System.Web;
 
 namespace FinessaAesthetica.Models
 {
-    public class Users :RecordInformation
+    public class Users 
     {
         [Key]
-        public int UsersId { get; set; }
+        public int UserId { get; set; }
         [Required(ErrorMessage = "This field is required")]
         [Display(Name = "Username")]
         public string UserName { get; set; }
@@ -40,13 +40,15 @@ namespace FinessaAesthetica.Models
                                      this.MiddleName,
                                      this.LastName);
             }
-            private set
+            set
             {
                 _fullname = string.Format("{0} {1} {2}",
                                    this.FirstName,
                                    this.MiddleName,
                                    this.LastName);
             }
-        }      
+        }
+        public int BranchId { get; set; }
+        public Branch Branch { get; set; }
     }
 }

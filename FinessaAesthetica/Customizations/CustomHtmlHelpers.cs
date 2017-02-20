@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
+using System.Web.Mvc.Html;
 
 namespace FinessaAesthetica
 {
@@ -37,6 +38,11 @@ namespace FinessaAesthetica
                 htmlString = String.Format("<span class='fa fa-remove fa-fw text-danger'></span>");
             }
             return new HtmlString(htmlString);
+        }
+
+        public static IHtmlString DeleteAction(this HtmlHelper html, string controller, string action, int id)
+        {
+            return new HtmlString(String.Format("<a class='text-red' href='/{0}/{1}/{2}'><span class='fa fa-trash'></span></a>", controller, action, id));
         }
 
         public static void ActionLinkWithBootstrap(this AjaxHelper ajaxHelper, string linkText, string actionName, AjaxOptions ajaxOptions)

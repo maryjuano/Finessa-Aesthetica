@@ -11,44 +11,118 @@ namespace FinessaAesthetica.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "FinessaAesthetica.Models.ApplicationDbContext";
         }
 
         protected override void Seed(FinessaAesthetica.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
-            // add default users
-            context.Users.AddOrUpdate(
-                p => p.EmployeeId,
-                new Users
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //  to avoid creating duplicate seed data. E.g.
+            //
+            //    context.People.AddOrUpdate(
+            //      p => p.FullName,
+            //      new Person { FullName = "Andrew Peters" },
+            //      new Person { FullName = "Brice Lambson" },
+            //      new Person { FullName = "Rowan Miller" }
+            //    );
+            //
+            context.Users.AddOrUpdate(p => p.UserName,
+           new Users
+           {
+               EmployeeId = "Employee-001",
+               UserName = "jcadiao",
+               Password = "pass@word1",
+               FirstName = "Joseph",
+               MiddleName = "Fabillar",
+               LastName = "Cadiao"
+           },
+           new Users
+           {
+               EmployeeId = "Employee-002",
+               UserName = "gperdido",
+               Password = "pass@word1",
+               FirstName = "Gemo Ian",
+               MiddleName = "",
+               LastName = "Perdido"
+           },
+           new Users
+           {
+               EmployeeId = "Employee-003",
+               UserName = "mdominguez",
+               Password = "pass@word1",
+               FirstName = "Alyssa Janelle",
+               MiddleName = "Quilenderino",
+               LastName = "Dominguez"
+           });
+
+            context.Status.AddOrUpdate(s => s.Description,
+                new Status
                 {
-                    EmployeeId = "employee-001",
-                    UserName = "alydominguez",
-                    Password = "pass@word1",
-                    FirstName = "Alyssa Janelle",
-                    LastName = "Dominguez",
-                    MiddleName = "Quilenderino"
+                    Description = "Active"
                 },
-                new Users
+                new Status
                 {
-                    EmployeeId = "employee-002",
-                    UserName = "jcadiao",
-                    Password = "pass@word1",
-                    FirstName = "Joseph",
-                    LastName = "Cadiao",
-                    MiddleName = "Fabillar"
-                },
-                new Users
-                {
-                    EmployeeId = "employee-003",
-                    UserName = "gperdido",
-                    Password = "pass@word1",
-                    FirstName = "Gemo",
-                    LastName = "Perdido",
-                    MiddleName = "Ian"
+                    Description = "Inactive"
                 });
-          
+
+            context.Colors.AddOrUpdate(c => c.Code,
+                new Color
+                {
+                    Code = "Red",
+                    Description = "Colorful",
+                    StatusId = 1,
+                    CreatedOn = DateTime.Now.ToUniversalTime(),
+                    LastModifiedOn = DateTime.Now.ToUniversalTime(),
+                    CreatedById = 1
+                },
+                 new Color
+                 {
+                     Code = "Green",
+                     Description = "Colorful",
+                     StatusId = 1,
+                     CreatedOn = DateTime.Now.ToUniversalTime(),
+                     LastModifiedOn = DateTime.Now.ToUniversalTime(),
+                     CreatedById = 2
+                 },
+                  new Color
+                  {
+                      Code = "Blue",
+                      Description = "Colorful",
+                      StatusId = 1,
+                      CreatedOn = DateTime.Now.ToUniversalTime(),
+                      LastModifiedOn = DateTime.Now.ToUniversalTime(),
+                      CreatedById = 3
+                  });
+
+            context.Categories.AddOrUpdate(c => c.Code,
+                new Category
+                {
+                    Code = "CATEGORY-001",
+                    Description = "Category 001",
+                    StatusId = 1,
+                    CreatedOn = DateTime.Now.ToUniversalTime(),
+                    LastModifiedOn = DateTime.Now.ToUniversalTime(),
+                    CreatedById = 1
+                },
+                new Category
+                {
+                    Code = "CATEGORY-002",
+                    Description = "Category 002",
+                    StatusId = 1,
+                    CreatedOn = DateTime.Now.ToUniversalTime(),
+                    LastModifiedOn = DateTime.Now.ToUniversalTime(),
+                    CreatedById = 2
+                },
+                new Category
+                {
+                    Code = "CATEGORY-003",
+                    Description = "Category 003",
+                    StatusId = 1,
+                    CreatedOn = DateTime.Now.ToUniversalTime(),
+                    LastModifiedOn = DateTime.Now.ToUniversalTime(),
+                    CreatedById = 3
+                });
         }
     }
 }

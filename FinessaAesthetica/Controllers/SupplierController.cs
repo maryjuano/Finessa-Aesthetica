@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -10,25 +11,23 @@ using FinessaAesthetica.Models;
 
 namespace FinessaAesthetica.Controllers
 {
-    public class SupplierController : Controller
-    {
-        private ApplicationDbContext db = new ApplicationDbContext();
-
+    public class SupplierController : BaseController
+    {       
         // GET: /Supplier/
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            var suppliers = db.Suppliers.Include(s => s.Status);
-            return View(suppliers.ToList());
+            var suppliers = db.Suppliers.Include(s => s.Status).Include(u => u.CreatedBy).Include(u => u.LastModifiedBy);
+            return View(await suppliers.ToListAsync());
         }
 
         // GET: /Supplier/Details/5
-        public ActionResult Details(int? id)
+        public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Supplier supplier = db.Suppliers.Find(id);
+            Supplier supplier = await db.Suppliers.FindAsync(id);
             if (supplier == null)
             {
                 return HttpNotFound();
@@ -48,12 +47,12 @@ namespace FinessaAesthetica.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="SupplierId,Code,Name,Address,TelephoneNumber,MobileNumber,ContactPerson,TIN,StatusId")] Supplier supplier)
+        public async Task<ActionResult> Create([Bind(Include="SupplierId,Code,Name,Address,TelephoneNumber,MobileNumber,ContactPerson,TIN,CreatedById,LastModifiedById,CreatedOn,LastModifiedOn,StatusId")] Supplier supplier)
         {
             if (ModelState.IsValid)
             {
                 db.Suppliers.Add(supplier);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
@@ -62,18 +61,24 @@ namespace FinessaAesthetica.Controllers
         }
 
         // GET: /Supplier/Edit/5
-        public ActionResult Edit(int? id)
+        [ActionName("Edit")]
+        public ActionResult EditIndex(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Supplier supplier = db.Suppliers.Find(id);
+            
             if (supplier == null)
             {
                 return HttpNotFound();
             }
             ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description", supplier.StatusId);
+            ViewBag.CreatedBy = db.Users.SingleOrDefaultAsync(u => u.UserId == supplier.CreatedById).Result.FullName;
+            ViewBag.ModifiedBy = db.Users.SingleOrDefaultAsync(u => u.UserId == supplier.LastModifiedById).Result.FullName;
+            
             return View(supplier);
         }
 
@@ -82,12 +87,13 @@ namespace FinessaAesthetica.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="SupplierId,Code,Name,Address,TelephoneNumber,MobileNumber,ContactPerson,TIN,StatusId")] Supplier supplier)
+        public async Task<ActionResult> Edit([Bind(Include="SupplierId,Code,Name,Address,TelephoneNumber,MobileNumber,ContactPerson,TIN,CreatedById,LastModifiedById,CreatedOn,LastModifiedOn,StatusId")] Supplier supplier)
         {
             if (ModelState.IsValid)
             {
+                supplier.SetOnModified(CurrentUserId);
                 db.Entry(supplier).State = EntityState.Modified;
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description", supplier.StatusId);
@@ -95,13 +101,13 @@ namespace FinessaAesthetica.Controllers
         }
 
         // GET: /Supplier/Delete/5
-        public ActionResult Delete(int? id)
+        public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Supplier supplier = db.Suppliers.Find(id);
+            Supplier supplier = await db.Suppliers.FindAsync(id);
             if (supplier == null)
             {
                 return HttpNotFound();
@@ -112,21 +118,14 @@ namespace FinessaAesthetica.Controllers
         // POST: /Supplier/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Supplier supplier = db.Suppliers.Find(id);
+            Supplier supplier = await db.Suppliers.FindAsync(id);
             db.Suppliers.Remove(supplier);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+       
     }
 }

@@ -10,9 +10,8 @@ using System.Web.Security;
 
 namespace FinessaAesthetica.Controllers
 {
-    public class AuthController : Controller
-    {
-        private ApplicationDbContext db = new ApplicationDbContext();
+    public class AuthController : BaseController
+    {       
         //
         // GET: /Auth/
         public ActionResult Index()
@@ -26,20 +25,23 @@ namespace FinessaAesthetica.Controllers
         {
             if (ModelState.IsValid)
             {               
-                bool result = db.Users.Any(x => x.UserName == model.UserName && x.Password == model.Password);
+                Users result = db.Users.FirstOrDefault(x => x.UserName == model.UserName && x.Password == model.Password);
 
-                if (result)
+                if (result != null)
                 {
-                    FormsAuthentication.SetAuthCookie(model.UserName, false);
+                    base.SetUserCookie(result);
+                    FormsAuthentication.SetAuthCookie(model.UserName, false);                    
                     return Redirect(returnUrl ?? "~/Dashboard/Index");
                 }
                 ModelState.AddModelError("", "Invalid username or password.");
             }
 
-            // If we got this far, something failed, redisplay form
+            // If we got this far, somethingfailed, redisplay form
             return View(model);
         }
-       
+
+      
+
         [Authorize]
         public ActionResult Logout()
         {

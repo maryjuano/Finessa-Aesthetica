@@ -26,8 +26,9 @@ namespace FinessaAesthetica
             bundles.Add(new ScriptBundle("~/dist/js").Include(
                      "~/dist/js/jQuery-2.1.4.min.js",
                      "~/dist/js/bootstrap.min.js",
-                    "~/dist/js/helpers.js",
-                     "~/dist/js/app.js"));
+                     "~/dist/js/helpers.js",
+                     "~/dist/js/app.js",
+                     "~/dist/js/angular/angular.min.js"));
         }
     }
 }

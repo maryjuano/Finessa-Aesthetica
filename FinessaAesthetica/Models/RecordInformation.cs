@@ -10,14 +10,32 @@ namespace FinessaAesthetica.Models
     public abstract class RecordInformation
     {
         [Display(Name = "User")]
-        public virtual int UserId { get; set; }
-         [ForeignKey("UserId")]
+        public virtual int CreatedById { get; set; }
         public virtual Users CreatedBy { get; set; }
+
+        [Display(Name = "User")]
+        public virtual int LastModifiedById { get; set; }
+        public virtual Users LastModifiedBy { get; set; }
+        [Display(Name = "Created On")]
         public virtual DateTime CreatedOn { get; set; }
-        public virtual DateTime LastModifiedBy { get; set; }
+        [Display(Name = "Last Modified")]
+        public virtual DateTime LastModifiedOn { get; set; }
         [Display(Name = "Status")]
         public virtual int StatusId { get; set; }
-        [ForeignKey("StatusId")]
         public virtual Status Status { get; set; }
+
+        public virtual void SetOnCreate(int userId = 1)
+        {
+            this.CreatedOn = DateTime.UtcNow;
+            this.LastModifiedOn = DateTime.UtcNow;
+            this.CreatedById = userId;
+            this.LastModifiedById = userId;
+        }
+
+        public virtual void SetOnModified(int userId = 1)
+        {
+            this.LastModifiedOn = DateTime.UtcNow;
+            this.LastModifiedById = userId;
+        }
     }
 }

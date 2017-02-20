@@ -7,13 +7,13 @@ namespace FinessaAesthetica.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
-    public sealed partial class update_currency_datatype : IMigrationMetadata
+    public sealed partial class InitialMigrate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(update_currency_datatype));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialMigrate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201702170816065_update_currency_datatype"; }
+            get { return "201702190900200_InitialMigrate"; }
         }
         
         string IMigrationMetadata.Source

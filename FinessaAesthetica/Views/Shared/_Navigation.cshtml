@@ -94,7 +94,7 @@
     </div>
 
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">@User.Identity.Name</a></li>
+        <li><a href="#">@if(Request.Cookies["App"] != null){ @Request.Cookies["App"]["fullName"].ToString() } </a></li>
         <li class="dropdown user-info">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <img src="~/Images/rex.jpg" class="img-square nav-image" alt="User Image">
@@ -102,7 +102,8 @@
             <ul class="dropdown-menu">
                 <li class="body-menu">
                     <img src="~/Images/rex.jpg" class="profile-image" alt="User Image">
-                    <p class="username">@User.Identity.Name</p>
+                    <p class="username">@if (Request.Cookies["App"] != null)
+{ @Request.Cookies["App"]["fullName"].ToString() }</p>
                     <p class="position">Finessa Aesthetica</p>
                     <div class="pull-left">
                         <a href="#" class="btn btn-sm btn-primary">
