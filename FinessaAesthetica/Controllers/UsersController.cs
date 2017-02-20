@@ -10,6 +10,7 @@ using FinessaAesthetica.Models;
 
 namespace FinessaAesthetica.Controllers
 {
+     [Authorize]
     public class UsersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

@@ -11,9 +11,9 @@ using FinessaAesthetica.Models;
 
 namespace FinessaAesthetica.Controllers
 {
-    public class MainInventoryController : Controller
-    {
-        private ApplicationDbContext db = new ApplicationDbContext();
+     [Authorize]
+    public class MainInventoryController : BaseController
+    {       
 
         // GET: /MainInventory/
         public async Task<ActionResult> Index()
@@ -138,15 +138,6 @@ namespace FinessaAesthetica.Controllers
             inventory.SetTotalAmount(product);
 
             return inventory;
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        }             
     }
 }

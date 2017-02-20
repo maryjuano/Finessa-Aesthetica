@@ -184,6 +184,7 @@
     <Compile Include="Controllers\ConsigneeController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\MainInventoryController.cs" />
+    <Compile Include="Controllers\POSController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
@@ -347,12 +348,12 @@
     <Content Include="Views\BranchInventory\Edit.cshtml" />
     <Content Include="Views\BranchInventory\Index.cshtml" />
     <Content Include="Views\Template\ModalForm.cshtml" />
+    <Content Include="Views\POS\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="dist\js\angular\Directives\" />
     <Folder Include="dist\js\angular\Filters\" />
-    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

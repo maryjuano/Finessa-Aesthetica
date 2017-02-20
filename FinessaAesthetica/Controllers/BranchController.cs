@@ -10,9 +10,9 @@ using FinessaAesthetica.Models;
 
 namespace FinessaAesthetica.Controllers
 {
-    public class BranchController : Controller
+    [Authorize]
+    public class BranchController : BaseController
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: /Branch/
         public ActionResult Index()
@@ -48,7 +48,7 @@ namespace FinessaAesthetica.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,Name,Code,Address,Manager,Telephone,StatusId")] Branch branch)
+        public ActionResult Create([Bind(Include = "Id,Name,Code,Address,Manager,Telephone,StatusId")] Branch branch)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace FinessaAesthetica.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,Name,Code,Address,Manager,Telephone,StatusId")] Branch branch)
+        public ActionResult Edit([Bind(Include = "Id,Name,Code,Address,Manager,Telephone,StatusId")] Branch branch)
         {
             if (ModelState.IsValid)
             {
@@ -118,15 +118,6 @@ namespace FinessaAesthetica.Controllers
             db.Branches.Remove(branch);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

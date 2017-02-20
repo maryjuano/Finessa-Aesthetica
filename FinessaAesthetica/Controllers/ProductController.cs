@@ -10,9 +10,9 @@ using FinessaAesthetica.Models;
 
 namespace FinessaAesthetica.Controllers
 {
-    public class ProductController : Controller
-    {
-        private ApplicationDbContext db = new ApplicationDbContext();
+     [Authorize]
+    public class ProductController : BaseController
+    {      
 
         // GET: /Product/
         public ActionResult Index()
@@ -127,14 +127,6 @@ namespace FinessaAesthetica.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+      
     }
 }

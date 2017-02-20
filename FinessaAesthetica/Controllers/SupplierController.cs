@@ -11,6 +11,7 @@ using FinessaAesthetica.Models;
 
 namespace FinessaAesthetica.Controllers
 {
+     [Authorize]
     public class SupplierController : BaseController
     {       
         // GET: /Supplier/
