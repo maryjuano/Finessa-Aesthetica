@@ -48,3 +48,5 @@ Temporary Items
 FinessaAesthetica/Web.config
 FinessaAesthetica/Web.config
 FinessaAesthetica/Web.config
+FinessaAesthetica/App_Data/FinessaAesthetica.mdf
+FinessaAesthetica/App_Data/FinessaAesthetica_log.ldf

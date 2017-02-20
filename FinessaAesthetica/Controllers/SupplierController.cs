@@ -51,6 +51,7 @@ namespace FinessaAesthetica.Controllers
         {
             if (ModelState.IsValid)
             {
+                supplier.SetOnCreate(CurrentUserId);
                 db.Suppliers.Add(supplier);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
