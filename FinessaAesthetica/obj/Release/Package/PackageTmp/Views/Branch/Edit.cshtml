@@ -1,0 +1,106 @@
+﻿@model FinessaAesthetica.Models.Branch
+
+@{
+    ViewBag.Title = "Edit Branch";
+    ViewBag.CurrentEntity = "Branch";
+    ViewBag.WebPageTitle = Model.Name;
+}
+
+@section toolbarleft {
+    <li class="breadcrumb-item"><a href="~/Branch/"><i class="fa fa-home"></i> Branch List</a></li>
+    <li class="breadcrumb-item actions">Edit Branch</li>
+}
+
+@section toolbarright {
+    <li><a href="#" id="btnSaveTrigger" title="Save Branch"><span class="fa fa-save"></span>&nbsp;SAVE</a></li>
+    <li><a href="#" id="btnDeleteTrigger" title="Delete Branch"><span class="fa fa-trash"></span>&nbsp;DELETE</a></li>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="ibox-content">
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="page-header">
+                        <h4>Branch Information</h4>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Branch name . . ." })
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Code, new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.Code, new { @class = "form-control", @placeholder = "Branch code . . ." })
+                            @Html.ValidationMessageFor(model => model.Code)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Address, new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @placeholder = "Branch address . . ." })
+                            @Html.ValidationMessageFor(model => model.Address)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Manager, new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.Manager, new { @class = "form-control", @placeholder = "Branch manager . . ." })
+                            @Html.ValidationMessageFor(model => model.Manager)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Telephone, new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.Telephone, new { @class = "form-control", @placeholder = "Branch telephone number . . ." })
+                            @Html.ValidationMessageFor(model => model.Telephone)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.StatusId, "StatusId", new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.DropDownListFor(model => model.StatusId,
+                                         (SelectList)ViewBag.StatusId,
+                                         new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.StatusId)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div hidden="hidden">
+        @Html.ActionLink("Delete", "Delete", new { id = Model.Id }, new { @class = "DeleteTrigger" })
+        <input id="submitButton" type="submit" />
+    </div>
+}
+
+@section Scripts {
+  
+    <script>
+        $('#btnSaveTrigger').click(function () {
+            $('#submitButton').click();
+            return false;
+        });
+        $('#btnDeleteTrigger').click(function () {
+            $('.DeleteTrigger')[0].click();
+            return false;
+        });
+    </script>
+}

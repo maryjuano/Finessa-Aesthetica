@@ -54,6 +54,7 @@ namespace FinessaAesthetica.Controllers
         {
             if (ModelState.IsValid)
             {
+                maininventory.SetOnCreate(CurrentUserId);
                 // update total amount 
                 var iv = await SetTotalAmount(maininventory);
                 // create record
@@ -93,6 +94,7 @@ namespace FinessaAesthetica.Controllers
         {
             if (ModelState.IsValid)
             {
+                maininventory.SetOnModified(CurrentUserId);
                 // update total amount 
                 var iv = await SetTotalAmount(maininventory);
                 // update record

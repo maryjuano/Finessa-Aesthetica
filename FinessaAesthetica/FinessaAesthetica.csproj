@@ -199,6 +199,10 @@
     <Compile Include="Migrations\201702190900200_InitialMigrate.Designer.cs">
       <DependentUpon>201702190900200_InitialMigrate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702210835193_update.cs" />
+    <Compile Include="Migrations\201702210835193_update.Designer.cs">
+      <DependentUpon>201702210835193_update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Audit.cs" />
@@ -269,6 +273,7 @@
     <Content Include="dist\css\font-awesome-4.5.0\fonts\fontawesome-webfont.woff" />
     <Content Include="dist\css\font-awesome-4.5.0\fonts\fontawesome-webfont.woff2" />
     <Content Include="dist\css\font-awesome-4.5.0\fonts\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\beb.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="dist\js\helpers.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -362,6 +367,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201702190900200_InitialMigrate.resx">
       <DependentUpon>201702190900200_InitialMigrate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702210835193_update.resx">
+      <DependentUpon>201702210835193_update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

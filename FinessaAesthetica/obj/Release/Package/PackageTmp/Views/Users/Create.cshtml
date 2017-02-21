@@ -1,0 +1,102 @@
+﻿@model FinessaAesthetica.Models.Users
+
+@{
+    ViewBag.Title = "New User";
+    ViewBag.CurrentEntity = "User";
+    ViewBag.WebPageTitle = "New User";
+}
+
+@section toolbarleft {
+    <li class="breadcrumb-item"><a href="~/Users/"><i class="fa fa-home"></i> User List</a></li>
+    <li class="breadcrumb-item actions">New User</li>
+}
+
+@section toolbarright {
+    <li><a href="#" id="btnSaveTrigger" title="Create User"><span class="fa fa-save"></span>&nbsp;SAVE</a></li>
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="ibox-content">
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true)
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-header">
+                        <h4>General Information</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.EmployeeId, new { @class = "control-label col-sm-3 label-left" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.EmployeeId, new { @class = "form-control", @placeholder = "Employee Number . . ." })
+                                    @Html.ValidationMessageFor(model => model.EmployeeId, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.UserName, new { @class = "control-label col-sm-3 label-left" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @placeholder = "User Name . . ." })
+                                    @Html.ValidationMessageFor(model => model.UserName, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Password, new { @class = "control-label col-sm-3 label-left" })
+                                <div class="col-sm-9">
+                                    @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "Password . . ." })
+                                    @Html.ValidationMessageFor(model => model.Password, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.FirstName, new { @class = "control-label col-md-3 label-left" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @placeholder = "First Name . . ." })
+                                    @Html.ValidationMessageFor(model => model.FirstName, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.LastName, new { @class = "control-label col-md-3 label-left" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", @placeholder = "Last Name . . ." })
+                                    @Html.ValidationMessageFor(model => model.LastName, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.MiddleName, new { @class = "control-label col-md-3 label-left" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.MiddleName, new { @class = "form-control", @placeholder = "Middle Name . . ." })
+                                    @Html.ValidationMessageFor(model => model.MiddleName)
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input id="submitButton" type="submit" class="hidden" />
+}
+@section Scripts {
+  
+    <script>
+        $('#btnSaveTrigger').click(function () {
+            $('#submitButton').click();
+            return false;
+        });
+    </script>
+}

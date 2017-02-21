@@ -52,6 +52,7 @@ namespace FinessaAesthetica.Controllers
         {
             if (ModelState.IsValid)
             {
+                color.SetOnCreate(CurrentUserId);
                 db.Colors.Add(color);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -86,6 +87,7 @@ namespace FinessaAesthetica.Controllers
         {
             if (ModelState.IsValid)
             {
+                color.SetOnModified(CurrentUserId);
                 db.Entry(color).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

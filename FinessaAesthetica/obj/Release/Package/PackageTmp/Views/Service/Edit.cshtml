@@ -1,0 +1,98 @@
+﻿@model FinessaAesthetica.Models.Service
+
+@{
+    ViewBag.Title = "Edit Service";
+    ViewBag.CurrentEntity = "Service";
+    ViewBag.WebPageTitle = Model.Code;
+}
+
+@section toolbarleft {
+    <li class="breadcrumb-item"><a href="~/Service/"><i class="fa fa-home"></i> Service List</a></li>
+    <li class="breadcrumb-item actions">Edit Service</li>
+}
+
+@section toolbarright {
+    <li><a href="#" id="btnSaveTrigger" title="Save Service"><span class="fa fa-save"></span>&nbsp;SAVE</a></li>
+    <li><a href="#" id="btnDeleteTrigger" title="Delete Service"><span class="fa fa-trash"></span>&nbsp;DELETE</a></li>
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="ibox-content">
+         <div class="form-horizontal">
+
+             @Html.ValidationSummary(true)
+             @Html.HiddenFor(model => model.ServiceId)
+
+             <div class="row">
+                 <div class="col-sm-6">
+                     <div class="page-header">
+                         <h4>Service Information</h4>
+                     </div>
+
+                     <div class="form-group">
+                         @Html.LabelFor(model => model.Code, new { @class = "control-label col-sm-3" })
+                         <div class="col-sm-9">
+                             @Html.TextBoxFor(model => model.Code, new { @class = "form-control", @placeholder = "Service code . . ." })
+                             @Html.ValidationMessageFor(model => model.Code)
+                         </div>
+                     </div>
+
+                     <div class="form-group">
+                         @Html.LabelFor(model => model.Description, new { @class = "control-label col-sm-3" })
+                         <div class="col-sm-9">
+                             @Html.TextBoxFor(model => model.Description, new { @class = "form-control", @placeholder = "Service description . . ." })
+                             @Html.ValidationMessageFor(model => model.Description)
+                         </div>
+                     </div>
+
+                     <div class="form-group">
+                         @Html.LabelFor(model => model.Type, new { @class = "control-label col-sm-3" })
+                         <div class="col-sm-9">
+                             @Html.TextBoxFor(model => model.Type, new { @class = "form-control", @placeholder = "Service type . . ." })
+                             @Html.ValidationMessageFor(model => model.Type)
+                         </div>
+                     </div>
+
+                     <div class="form-group">
+                         @Html.LabelFor(model => model.Amount, new { @class = "control-label col-sm-3" })
+                         <div class="col-sm-9">
+                             @Html.TextBoxFor(model => model.Amount, new { @class = "form-control", @placeholder = "Service amount . . ." })
+                             @Html.ValidationMessageFor(model => model.Amount)
+                         </div>
+                     </div>
+
+                     <div class="form-group">
+                         @Html.LabelFor(model => model.StatusId, "StatusId", new { @class = "control-label col-sm-3" })
+                         <div class="col-sm-9">
+                             @Html.DropDownListFor(model => model.StatusId,
+                                         (SelectList)ViewBag.StatusId,
+                                         new { @class = "form-control" })
+                             @Html.ValidationMessageFor(model => model.StatusId)
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+    </div>
+
+    <div hidden="hidden">
+        @Html.ActionLink("Delete", "Delete", new { id = Model.ServiceId }, new { @class = "DeleteTrigger" })
+        <input id="submitButton" type="submit" />
+    </div>
+}
+
+@section Scripts {
+  
+    <script>
+        $('#btnSaveTrigger').click(function () {
+            $('#submitButton').click();
+            return false;
+        });
+        $('#btnDeleteTrigger').click(function () {
+            $('.DeleteTrigger')[0].click();
+            return false;
+        });
+    </script>
+}

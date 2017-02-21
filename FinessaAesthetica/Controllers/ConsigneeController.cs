@@ -50,6 +50,7 @@ namespace FinessaAesthetica.Controllers
         {
             if (ModelState.IsValid)
             {
+                consignee.SetOnCreate(CurrentUserId);
                 db.Consignees.Add(consignee);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -82,6 +83,7 @@ namespace FinessaAesthetica.Controllers
         {
             if (ModelState.IsValid)
             {
+                consignee.SetOnModified(CurrentUserId);
                 db.Entry(consignee).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

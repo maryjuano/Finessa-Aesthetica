@@ -1,0 +1,150 @@
+﻿@model FinessaAesthetica.Models.Supplier
+
+@{
+    ViewBag.Title = "New Supplier";
+    ViewBag.CurrentEntity = "Supplier";
+    ViewBag.WebPageTitle = "New Supplier";
+}
+
+@section toolbarleft {
+    <li class="breadcrumb-item"><a href="~/Supplier/"><i class="fa fa-home"></i> Supplier List</a></li>
+    <li class="breadcrumb-item actions">New Supplier</li>
+}
+
+@section toolbarright {
+    <li><a href="#" id="btnSaveTrigger" title="Create Supplier"><span class="fa fa-save"></span>&nbsp;SAVE</a></li>
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    <div class="ibox-content">
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true)
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="page-header">
+                        <h4>Summary Details</h4>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Code, new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">                            
+                            @Html.TextBoxFor(model => model.Code, new { @class = "form-control", @placeholder = "Supplier code . . ." })
+                            @Html.ValidationMessageFor(model => model.Code)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Supplier name . . ." })
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                    </div>
+                                        
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TIN, new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.TIN, new { @class = "form-control", @placeholder = "Supplier TIN . . ." })                            
+                            @Html.ValidationMessageFor(model => model.TIN)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.StatusId, "StatusId", new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">
+                            @Html.DropDownListFor(model => model.StatusId,
+                                         (SelectList)ViewBag.StatusId,
+                                         "Select status . . .",
+                                         new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.StatusId)
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-6">
+                    <div class="page-header">
+                        <h4>Contact Details</h4>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Address, new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @placeholder = "Supplier address . . ." })
+                            @Html.ValidationMessageFor(model => model.Address)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TelephoneNumber, new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.TelephoneNumber, new { @class = "form-control", @placeholder = "Supplier telephone number . . ." })
+                            @Html.ValidationMessageFor(model => model.TelephoneNumber)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MobileNumber, new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.MobileNumber, new { @class = "form-control", @placeholder = "Supplier mobile number . . ." })
+                            @Html.ValidationMessageFor(model => model.MobileNumber)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ContactPerson, new { @class = "control-label col-sm-3 label-left" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.ContactPerson, new { @class = "form-control", @placeholder = "Supplier contact person . . ." })
+                            @Html.ValidationMessageFor(model => model.ContactPerson)
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="page-header">
+                        <h4>Record Information</h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CreatedOn, new { @class = "control-label col-sm-3 label-left" })
+                            <div class="col-sm-9">
+                                <input type="text"  readonly="readonly" class="form-control" placeholder="@DateTime.Now.ToString("MMM dd, yyyy hh:mm tt")" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.LastModifiedOn, new { @class = "control-label col-sm-3 label-left" })
+                            <div class="col-sm-9">
+                                <input type="text" readonly="readonly" class="form-control" placeholder="@DateTime.Now.ToString("MMM dd, yyyy hh:mm tt")" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label col-sm-3 label-left">Created By</label>
+                            <div class="col-sm-9">
+                                <input type="text" readonly="readonly" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3 label-left">Last Modified By</label>
+                            <div class="col-sm-9">
+                                <input type="text" readonly="readonly" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input id="submitButton" type="submit" class="hidden" />
+}
+
+@section Scripts {  
+    <script>
+        $('#btnSaveTrigger').click(function () {
+            $('#submitButton').click();
+            return false;
+        });
+    </script>
+}

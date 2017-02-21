@@ -1,0 +1,82 @@
+﻿@model FinessaAesthetica.Models.Category
+
+@{
+    ViewBag.Title = "Edit Category";
+    ViewBag.CurrentEntity = "Category";
+    ViewBag.WebPageTitle = Model.Code;
+}
+
+@section toolbarleft {
+    <li class="breadcrumb-item"><a href="~/Category/"><i class="fa fa-home"></i> Category List</a></li>
+    <li class="breadcrumb-item actions">Edit Category</li>
+}
+
+@section toolbarright {
+    <li><a href="#" id="btnSaveTrigger" title="Save Category"><span class="fa fa-save"></span>&nbsp;SAVE</a></li>
+    <li><a href="#" id="btnDeleteTrigger" title="Delete Category"><span class="fa fa-trash"></span>&nbsp;DELETE</a></li>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.CategoryId)
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="page-header">
+                        <h4>Category Information</h4>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Code, new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.Code, new { @class = "form-control", @placeholder = "Category code . . ." })
+                            @Html.ValidationMessageFor(model => model.Code)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Description, new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.Description, new { @class = "form-control", @placeholder = "Description code . . ." })                            
+                            @Html.ValidationMessageFor(model => model.Description)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.StatusId, "StatusId", new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.DropDownListFor(model => model.StatusId,
+                                         (SelectList)ViewBag.StatusId,
+                                         new { @class = "form-control" })                            
+                            @Html.ValidationMessageFor(model => model.StatusId)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div hidden="hidden">
+        @Html.ActionLink("Delete", "Delete", new { id = Model.CategoryId }, new { @class = "DeleteTrigger" })
+        <input id="submitButton" type="submit" />
+    </div>
+}
+
+@section Scripts {
+  
+    <script>
+        $('#btnSaveTrigger').click(function () {
+            $('#submitButton').click();
+            return false;
+        });
+        $('#btnDeleteTrigger').click(function () {
+            $('.DeleteTrigger')[0].click();
+            return false;
+        });
+    </script>
+}

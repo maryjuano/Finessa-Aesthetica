@@ -1,0 +1,66 @@
+﻿@model FinessaAesthetica.Models.Category
+
+@{
+    ViewBag.Title = "Category Details";
+    ViewBag.CurrentEntity = "Category";
+    ViewBag.WebPageTitle = Model.Code;
+}
+
+@section toolbarleft {
+    <li class="breadcrumb-item"><a href="~/Category/"><i class="fa fa-home"></i> Category List</a></li>
+    <li class="breadcrumb-item actions">Category Details</li>
+}
+
+@section toolbarright {
+    <li><a href="#" id="btnEditTrigger" title="Edit Category"><span class="fa fa-pencil"></span>&nbsp;Edit</a></li>
+}
+<div class="form-horizontal">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="page-header">
+                <h4>Category Information</h4>
+            </div>
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Status.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Status.Description)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Code)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Code)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+</div>
+
+<span hidden="hidden">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CategoryId }, new { @class = "EditTrigger" })
+</span>
+
+@section Scripts {
+  
+    <script>
+        $('#btnEditTrigger').click(function () {
+            $('.EditTrigger')[0].click();
+            return false;
+        });
+    </script>
+}

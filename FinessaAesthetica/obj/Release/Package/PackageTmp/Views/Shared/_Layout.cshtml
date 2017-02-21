@@ -1,0 +1,57 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Finessa Aesthetica</title>
+    @RenderSection("css", required: false)
+    @*@Styles.Render("~/dist/css")*@
+    <link href="~/dist/css/metro-bootstrap.min.css" rel="stylesheet" />
+    <link href="~/dist/css/site-template.css" rel="stylesheet" />
+    <link href="~/dist/css/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/dist/css/inspinia/animate.css" rel="stylesheet" />
+</head>
+<body>
+    @Html.Partial("_Navigation")
+    <div class="navbar navbar-static-top toolbar">
+        <ul class="nav navbar-nav pull-right">
+            @RenderSection("toolbarright", required: false)
+        </ul>
+        <ol class="breadcrumb">
+            @RenderSection("toolbarleft", required: false)
+        </ol>
+        @*<ul class="nav navbar-nav navbar-left toolbar-left">
+            @RenderSection("toolbarleft", required: false)
+        </ul>*@
+        @*<ul class="nav navbar-nav navbar-right toolbar-right">
+            @RenderSection("toolbarright", required: false)
+        </ul>*@
+        
+    </div>
+    <div class="container">
+        <div class="header">
+            <div class="pull-right">
+                @RenderSection("contentheader", required: false)
+            </div>
+            <div class="current-entity">@ViewBag.CurrentEntity</div>
+            <div class="entity-display">@ViewBag.WebPageTitle</div>
+        </div>
+        <div class="animated fadeIn">
+            @RenderBody()
+        </div>
+        <div id="modal-container"></div>
+    </div>
+    <script src="~/dist/js/jQuery-2.1.4.min.js"></script>
+    <script src="~/dist/js/bootstrap.min.js"></script>
+    <script src="~/dist/js/app.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    @*@Scripts.Render("~/dist/js")
+    @Scripts.Render("~/bundles/jqueryval")*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

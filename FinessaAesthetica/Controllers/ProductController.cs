@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -10,25 +11,25 @@ using FinessaAesthetica.Models;
 
 namespace FinessaAesthetica.Controllers
 {
-     [Authorize]
     public class ProductController : BaseController
-    {      
+    {
+       
 
         // GET: /Product/
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            var products = db.Products.Include(p => p.Category).Include(p => p.Color).Include(p => p.Supplier);
-            return View(products.ToList());
+            var products = db.Products.Include(p => p.Category).Include(p => p.Color).Include(p => p.Status).Include(p => p.Supplier);
+            return View(await products.ToListAsync());
         }
 
         // GET: /Product/Details/5
-        public ActionResult Details(int? id)
+        public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            Product product = await db.Products.FindAsync(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -41,6 +42,7 @@ namespace FinessaAesthetica.Controllers
         {
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Code");
             ViewBag.ColorId = new SelectList(db.Colors, "ColorId", "Code");
+            ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description");
             ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "Code");
             return View();
         }
@@ -50,35 +52,39 @@ namespace FinessaAesthetica.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="ProductId,ProductCode,Desciption,CategoryId,ColorId,SupplierId,UnitMeasurement,UnitPrice,StandardRetailPrice")] Product product)
+        public async Task<ActionResult> Create([Bind(Include="ProductId,ProductCode,Desciption,CategoryId,ColorId,SupplierId,UnitMeasurement,UnitPrice,StandardRetailPrice,CreatedById,LastModifiedById,CreatedOn,LastModifiedOn,StatusId")] Product product)
         {
             if (ModelState.IsValid)
             {
+                product.StatusId = 1;
+                product.SetOnCreate(CurrentUserId);
                 db.Products.Add(product);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Code", product.CategoryId);
             ViewBag.ColorId = new SelectList(db.Colors, "ColorId", "Code", product.ColorId);
+            ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description", product.StatusId);
             ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "Code", product.SupplierId);
             return View(product);
         }
 
         // GET: /Product/Edit/5
-        public ActionResult Edit(int? id)
+        public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            Product product = await db.Products.FindAsync(id);
             if (product == null)
             {
                 return HttpNotFound();
             }
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Code", product.CategoryId);
             ViewBag.ColorId = new SelectList(db.Colors, "ColorId", "Code", product.ColorId);
+            ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description", product.StatusId);
             ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "Code", product.SupplierId);
             return View(product);
         }
@@ -88,28 +94,31 @@ namespace FinessaAesthetica.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductId,ProductCode,Desciption,CategoryId,ColorId,SupplierId,UnitMeasurement,UnitPrice,StandardRetailPrice")] Product product)
+        public async Task<ActionResult> Edit([Bind(Include="ProductId,ProductCode,Desciption,CategoryId,ColorId,SupplierId,UnitMeasurement,UnitPrice,StandardRetailPrice,CreatedById,LastModifiedById,CreatedOn,LastModifiedOn,StatusId")] Product product)
         {
             if (ModelState.IsValid)
             {
+                product.StatusId = 1;
+                product.SetOnModified(CurrentUserId);
                 db.Entry(product).State = EntityState.Modified;
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Code", product.CategoryId);
             ViewBag.ColorId = new SelectList(db.Colors, "ColorId", "Code", product.ColorId);
+            ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description", product.StatusId);
             ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "Code", product.SupplierId);
             return View(product);
         }
 
         // GET: /Product/Delete/5
-        public ActionResult Delete(int? id)
+        public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            Product product = await db.Products.FindAsync(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -120,13 +129,13 @@ namespace FinessaAesthetica.Controllers
         // POST: /Product/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Product product = db.Products.Find(id);
+            Product product = await db.Products.FindAsync(id);
             db.Products.Remove(product);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
-      
+    
     }
 }

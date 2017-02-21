@@ -34,6 +34,10 @@ namespace FinessaAesthetica.Models
 
         public virtual void SetOnModified(int userId = 1)
         {
+            if (this.CreatedOn != null)
+            {
+                this.CreatedOn = DateTime.UtcNow;
+            }
             this.LastModifiedOn = DateTime.UtcNow;
             this.LastModifiedById = userId;
         }

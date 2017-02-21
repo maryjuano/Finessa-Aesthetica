@@ -1,0 +1,26 @@
+﻿@model FinessaAesthetica.Models.ModalTemplate
+
+@{
+    Layout = null;    
+}
+
+<section id="@Model.Id" aria-hidden="true" class="modal fade" data-backdrop="static" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                </button>
+                <h1 class="modal-title h4"><span class="@Model.HeaderIcon" aria-hidden="true"></span>@Model.HeaderTitle</h1>
+            </div>
+            <div class="modal-body">
+                @Model.Body
+            </div>
+            <div class="modal-footer">
+                <button class="confirmModal btn btn-default btn-dialog" type="button"> CONFIRM</button>
+                <button class="cancelModal btn btn-default btn-dialog" data-dismiss="modal" type="button"> CANCEL</button>
+            </div>
+        </div>
+    </div>
+</section>
+

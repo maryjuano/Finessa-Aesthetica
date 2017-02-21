@@ -1,0 +1,83 @@
+﻿@model IEnumerable<FinessaAesthetica.Models.Supplier>
+
+@{
+    ViewBag.Title = "Supplier";
+    ViewBag.CurrentEntity = "Supplier";
+    ViewBag.WebPageTitle = "Supplier List";
+}
+
+@section toolbarleft {
+    <li class="breadcrumb-item active"><i class="fa fa-home"></i> Supplier List</li>
+}
+@section ToolbarRight {
+    <li><a href="~/Supplier/Create" title="New Supplier"><span class="fa fa-plus"></span>&nbsp;NEW</a></li>
+}
+
+<table class="table table-hover" ng-app="supplierModule" ng-controller="supplierCtrl as supplier">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelephoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MobileNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactPerson)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TIN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {           
+            <tr ondblclick="OpenRecord('/Supplier/Edit/' + @item.SupplierId);">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TelephoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MobileNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactPerson)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TIN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status.Description)
+                </td>
+                <td>                   
+                    @Html.DeleteAction("Supplier", "Delete", item.SupplierId)                  
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

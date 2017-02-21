@@ -19,16 +19,17 @@ namespace FinessaAesthetica
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/dist/css").Include(
+            bundles.Add(new StyleBundle("~/dist/globalcss").Include(
                        "~/dist/css/metro-bootstrap.min.css",
                        "~/dist/css/site-template.css"));
 
-            bundles.Add(new ScriptBundle("~/dist/js").Include(
+            bundles.Add(new ScriptBundle("~/dist/globaljs").Include(
                      "~/dist/js/jQuery-2.1.4.min.js",
                      "~/dist/js/bootstrap.min.js",
                      "~/dist/js/helpers.js",
                      "~/dist/js/app.js",
                      "~/dist/js/angular/angular.min.js"));
+
         }
     }
 }

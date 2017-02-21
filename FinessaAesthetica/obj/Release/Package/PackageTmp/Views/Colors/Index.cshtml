@@ -1,0 +1,53 @@
+﻿@model IEnumerable<FinessaAesthetica.Models.Color>
+
+@{
+    ViewBag.Title = "Color";
+    ViewBag.CurrentEntity = "Color";
+    ViewBag.WebPageTitle = "Color List";
+}
+
+@section toolbarleft {
+    <li class="breadcrumb-item active"><i class="fa fa-home"></i> Color List</li>
+}
+@section ToolbarRight {
+    <li><a href="~/Colors/Create" title="New Color"><span class="fa fa-plus"></span>&nbsp;NEW</a></li>
+}
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>          
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>               
+                <td>
+                    @Html.DisplayFor(modelItem => item.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status.Description)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ColorId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ColorId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ColorId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

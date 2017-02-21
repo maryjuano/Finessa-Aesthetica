@@ -1,0 +1,128 @@
+﻿
+<nav class="navbar navbar-default navbar-static-top top-navbar">
+    <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown nav-toggle" onclick="CloseDropDownFromToggle(this);">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="fa fa-bars"></span>
+            </a>
+            <ul class="dropdown-menu primary-nav">
+                <div class="col-md-1 col-sm-1 col-xs-6">
+                    <li>
+                        <a href="~/Dashboard/">
+                            <i class="fa fa-bar-chart text-primary fa-3x"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                </div>   
+                <div class="col-md-1 col-sm-1 col-xs-6">
+                    <li>
+                        <a href="~/Product/">
+                            <i class="fa fa-product-hunt text-primary fa-3x"></i>
+                            <span>Product</span>
+                        </a>
+                    </li>
+                </div>    
+                <div class="col-md-1 col-sm-1 col-xs-6">
+                    <li>
+                        <a href="~/MainInventory/">
+                            <i class="fa fa-database text-primary fa-3x"></i>
+                            <span>Inventory</span>
+                        </a>
+                    </li>
+                </div>   
+                <div class="col-md-1 col-sm-1 col-xs-6">
+                    <li>
+                        <a href="~/Category/">
+                            <i class="fa fa-bookmark-o text-primary fa-3x"></i>
+                            <span>Category</span>
+                        </a>
+                    </li>
+                </div>   
+                <div class="col-md-1 col-sm-1 col-xs-6">
+                    <li>
+                        <a href="~/Colors/">
+                            <i class="fa fa-eyedropper text-primary fa-3x"></i>
+                            <span>Color</span>
+                        </a>
+                    </li>
+                </div>    
+                <div class="col-md-1 col-sm-1 col-xs-6">
+                    <li>
+                        <a href="~/Service/">
+                            <i class="fa fa-user-md text-primary fa-3x"></i>
+                            <span>Service</span>
+                        </a>
+                    </li>
+                </div>     
+                <div class="col-md-1 col-sm-1 col-xs-6">
+                    <li>
+                        <a href="~/Branch/">
+                            <i class="fa fa-home text-primary fa-3x"></i>
+                            <span>Branch</span>
+                        </a>
+                    </li>
+                </div>                     
+                <div class="col-md-1 col-sm-1 col-xs-6">
+                    <li>
+                        <a href="~/Supplier/">
+                            <i class="fa fa-truck text-primary fa-3x"></i>
+                            <span>Supplier</span>
+                        </a>
+                    </li>
+                </div>      
+                <div class="col-md-1 col-sm-1  col-xs-6">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-file-o text-primary fa-3x"></i>
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                </div>
+                <div class="col-md-1 col-sm-1  col-xs-6">
+                    <li>
+                        <a href="~/Users/">
+                            <i class="fa fa-users text-primary fa-3x"></i>
+                            <span>Users</span>
+                        </a>
+                    </li>
+                </div>     
+                <div class="col-md-1 col-sm-1  col-xs-6">
+                    <li>
+                        <a href="~/POS/">
+                            <i class="fa fa-credit-card-alt text-primary fa-3x"></i>
+                            <span>POS</span>
+                        </a>
+                    </li>
+                </div>           
+            </ul>
+        </li>
+    </ul>
+    <div class="navbar-header">
+        <a href="~/Dashboard/Index" class="navbar-brand">Cosmetix Unlimited</a>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">@if(Request.Cookies["App"] != null){ @Request.Cookies["App"]["fullName"].ToString() } </a></li>
+        <li class="dropdown user-info">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <img src="~/Images/rex.jpg" class="img-square nav-image" alt="User Image">
+            </a>
+            <ul class="dropdown-menu">
+                <li class="body-menu">
+                    <img src="~/Images/rex.jpg" class="profile-image" alt="User Image">
+                    <p class="username">@if (Request.Cookies["App"] != null)
+{ @Request.Cookies["App"]["fullName"].ToString() }</p>
+                    <p class="position">Cosmetix Unlimited</p>
+                    <div class="pull-left">
+                        <a href="#" class="btn btn-sm btn-primary">
+                            Profile
+                        </a>
+                    </div>
+                    <div class="pull-right">
+                        <a href="~/Auth/Logout" class="btn btn-sm btn-primary">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,85 @@
+﻿@model IEnumerable<FinessaAesthetica.Models.Product>
+
+@{
+    ViewBag.Title = "Product";
+    ViewBag.CurrentEntity = "Product";
+    ViewBag.WebPageTitle = "Product List";
+}
+
+@section toolbarleft {
+    <li class="breadcrumb-item active"><i class="fa fa-home"></i> Product List</li>
+}
+@section ToolbarRight {
+    <li><a href="~/Product/Create" title="New Product"><span class="fa fa-plus"></span>&nbsp;NEW</a></li>
+}
+
+<table class="table table-hover">
+    <thead>
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Category.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplier.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desciption)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitMeasurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StandardRetailPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Color.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Supplier.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Desciption)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitMeasurement)
+                </td>
+                <td>                  
+                    @Html.DisplayForCurrency(item.UnitPrice)
+                </td>
+                <td>
+                    @Html.DisplayForCurrency(item.StandardRetailPrice)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

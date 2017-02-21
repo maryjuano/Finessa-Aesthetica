@@ -52,6 +52,7 @@ namespace FinessaAesthetica.Controllers
         {
             if (ModelState.IsValid)
             {
+                branch.SetOnCreate(CurrentUserId);
                 db.Branches.Add(branch);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -86,6 +87,7 @@ namespace FinessaAesthetica.Controllers
         {
             if (ModelState.IsValid)
             {
+                branch.SetOnModified(CurrentUserId);
                 db.Entry(branch).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
