@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @RenderSection("css", required: false)
+    @Styles.Render("~/dist/css")
+    <link href="~/dist/css/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/dist/css/inspinia/animate.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/dist/js")
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

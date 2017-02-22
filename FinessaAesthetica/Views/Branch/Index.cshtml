@@ -15,7 +15,7 @@
 
 <table class="table table-hover">
     <thead>
-        <tr>           
+        <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -41,7 +41,7 @@
 
         @foreach (var item in Model)
         {
-            <tr>               
+            <tr style="cursor:pointer;" ondblclick="OpenRecord('/Branch/Edit/' + @item.BranchId);">
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
@@ -60,10 +60,8 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Status.Description)
                 </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.BranchId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.BranchId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.BranchId })
+                <td class="text-right">
+                    @Html.DeleteAction("Branch", "Delete", item.BranchId)
                 </td>
             </tr>
         }

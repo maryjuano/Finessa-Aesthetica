@@ -29,7 +29,6 @@ namespace FinessaAesthetica
                      "~/dist/js/helpers.js",
                      "~/dist/js/app.js",
                      "~/dist/js/angular/angular.min.js"));
-
         }
     }
 }

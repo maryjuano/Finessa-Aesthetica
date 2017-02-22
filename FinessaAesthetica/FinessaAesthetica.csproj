@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -183,6 +184,7 @@
     <Compile Include="Controllers\ColorsController.cs" />
     <Compile Include="Controllers\ConsigneeController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\LOVController.cs" />
     <Compile Include="Controllers\MainInventoryController.cs" />
     <Compile Include="Controllers\POSController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -354,6 +356,7 @@
     <Content Include="Views\BranchInventory\Index.cshtml" />
     <Content Include="Views\Template\ModalForm.cshtml" />
     <Content Include="Views\POS\Index.cshtml" />
+    <Content Include="Views\LOV\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

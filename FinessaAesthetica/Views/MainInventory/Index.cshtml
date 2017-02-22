@@ -1,70 +1,133 @@
 ﻿@model IEnumerable<FinessaAesthetica.Models.MainInventory>
 
-@{
-    ViewBag.Title = "Index";
+@section css {
+    <link href="~/dist/css/inspinia/style.css" rel="stylesheet" />
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Product.ProductCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Quantity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Product.UnitPrice)
-      
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalAmount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MinimumThreshold)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaximumThreshold)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Product.ProductCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
-            @Html.DisplayForCurrency(item.Product.UnitPrice)
-        </td>
-        <td>        
-            @Html.DisplayForCurrency(item.TotalAmount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MinimumThreshold)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaximumThreshold)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MainInventoryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MainInventoryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MainInventoryId })
-        </td>
-    </tr>
+@section toolbarleft {
+    <li class="breadcrumb-item active"><i class="fa fa-home"></i> Main Inventory List</li>
 }
+@section ToolbarRight {
+    <li><a href="~/MainInventory/Create" title="New Main Inventory"><span class="fa fa-plus"></span>&nbsp;NEW</a></li>
+}
+<h2 class="page-header"><i class="fa fa-database"></i>&nbsp;Inventory List</h2>
+<div class="row">
+    <div class="col-sm-8">
+        <div class="form-group">
+            <div class="input-group input-group-sm search-input">
+                <input type="text" class="form-control" placeholder="Search product">
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+            </div>
+        </div>
+        <div class="box box-primary">            
+            <div class="box-body">
 
-</table>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Product.ProductCode)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Quantity)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Product.UnitPrice)
+
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TotalAmount)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr style="cursor:pointer;" ondblclick="OpenRecord('/MainInventory/Edit/' + @item.MainInventoryId);">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Product.ProductCode)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Quantity)
+                                </td>
+                                <td>
+                                    @Html.DisplayForCurrency(item.Product.UnitPrice)
+                                </td>
+                                <td>
+                                    @Html.DisplayForCurrency(item.TotalAmount)
+                                </td>
+                                <td class="text-right">
+                                    @Html.DeleteAction("MainInventory", "Delete", item.MainInventoryId)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+
+        <a href="#">
+            <div class="widget style1 yellow-bg">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-download fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span> Inventory Receiving</span>
+                        <h2 class="font-bold">RECEIVINGS</h2>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="#">
+            <div class="widget style1 red-bg">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-upload fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span> Inventory Outgoing</span>
+                        <h2 class="font-bold">OUTGOING</h2>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="#">
+            <div class="widget style1 lazur-bg">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-reply fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span> Inventory Cosignee</span>
+                        <h2 class="font-bold">COSIGNEE</h2>
+                    </div>
+                </div>
+            </div>
+        </a>
+        @*<div class="thumbnail tile tile-full-width tile-peter-river">
+                <a href="#" class="fa-links">
+                    <h1>Receivings</h1>
+                    <i class="fa fa-4x fa-download"></i>
+                </a>
+            </div>
+            <div class="thumbnail tile tile-full-width tile-alizarin">
+                <a href="#" class="fa-links">
+                    <h1>Outgoing</h1>
+                    <i class="fa fa-4x fa-upload"></i>
+                </a>
+            </div>
+            <div class="thumbnail tile tile-full-width tile-sun-flower">
+                <a href="#" class="fa-links">
+                    <h1>Consignee</h1>
+                    <i class="fa fa-4x fa-reply"></i>
+                </a>
+            </div>*@
+    </div>
+</div>

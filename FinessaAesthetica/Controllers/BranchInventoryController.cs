@@ -38,7 +38,7 @@ namespace FinessaAesthetica.Controllers
         // GET: /BranchInventory/Create
         public ActionResult Create()
         {
-            ViewBag.BranchId = new SelectList(db.Branches, "Id", "Name");
+            ViewBag.BranchId = new SelectList(db.Branches, "BranchId", "Name");
             ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductCode");
             ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description");
             return View();
@@ -58,7 +58,7 @@ namespace FinessaAesthetica.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.BranchId = new SelectList(db.Branches, "Id", "Name", branchinventory.BranchId);
+            ViewBag.BranchId = new SelectList(db.Branches, "BranchId", "Name", branchinventory.BranchId);
             ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductCode", branchinventory.ProductId);
             ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description", branchinventory.StatusId);
             return View(branchinventory);
@@ -76,7 +76,7 @@ namespace FinessaAesthetica.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.BranchId = new SelectList(db.Branches, "Id", "Name", branchinventory.BranchId);
+            ViewBag.BranchId = new SelectList(db.Branches, "BranchId", "Name", branchinventory.BranchId);
             ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductCode", branchinventory.ProductId);
             ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description", branchinventory.StatusId);
             return View(branchinventory);
@@ -95,7 +95,7 @@ namespace FinessaAesthetica.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.BranchId = new SelectList(db.Branches, "Id", "Name", branchinventory.BranchId);
+            ViewBag.BranchId = new SelectList(db.Branches, "BranchId", "Name", branchinventory.BranchId);
             ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductCode", branchinventory.ProductId);
             ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description", branchinventory.StatusId);
             return View(branchinventory);
