@@ -15,24 +15,18 @@
     <link href="~/dist/css/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/dist/css/inspinia/animate.css" rel="stylesheet" />
 </head>
-<body>
+<body ng-app="globalModule" ng-controller="globalCtrl as gb">
     @Html.Partial("_Navigation")
-    <div class="navbar navbar-static-top toolbar">
+    @*<div class="navbar navbar-static-top toolbar">
         <ul class="nav navbar-nav pull-right">
             @RenderSection("toolbarright", required: false)
         </ul>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="~/Dashboard/"><i class="fa fa-home"></i> Home</a></li>
             @RenderSection("toolbarleft", required: false)
-        </ol>
-        @*<ul class="nav navbar-nav navbar-left toolbar-left">
-            @RenderSection("toolbarleft", required: false)
-        </ul>*@
-        @*<ul class="nav navbar-nav navbar-right toolbar-right">
-            @RenderSection("toolbarright", required: false)
-        </ul>*@
-        
-    </div>
+        </ol>     
+
+    </div>*@
     <div class="container">
         <div class="header">
             <div class="pull-right">
@@ -51,8 +45,12 @@
     <script src="~/dist/js/app.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
     @*@Scripts.Render("~/dist/js")
-    @Scripts.Render("~/bundles/jqueryval")*@
+        @Scripts.Render("~/bundles/jqueryval")*@
+    <script src="~/dist/js/angular/angular.min.js"></script>
     @RenderSection("scripts", required: false)
+    <script src="~/dist/js/angular/Controllers/globalController.js"></script>
+    <script src="~/dist/js/angular/globalModule.js"></script>
 </body>
 </html>

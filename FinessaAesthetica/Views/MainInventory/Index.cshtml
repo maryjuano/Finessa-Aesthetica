@@ -2,15 +2,27 @@
 
 @section css {
     <link href="~/dist/css/inspinia/style.css" rel="stylesheet" />
+    <style>
+
+    </style>
+}
+
+@{
+    ViewBag.Title = "Inventory";   
 }
 
 
-@section toolbarleft {
-    <li class="breadcrumb-item active"><i class="fa fa-home"></i> Main Inventory List</li>
-}
-@section ToolbarRight {
-    <li><a href="~/MainInventory/Create" title="New Main Inventory"><span class="fa fa-plus"></span>&nbsp;NEW</a></li>
-}
+<div class="navbar navbar-static-top toolbar">
+    <ul class="nav navbar-nav pull-right">
+        <li><a href="~/MainInventory/Create" title="New Main Inventory"><span class="fa fa-plus"></span>&nbsp;NEW</a></li>
+    </ul>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="~/Dashboard/">Home</a></li>
+        <li class="breadcrumb-item active">Main Inventory List</li>
+    </ol>
+</div>
+
+
 <h2 class="page-header"><i class="fa fa-database"></i>&nbsp;Inventory List</h2>
 <div class="row">
     <div class="col-sm-8">

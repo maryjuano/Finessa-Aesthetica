@@ -6,15 +6,19 @@
     ViewBag.WebPageTitle = Model.Name;
 }
 
-@section toolbarleft {
-    <li class="breadcrumb-item"><a href="~/Branch/"><i class="fa fa-home"></i> Branch List</a></li>
-    <li class="breadcrumb-item actions">Edit Branch</li>
-}
+<div class="navbar navbar-static-top toolbar">
+    <ul class="nav navbar-nav pull-right">
+        <li><a href="#" id="btnSaveTrigger" title="Save Branch"><span class="fa fa-save"></span>&nbsp;SAVE</a></li>
+        <li><a href="#" id="btnDeleteTrigger" title="Delete Branch"><span class="fa fa-trash"></span>&nbsp;DELETE</a></li>
+    </ul>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="~/Dashboard/">Home</a></li>
+        <li class="breadcrumb-item"><a href="~/Branch/">Branch List</a></li>
+        <li class="breadcrumb-item actions">Edit Branch</li>
+    </ol>
+</div>
 
-@section toolbarright {
-    <li><a href="#" id="btnSaveTrigger" title="Save Branch"><span class="fa fa-save"></span>&nbsp;SAVE</a></li>
-    <li><a href="#" id="btnDeleteTrigger" title="Delete Branch"><span class="fa fa-trash"></span>&nbsp;DELETE</a></li>
-}
+
 
 @using (Html.BeginForm())
 {
@@ -24,6 +28,8 @@
         <div class="form-horizontal">
             @Html.ValidationSummary(true)
             @Html.HiddenFor(model => model.BranchId)
+            @Html.HiddenFor(model => model.CreatedById)
+            @Html.HiddenFor(model => model.CreatedOn)
 
             <div class="row">
                 <div class="col-sm-12">
@@ -86,44 +92,7 @@
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="page-header">
-                        <h4>Record Information</h4>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.CreatedOn, new { @class = "control-label col-sm-3 label-left" })
-                                <div class="col-sm-9">
-                                    <input type="text" readonly="readonly" class="form-control" placeholder="@DateTime.Now.ToString("MMM dd, yyyy hh:mm tt")" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.LastModifiedOn, new { @class = "control-label col-sm-3 label-left" })
-                                <div class="col-sm-9">
-                                    <input type="text" readonly="readonly" class="form-control" placeholder="@DateTime.Now.ToString("MMM dd, yyyy hh:mm tt")" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label class="control-label col-sm-3 label-left">Created By</label>
-                                <div class="col-sm-9">
-                                    <input type="text" readonly="readonly" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-3 label-left">Last Modified By</label>
-                                <div class="col-sm-9">
-                                    <input type="text" readonly="readonly" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @Html.Partial("~/Views/Shared/_RecordInformationEdit.cshtml")
         </div>
     </div>
 

@@ -32,7 +32,7 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>              
+            <tr style="cursor:pointer;" ondblclick="OpenRecord('/Category/Edit/' + @item.CategoryId);">
                 <td>
                     @Html.DisplayFor(modelItem => item.Code)
                 </td>
@@ -42,10 +42,8 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Status.Description)
                 </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CategoryId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.CategoryId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.CategoryId })
+                <td class="text-right">
+                    @Html.DeleteAction("Category", "Delete", item.CategoryId)
                 </td>
             </tr>
         }

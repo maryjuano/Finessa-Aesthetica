@@ -1,13 +1,13 @@
 ﻿@{
     Layout = null;
 }
-
+@using System.Configuration
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Finessa Aesthetica</title>
+    <title>@ViewBag.Title - @ConfigurationManager.AppSettings["customer"] </title>
     @RenderSection("css", required: false)
     @*@Styles.Render("~/dist/css")*@
     <link href="~/dist/css/metro-bootstrap.min.css" rel="stylesheet" />
@@ -22,6 +22,7 @@
             @RenderSection("toolbarright", required: false)
         </ul>
         <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="~/Dashboard/"><i class="fa fa-home"></i> Home</a></li>
             @RenderSection("toolbarleft", required: false)
         </ol>
         @*<ul class="nav navbar-nav navbar-left toolbar-left">

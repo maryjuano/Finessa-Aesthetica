@@ -6,14 +6,16 @@
     ViewBag.WebPageTitle = Model.Code;
 }
 
-@section toolbarleft {
-    <li class="breadcrumb-item"><a href="~/Colors/"><i class="fa fa-home"></i> Color List</a></li>
-    <li class="breadcrumb-item actions">Color Details</li>
-}
-
-@section toolbarright {
-    <li><a href="#" id="btnEditTrigger" title="Delete Product"><span class="fa fa-trash"></span>&nbsp;Confirm Delete</a></li>
-}
+<div class="navbar navbar-static-top toolbar">
+    <ul class="nav navbar-nav pull-right">
+        <li><a href="#" id="btnEditTrigger" title="Delete Product"><span class="fa fa-trash"></span>&nbsp;Confirm Delete</a></li>
+    </ul>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="~/Dashboard/">Home</a></li>
+        <li class="breadcrumb-item"><a href="~/Colors/">Color List</a></li>
+        <li class="breadcrumb-item actions">Color Details</li>
+    </ol>
+</div>
 
 <h3>Are you sure you want to delete this?</h3>
 <div class="form-horizontal">

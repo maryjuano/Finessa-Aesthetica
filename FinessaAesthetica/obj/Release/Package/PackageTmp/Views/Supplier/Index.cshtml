@@ -48,7 +48,7 @@
 
         @foreach (var item in Model)
         {           
-            <tr ondblclick="OpenRecord('/Supplier/Edit/' + @item.SupplierId);">
+            <tr style="cursor:pointer;" ondblclick="OpenRecord('/Supplier/Edit/' + @item.SupplierId);">
                 <td>
                     @Html.DisplayFor(modelItem => item.Code)
                 </td>
@@ -73,8 +73,8 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Status.Description)
                 </td>
-                <td>                   
-                    @Html.DeleteAction("Supplier", "Delete", item.SupplierId)                  
+                <td class="text-right">
+                    @Html.DeleteAction("Supplier", "Delete", item.SupplierId)
                 </td>
             </tr>
         }

@@ -1,69 +1,143 @@
 ﻿@model FinessaAesthetica.Models.MainInventory
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit Main Inventory";
+    ViewBag.CurrentEntity = "Main Inventory";
+    ViewBag.WebPageTitle = Model.ProductId;
 }
 
-<h2>Edit</h2>
+@section toolbarleft {
+    <li class="breadcrumb-item"><a href="~/MainInventory/"><i class="fa fa-home"></i> Main Inventory List</a></li>
+    <li class="breadcrumb-item actions">Edit Main Inventory</li>
+}
+
+@section toolbarright {
+    <li><a href="#" id="btnSaveTrigger" title="Save Main Inventory"><span class="fa fa-save"></span>&nbsp;SAVE</a></li>
+    <li><a href="#" id="btnDeleteTrigger" title="Delete Main Inventory"><span class="fa fa-trash"></span>&nbsp;DELETE</a></li>
+}
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>MainInventory</h4>
-        <hr />
-        @Html.ValidationSummary(true)
-        @Html.HiddenFor(model => model.MainInventoryId)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ProductId, "ProductId", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ProductId", String.Empty)
-                @Html.ValidationMessageFor(model => model.ProductId)
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.MainInventoryId)
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-header">
+                        <h4>Summary Details</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ProductId, "ProductId", new { @class = "control-label col-sm-3 label-left" })
+                                <div class="col-sm-9">
+                                    @Html.DropDownListFor(model => model.ProductId,
+                                         (SelectList)ViewBag.ProductId,
+                                         new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ProductId)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Quantity, new { @class = "control-label col-sm-3 label-left" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.Quantity, new { @class = "form-control", @placeholder = "Quantity . . ." })                                    
+                                    @Html.ValidationMessageFor(model => model.Quantity)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.StatusId, "StatusId", new { @class = "control-label col-sm-3 label-left" })
+                                <div class="col-sm-9">
+                                    @Html.DropDownListFor(model => model.StatusId,
+                                         (SelectList)ViewBag.StatusId,
+                                         new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.StatusId)
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.MinimumThreshold, new { @class = "control-label col-sm-3 label-left" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.MinimumThreshold, new { @class = "form-control", @placeholder = "Minimum threshold . . ." })
+                                    @Html.ValidationMessageFor(model => model.MinimumThreshold)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.MaximumThreshold, new { @class = "control-label col-sm-3 label-left" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.MaximumThreshold, new { @class = "form-control", @placeholder = "Maximum threshold . . ." })
+                                    @Html.ValidationMessageFor(model => model.MaximumThreshold)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Quantity, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Quantity)
-                @Html.ValidationMessageFor(model => model.Quantity)
-            </div>
-        </div>      
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.StatusId, "StatusId", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("StatusId", String.Empty)
-                @Html.ValidationMessageFor(model => model.StatusId)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MinimumThreshold, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MinimumThreshold)
-                @Html.ValidationMessageFor(model => model.MinimumThreshold)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MaximumThreshold, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MaximumThreshold)
-                @Html.ValidationMessageFor(model => model.MaximumThreshold)
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-header">
+                        <h4>Record Information</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.CreatedOn, new { @class = "control-label col-sm-3 label-left" })
+                                <div class="col-sm-9">
+                                    <input type="text" readonly="readonly" class="form-control" placeholder="@DateTime.Now.ToString("MMM dd, yyyy hh:mm tt")" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.LastModifiedOn, new { @class = "control-label col-sm-3 label-left" })
+                                <div class="col-sm-9">
+                                    <input type="text" readonly="readonly" class="form-control" placeholder="@DateTime.Now.ToString("MMM dd, yyyy hh:mm tt")" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label col-sm-3 label-left">Created By</label>
+                                <div class="col-sm-9">
+                                    <input type="text" readonly="readonly" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3 label-left">Last Modified By</label>
+                                <div class="col-sm-9">
+                                    <input type="text" readonly="readonly" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <div hidden="hidden">
+        @Html.ActionLink("Delete", "Delete", new { id = Model.MainInventoryId }, new { @class = "DeleteTrigger" })
+        <input id="submitButton" type="submit" />
+    </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+@section Scripts {
+    <script>
+        $('#btnSaveTrigger').click(function () {
+            $('#submitButton').click();
+            return false;
+        });
+        $('#btnDeleteTrigger').click(function () {
+            $('.DeleteTrigger')[0].click();
+            return false;
+        });
+    </script>
+}

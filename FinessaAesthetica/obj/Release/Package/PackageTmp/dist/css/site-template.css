@@ -3,25 +3,26 @@
     background-color: rgb(22, 100, 167);
     border-color: #2e8bcc;
 }
+
 .nav-image {
     height: 50px;
     width: 50px;
-    margin: 0px 0px;        
+    margin: 0px 0px;
 }
 
 .top-navbar {
-    max-height: 50px;   
+    max-height: 50px;
     position: fixed;
-    width: 100%;    
+    width: 100%;
 }
 
 .user-info a.dropdown-toggle {
     padding: 0px 15px 0px 0px;
 }
 
-.user-info a.dropdown-toggle:hover {
-    background-color: inherit !important;
-}
+    .user-info a.dropdown-toggle:hover {
+        background-color: inherit !important;
+    }
 
 .user-info.open a.dropdown-toggle {
     background-color: inherit !important;
@@ -32,7 +33,7 @@
 }
 
 .user-info ul.dropdown-menu {
-    width: 300px;  
+    width: 300px;
     margin-top: -1px;
     margin-right: 16px;
     height: 120px;
@@ -44,66 +45,66 @@
     margin-right: 10px;
 }
 
-.body-menu > div > .btn {
-    width: 80px
-}
+    .body-menu > div > .btn {
+        width: 80px;
+    }
 
 .profile-image {
     height: 80px;
     width: 75px;
     margin: 0px 15px 0px 15px;
-    float: left
+    float: left;
 }
 
 .username {
- margin-top: 5px;
-  margin-bottom: 5px;
-  font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: 600;
 }
 
 .position {
     margin-bottom: 5px;
-    margin-top: 0px
+    margin-top: 0px;
 }
 
 /*Navigation*/
 
 .nav-toggle {
-   position:static !important;
+    position: static !important;
 }
 
 .primary-nav {
-   width: 100%;    
-     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #dcdcdc;
-        box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #dcdcdc;  
+    width: 100%;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #dcdcdc;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #dcdcdc;
 }
 
-.primary-nav > div {
-   padding-left: 5px;
-   padding-right: 5px;
-}
+    .primary-nav > div {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
 
-.primary-nav > div li a {
-    color: #333;
-}
+        .primary-nav > div li a {
+            color: #333;
+        }
 
-.primary-nav > div li a span {
-    display:block;
-}
+            .primary-nav > div li a span {
+                display: block;
+            }
 
-.primary-nav > div li {    
-    padding-top: 8px;
-    padding-bottom: 8px;
-    text-align: center;
-}
+        .primary-nav > div li {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            text-align: center;
+        }
 
-.primary-nav > div li:hover {
-     background: #dcdcdc;
-}
+            .primary-nav > div li:hover {
+                background: #dcdcdc;
+            }
 
-.primary-nav > div li a:hover {
-    text-decoration: none;   
-}
+            .primary-nav > div li a:hover {
+                text-decoration: none;
+            }
 
 /* Toolbar */
 .toolbar {
@@ -117,28 +118,28 @@
     min-height: 30px;
     height: 30px;
     border-bottom: solid 1px #dcdcdc;
-      -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #dedede;
-        box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #dedede;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #dedede;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #dedede;
 }
 
 
-.toolbar > ul > li > a, .toolbar > ul > li > button {
-    padding-top: 7px;
-    /*padding-bottom: 8px;*/
-    padding-left: 8px;
-    padding-right: 8px;
-    line-height: 0px;
-    color: #365899;
-    font-size: 14px;
-    height: 29px;
-    /*width: 100px;
+    .toolbar > ul > li > a, .toolbar > ul > li > button {
+        padding-top: 7px;
+        /*padding-bottom: 8px;*/
+        padding-left: 8px;
+        padding-right: 8px;
+        line-height: 0px;
+        color: #365899;
+        font-size: 14px;
+        height: 29px;
+        /*width: 100px;
     overflow: hidden;
      white-space: nowrap;
     -ms-text-overflow: ellipsis;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;*/
-    text-align: center;
-}
+        text-align: center;
+    }
 
 .toolbar-left {
     margin-left: 10px;
@@ -151,8 +152,8 @@
 .toolbar > ul > li > a:hover, .toolbar > ul > li > button:hover,
 .toolbar-right .dropdown.open > a, .toolbar-right .dropdown.open > button,
 .toolbar-right .dropdown .dropdown-menu > li > a:hover, .toolbar-right .dropdown .dropdown-menu > li > button:hover {
-        color: #fff;
-        background-color: rgb(0, 120, 215);
+    color: #fff;
+    background-color: rgb(0, 120, 215);
 }
 
 .toolbar ul.navbar-right > li:last-child a {
@@ -169,11 +170,12 @@
 }
 
 .toolbar ul.navbar-left > li > a {
-    font-weight: 700;    
+    font-weight: 700;
 }
-.toolbar ul.navbar-left > li.active > a {    
-     pointer-events: none;
-     cursor: default;
+
+.toolbar ul.navbar-left > li.active > a {
+    pointer-events: none;
+    cursor: default;
 }
 /* Form Inputs */
 
@@ -200,7 +202,7 @@
 
 
 .header {
-    padding-top: 40px;   
+    padding-top: 40px;
 }
 
 .current-entity {
@@ -208,8 +210,9 @@
     font-weight: 700;
     margin-bottom: 0px;
 }
+
 .entity-display {
-    font-size: 20px;    
+    font-size: 20px;
 }
 
 
@@ -218,6 +221,7 @@
     margin-top: 5px;
     margin-right: 5px;
 }
+
 .record-status {
     margin-left: 5px;
     margin-top: 3px;
@@ -241,15 +245,15 @@
 .thumbnail a img {
     height: 100px;
     width: 120px;
-	-webkit-transform: scale(0.9);
-	transform: scale(0.9);
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
 }
 
 .thumbnail:hover a img {
-	-webkit-transform: scale(1);
-	transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
 }
 
 .nav-tabs li .search-input {
@@ -641,3 +645,32 @@
 .text-red {
     color: #f03d25;
 }
+
+.icon-clicked {
+    position: fixed;
+    height: 100vh !important;
+    width: 100vw !important;
+    top: 0 !important;
+    left: 0 !important;
+    font-size: 60px;
+    z-index: 99999;
+    padding-top: 30vh;
+    -webkit-transition: all 0.6s, -webkit-transform 0.6s;
+    transition: all 0.6s, transform 0.6s;
+}
+
+.tile.tile-full-width {
+    height: 160px;
+    width: 100%;
+}
+
+.customgray-bg {
+    background-color: #ccc0c0;
+    color: #3e3e3e;
+    box-shadow: 1px 1px 4px 0px;
+}
+
+.customgray-bg > .fa {
+    color: #827777 !important;
+}
+

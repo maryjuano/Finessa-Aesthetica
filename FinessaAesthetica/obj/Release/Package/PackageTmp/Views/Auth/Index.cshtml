@@ -2,7 +2,7 @@
     Layout = null;
 }
 @model FinessaAesthetica.Models.LoginViewModel
-
+@using System.Configuration
 <!DOCTYPE html>
 <html>
 
@@ -35,7 +35,7 @@
             <div class="login-box-body">
 
                 <p class="login-box-msg">
-                    <b>Cosmetix Unlimited</b>
+                    <b>@ConfigurationManager.AppSettings["customer"]</b>
                 </p>
                 <div class="form-group">
                     <input type="text" name="UserName" id="UserName" class="form-control input-sm login-input" placeholder="Username">

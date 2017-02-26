@@ -192,6 +192,8 @@
     <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Controllers\TemplateController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\WebApi\BaseApiController.cs" />
+    <Compile Include="Controllers\WebApi\SupplierController.cs" />
     <Compile Include="Customizations\CustomHtmlHelpers.cs" />
     <Compile Include="Customizations\Encryption.cs" />
     <Compile Include="Global.asax.cs">
@@ -236,8 +238,12 @@
     <Content Include="dist\css\login.css" />
     <Content Include="dist\css\metro-bootstrap.min.css" />
     <Content Include="dist\css\site-template.css" />
+    <Content Include="dist\js\angular\Controllers\globalController.js" />
     <Content Include="dist\js\angular\Controllers\supplierController.js" />
-    <Content Include="dist\js\angular\Services\supplierService.js" />
+    <Content Include="dist\js\angular\Factories\filterFactory.js" />
+    <Content Include="dist\js\angular\Filters\SelectedRecordFilter.js" />
+    <Content Include="dist\js\angular\globalModule.js" />
+    <Content Include="dist\js\angular\Services\serviceFactory.js" />
     <Content Include="dist\js\angular\supplierModule.js" />
     <Content Include="dist\js\app.js" />
     <Content Include="dist\js\bootstrap.min.js" />
@@ -289,7 +295,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -357,11 +365,12 @@
     <Content Include="Views\Template\ModalForm.cshtml" />
     <Content Include="Views\POS\Index.cshtml" />
     <Content Include="Views\LOV\Index.cshtml" />
+    <Content Include="Views\Shared\_RecordInformationCreate.cshtml" />
+    <Content Include="Views\Shared\_RecordInformationEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="dist\js\angular\Directives\" />
-    <Folder Include="dist\js\angular\Filters\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

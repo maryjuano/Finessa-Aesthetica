@@ -55,8 +55,7 @@ namespace FinessaAesthetica.Controllers
         public async Task<ActionResult> Create([Bind(Include="ProductId,ProductCode,Desciption,CategoryId,ColorId,SupplierId,UnitMeasurement,UnitPrice,StandardRetailPrice,CreatedById,LastModifiedById,CreatedOn,LastModifiedOn,StatusId")] Product product)
         {
             if (ModelState.IsValid)
-            {
-                product.StatusId = 1;
+            {               
                 product.SetOnCreate(CurrentUserId);
                 db.Products.Add(product);
                 await db.SaveChangesAsync();
@@ -97,8 +96,7 @@ namespace FinessaAesthetica.Controllers
         public async Task<ActionResult> Edit([Bind(Include="ProductId,ProductCode,Desciption,CategoryId,ColorId,SupplierId,UnitMeasurement,UnitPrice,StandardRetailPrice,CreatedById,LastModifiedById,CreatedOn,LastModifiedOn,StatusId")] Product product)
         {
             if (ModelState.IsValid)
-            {
-                product.StatusId = 1;
+            {               
                 product.SetOnModified(CurrentUserId);
                 db.Entry(product).State = EntityState.Modified;
                 await db.SaveChangesAsync();

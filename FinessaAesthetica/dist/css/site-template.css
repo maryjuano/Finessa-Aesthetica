@@ -109,6 +109,7 @@
 /* Toolbar */
 .toolbar {
     margin-top: -20px;
+    margin-left: -10px !important;
     z-index: 900;
     margin-bottom: 0px;
     background-color: #efefef;
@@ -670,7 +671,14 @@
     box-shadow: 1px 1px 4px 0px;
 }
 
-.customgray-bg > .fa {
-    color: #827777 !important;
+    .customgray-bg > .fa {
+        color: #827777 !important;
+    }
+
+.table tbody > tr {
+    cursor: pointer;
 }
 
+.page-header {
+    margin: 15px 0 5px;
+}

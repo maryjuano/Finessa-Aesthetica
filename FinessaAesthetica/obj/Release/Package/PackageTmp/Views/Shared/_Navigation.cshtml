@@ -1,4 +1,4 @@
-﻿
+﻿@using System.Configuration
 <nav class="navbar navbar-default navbar-static-top top-navbar">
     <ul class="nav navbar-nav navbar-left">
         <li class="dropdown nav-toggle" onclick="CloseDropDownFromToggle(this);">
@@ -98,7 +98,7 @@
         </li>
     </ul>
     <div class="navbar-header">
-        <a href="~/Dashboard/Index" class="navbar-brand">Cosmetix Unlimited</a>
+        <a href="~/Dashboard/Index" class="navbar-brand">@ConfigurationManager.AppSettings["customer"]</a>
     </div>
 
     <ul class="nav navbar-nav navbar-right">
@@ -112,7 +112,7 @@
                     <img src="~/Images/rex.jpg" class="profile-image" alt="User Image">
                     <p class="username">@if (Request.Cookies["App"] != null)
 { @Request.Cookies["App"]["fullName"].ToString() }</p>
-                    <p class="position">Cosmetix Unlimited</p>
+                    <p class="position">@ConfigurationManager.AppSettings["customer"]</p>
                     <div class="pull-left">
                         <a href="#" class="btn btn-sm btn-primary">
                             Profile
