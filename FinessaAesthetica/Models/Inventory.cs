@@ -15,9 +15,16 @@ namespace FinessaAesthetica.Models
         [ForeignKey("BranchId")]
         public Branch Branch { get; set; }
     }
+
     public class MainInventory : BaseInventory
     {
         [Key]
-        public int MainInventoryId { get; set; }
+        public int MainInventoryId { get; set; }       
+    }
+
+    public class MainInventoryItem
+    {
+        [Key]
+        public int MainInventoryItemId { get; set; }
     }
 }

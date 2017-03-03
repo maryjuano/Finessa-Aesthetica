@@ -2,7 +2,8 @@
     'use strict';
 
     angular.module('supplierModule', [])
-    .controller('supplierCtrl', SupplierController);
+    .controller('supplierCtrl', SupplierController)
+    .factory('supplierService', ServiceFactory);
 
 
 })();

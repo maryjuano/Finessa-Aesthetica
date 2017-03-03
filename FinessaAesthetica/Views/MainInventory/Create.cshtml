@@ -6,15 +6,16 @@
     ViewBag.WebPageTitle = "New Main Inventory";
 }
 
-@section toolbarleft {
-    <li class="breadcrumb-item"><a href="~/MainInventory/"><i class="fa fa-home"></i> Main Inventory List</a></li>
-    <li class="breadcrumb-item actions">New Main Inventory</li>
-}
-
-@section toolbarright {
-    <li><a href="#" id="btnSaveTrigger" title="Create Main Inventory"><span class="fa fa-save"></span>&nbsp;SAVE</a></li>
-}
-
+<div class="navbar navbar-static-top toolbar">
+    <ul class="nav navbar-nav pull-right">
+        <li><a href="#" id="btnSaveTrigger" title="Create Main Inventory"><span class="fa fa-save"></span>&nbsp;SAVE</a></li>
+    </ul>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="~/Dashboard/">Home</a></li>
+        <li class="breadcrumb-item"><a href="~/MainInventory/">Main Inventory List</a></li>
+        <li class="breadcrumb-item actions">New Main Inventory</li>
+    </ol>
+</div>
 
 @using (Html.BeginForm()) 
 {

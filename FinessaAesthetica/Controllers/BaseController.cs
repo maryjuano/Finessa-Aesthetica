@@ -9,8 +9,7 @@ namespace FinessaAesthetica.Controllers
 {
     public class BaseController : Controller
     {
-        protected ApplicationDbContext db = new ApplicationDbContext();
-        
+        protected ApplicationDbContext db = new ApplicationDbContext();        
 
         protected int CurrentUserId
         {

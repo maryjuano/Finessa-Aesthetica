@@ -87,6 +87,14 @@
         }
     }
 
+    supplierCtrl.alertFunction = function () {
+        alert('hello tom');
+    }
+
+    supplierCtrl.changeStatus = function () {
+
+    }
+
 
 };
 

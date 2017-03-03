@@ -18,7 +18,8 @@ namespace FinessaAesthetica.Controllers
         // GET: /MainInventory/
         public async Task<ActionResult> Index()
         {
-            var maininventories = db.MainInventories.Include(m => m.Product).Include(m => m.Status);
+            var maininventories = db.MainInventories.Include(m => m.Product).Include(m => m.Status).Include(m => m.CreatedBy);
+            List<MainInventory> inventories = maininventories.ToList();
             return View(await maininventories.ToListAsync());
         }
 
@@ -29,7 +30,13 @@ namespace FinessaAesthetica.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MainInventory maininventory = await db.MainInventories.FindAsync(id);
+
+            var record = db.MainInventories.Include(m => m.Product);
+
+            MainInventory maininventory = await record.FirstAsync(m => m.MainInventoryId == id);
+
+            ViewBag.WebPageTitle = maininventory.Product.ProductCode;           
+          
             if (maininventory == null)
             {
                 return HttpNotFound();
@@ -75,7 +82,13 @@ namespace FinessaAesthetica.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MainInventory maininventory = await db.MainInventories.FindAsync(id);
+
+            var record = db.MainInventories.Include(m => m.Product);
+
+            MainInventory maininventory = await record.FirstAsync(m => m.MainInventoryId == id);
+
+            ViewBag.WebPageTitle = maininventory.Product.ProductCode;          
+
             if (maininventory == null)
             {
                 return HttpNotFound();

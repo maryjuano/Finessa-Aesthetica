@@ -193,6 +193,7 @@
     <Compile Include="Controllers\TemplateController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\WebApi\BaseApiController.cs" />
+    <Compile Include="Controllers\WebApi\InventoryController.cs" />
     <Compile Include="Controllers\WebApi\SupplierController.cs" />
     <Compile Include="Customizations\CustomHtmlHelpers.cs" />
     <Compile Include="Customizations\Encryption.cs" />
@@ -207,10 +208,18 @@
     <Compile Include="Migrations\201702210835193_update.Designer.cs">
       <DependentUpon>201702210835193_update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703011002531_BranchInventory_Update.cs" />
+    <Compile Include="Migrations\201703011002531_BranchInventory_Update.Designer.cs">
+      <DependentUpon>201703011002531_BranchInventory_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703011052099_BranchInventory_Update1.cs" />
+    <Compile Include="Migrations\201703011052099_BranchInventory_Update1.Designer.cs">
+      <DependentUpon>201703011052099_BranchInventory_Update1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Audit.cs" />
-    <Compile Include="Models\Auth.cs" />
+    <Compile Include="Models\ViewModels\Auth.cs" />
     <Compile Include="Models\BaseModels.cs" />
     <Compile Include="Models\Branch.cs" />
     <Compile Include="Models\Inventory.cs" />
@@ -218,6 +227,7 @@
     <Compile Include="Models\Color.cs" />
     <Compile Include="Models\BaseInventory.cs" />
     <Compile Include="Models\Consignee.cs" />
+    <Compile Include="Models\ViewModels\InventoryTransfer.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\RecordInformation.cs" />
     <Compile Include="Models\Service.cs" />
@@ -367,6 +377,7 @@
     <Content Include="Views\LOV\Index.cshtml" />
     <Content Include="Views\Shared\_RecordInformationCreate.cshtml" />
     <Content Include="Views\Shared\_RecordInformationEdit.cshtml" />
+    <Content Include="Views\MainInventory\_TransferForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -382,6 +393,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702210835193_update.resx">
       <DependentUpon>201702210835193_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703011002531_BranchInventory_Update.resx">
+      <DependentUpon>201703011002531_BranchInventory_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703011052099_BranchInventory_Update1.resx">
+      <DependentUpon>201703011052099_BranchInventory_Update1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

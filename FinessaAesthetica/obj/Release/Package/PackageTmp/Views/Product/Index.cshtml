@@ -6,12 +6,16 @@
     ViewBag.WebPageTitle = "Product List";
 }
 
-@section toolbarleft {
-    <li class="breadcrumb-item active"><i class="fa fa-home"></i> Product List</li>
-}
-@section ToolbarRight {
-    <li><a href="~/Product/Create" title="New Product"><span class="fa fa-plus"></span>&nbsp;NEW</a></li>
-}
+<div class="navbar navbar-static-top toolbar">
+    <ul class="nav navbar-nav pull-right">
+        <li><a href="~/Product/Create" title="New Product"><span class="fa fa-plus"></span>&nbsp;NEW</a></li>
+    </ul>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="~/Dashboard/">Home</a></li>
+        <li class="breadcrumb-item active">Product List</li>
+    </ol>
+</div>
+
 
 <table class="table table-hover">
     <thead>
