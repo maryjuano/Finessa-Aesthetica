@@ -56,7 +56,7 @@ namespace FinessaAesthetica.Migrations
              LastName = "Dominguez"
          });
 
-            context.Status.AddOrUpdate(s => s.Description,
+            context.Statuses.AddOrUpdate(s => s.Description,
                 new Status
                 {
                     Description = "Active"
@@ -65,6 +65,18 @@ namespace FinessaAesthetica.Migrations
                 {
                     Description = "Inactive"
                 });
+
+            context.PurchaseOrders.AddOrUpdate(s => s.PurchaseOrderId,
+               new PurchaseOrder
+               {
+                  Remarks = "Sample",
+                  CreatedById = 1,
+                  LastModifiedById = 1,
+                  CreatedOn = DateTime.UtcNow,
+                  LastModifiedOn = DateTime.UtcNow,
+                  PurchaseOrderStatus = "Pending",
+                  StatusId = 1
+               });
 
             //context.Colors.AddOrUpdate(c => c.Code,
             //    new Color

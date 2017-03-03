@@ -1,10 +1,10 @@
-﻿var SupplierController = function ($scope, supplierService) {
+﻿var SupplierController = function ($scope, dataService) {
 
     var supplierCtrl = this;
     supplierCtrl.isAllRecordSelected = false;
 
     supplierCtrl.initData = function () {
-        supplierService.get('/api/Supplier/').then(function (data) {
+        dataService.get('/api/Supplier/').then(function (data) {
             var obj = [];
 
             for (var i = 0; i < data.length; i++) {
@@ -87,7 +87,15 @@
         }
     }
 
+    supplierCtrl.alertFunction = function () {
+        alert('hello tom');
+    }
+
+    supplierCtrl.changeStatus = function () {
+
+    }
+
 
 };
 
-SupplierController.$inject = ['$scope', 'supplierService'];
+SupplierController.$inject = ['$scope', 'dataService'];

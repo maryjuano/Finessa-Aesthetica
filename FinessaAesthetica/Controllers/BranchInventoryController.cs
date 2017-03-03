@@ -16,7 +16,7 @@ namespace FinessaAesthetica.Controllers
         // GET: /BranchInventory/
         public ActionResult Index()
         {
-            var branchinventory = db.BranchInventory.Include(b => b.Branch).Include(b => b.Product).Include(b => b.Status);
+            var branchinventory = db.BranchInventories.Include(b => b.Branch).Include(b => b.Product).Include(b => b.Status);
             return View(branchinventory.ToList());
         }
 
@@ -27,7 +27,7 @@ namespace FinessaAesthetica.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BranchInventory branchinventory = db.BranchInventory.Find(id);
+            BranchInventory branchinventory = db.BranchInventories.Find(id);
             if (branchinventory == null)
             {
                 return HttpNotFound();
@@ -40,7 +40,7 @@ namespace FinessaAesthetica.Controllers
         {
             ViewBag.BranchId = new SelectList(db.Branches, "BranchId", "Name");
             ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductCode");
-            ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description");
+            ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "Description");
             return View();
         }
 
@@ -53,14 +53,15 @@ namespace FinessaAesthetica.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.BranchInventory.Add(branchinventory);
+                branchinventory.SetOnCreate(CurrentUserId);
+                db.BranchInventories.Add(branchinventory);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.BranchId = new SelectList(db.Branches, "BranchId", "Name", branchinventory.BranchId);
             ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductCode", branchinventory.ProductId);
-            ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description", branchinventory.StatusId);
+            ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "Description", branchinventory.StatusId);
             return View(branchinventory);
         }
 
@@ -71,14 +72,14 @@ namespace FinessaAesthetica.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BranchInventory branchinventory = db.BranchInventory.Find(id);
+            BranchInventory branchinventory = db.BranchInventories.Find(id);
             if (branchinventory == null)
             {
                 return HttpNotFound();
             }
             ViewBag.BranchId = new SelectList(db.Branches, "BranchId", "Name", branchinventory.BranchId);
             ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductCode", branchinventory.ProductId);
-            ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description", branchinventory.StatusId);
+            ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "Description", branchinventory.StatusId);
             return View(branchinventory);
         }
 
@@ -91,13 +92,14 @@ namespace FinessaAesthetica.Controllers
         {
             if (ModelState.IsValid)
             {
+                branchinventory.SetOnModified(CurrentUserId);
                 db.Entry(branchinventory).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             ViewBag.BranchId = new SelectList(db.Branches, "BranchId", "Name", branchinventory.BranchId);
             ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductCode", branchinventory.ProductId);
-            ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description", branchinventory.StatusId);
+            ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "Description", branchinventory.StatusId);
             return View(branchinventory);
         }
 
@@ -108,7 +110,7 @@ namespace FinessaAesthetica.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BranchInventory branchinventory = db.BranchInventory.Find(id);
+            BranchInventory branchinventory = db.BranchInventories.Find(id);
             if (branchinventory == null)
             {
                 return HttpNotFound();
@@ -121,8 +123,8 @@ namespace FinessaAesthetica.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            BranchInventory branchinventory = db.BranchInventory.Find(id);
-            db.BranchInventory.Remove(branchinventory);
+            BranchInventory branchinventory = db.BranchInventories.Find(id);
+            db.BranchInventories.Remove(branchinventory);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -58,3 +58,5 @@ FinessaAesthetica.v12.suo
 FinessaAesthetica/obj/Release/FinessaAesthetica.pdb
 *.dll
 FinessaAesthetica/App_Data/FinessaAesthetica_log.ldf
+FinessaAesthetica/App_Data/aspnet-FinessaAesthetica-20170211051712_log.ldf
+FinessaAesthetica/bin/FinessaAesthetica.dll

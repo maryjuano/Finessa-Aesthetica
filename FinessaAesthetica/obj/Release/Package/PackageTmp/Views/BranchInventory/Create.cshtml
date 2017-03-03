@@ -6,14 +6,18 @@
     ViewBag.WebPageTitle = "New Branch Inventory";
 }
 
-@section toolbarleft {
-    <li class="breadcrumb-item"><a href="~/BranchInventory/"><i class="fa fa-home"></i> Branch Inventory List</a></li>
-    <li class="breadcrumb-item actions">New Branch Inventory</li>
-}
 
-@section toolbarright {
-    <li><a href="#" id="btnSaveTrigger" title="Create Branch Inventory"><span class="fa fa-save"></span>&nbsp;SAVE</a></li>
-}
+<div class="navbar navbar-static-top toolbar">
+    <ul class="nav navbar-nav pull-right">
+        <li><a href="#" id="btnSaveTrigger" title="Create Branch Inventory"><span class="fa fa-save"></span>&nbsp;SAVE</a></li>
+    </ul>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="~/Dashboard/">Home</a></li>
+        <li class="breadcrumb-item"><a href="~/BranchInventory/"> Branch Inventory List</a></li>
+        <li class="breadcrumb-item actions">New Branch Inventory</li>
+    </ol>
+</div>
+
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<FinessaAesthetica.Models.PurchaseOrder>
+
+@{
+    ViewBag.Title = "Receiving";
+    ViewBag.CurrentEntity = "Receiving";
+    ViewBag.WebPageTitle = "Receiving List";
+}
+
+<div ng-controller="receivingCtrl as purchaseOrder">
+    <div class="navbar navbar-static-top toolbar">
+        <ul class="nav navbar-nav pull-right">
+            <li>
+                <a href="#" title="Receiving PO" ng-click="purchaseOrder.receivePurcaseOrder();">
+                    <span class=" fa fa-cart-arrow-down">
+                    </span>&nbsp;RECEIVE
+                </a>
+            </li>
+        </ul>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="~/Dashboard/">Home</a></li>
+            <li class="breadcrumb-item actions">Receiving List</li>
+        </ol>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" ng-model="purchaseOrder.isAllRecordSelected" title="select all" ng-change="purchaseOrder.selectAll();" />
+                </th>
+                <th>PO Number</th>
+                <th>Remarks</th>
+                <th>Supplier</th>
+                <th>Total Amount</th>
+                <th>Total Item Quantity</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="purchaseOrderItem in purchaseOrder.list" ng-click="purchaseOrder.selectRow(purchaseOrderItem);" ng-dblclick="purchaseOrder.goToFakeReceiving(purchaseOrderItem.Status == 'Approved'); $event.preventDefault(); $event.stopPropagation();">
+                <td ng-click="purchaseOrder.selectSingle(purchaseOrderItem);$event.stopPropagation();" ng-dblclick="$event.stopPropagation();">
+                    <input type="checkbox" ng-change="purchaseOrder.selectSingle(purchaseOrderItem);" ng-model="purchaseOrderItem.IsSelected" />
+                </td>
+                <td ng-bind="purchaseOrderItem.Number"></td>
+                <td ng-bind="purchaseOrderItem.Remarks"></td>
+                <td ng-bind="purchaseOrderItem.Supplier"></td>
+                <td ng-bind="purchaseOrderItem.TotalAmount"></td>
+                <td ng-bind="purchaseOrderItem.TotalQuantity"></td>
+                <td>For Receiving</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

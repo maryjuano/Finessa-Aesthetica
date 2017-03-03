@@ -1,0 +1,130 @@
+﻿@model FinessaAesthetica.Models.MainInventory
+@{
+    ViewBag.Title = "New Purchase Order";
+    ViewBag.CurrentEntity = "Purchase Order";
+    ViewBag.WebPageTitle = "New Purchase Order";
+}
+<div ng-controller="purchaseOrderCtrl as purchaseOrder">
+    <div class="navbar navbar-static-top toolbar">
+        <ul class="nav navbar-nav pull-right">
+            <li><a href="#" id="btnSaveTrigger" title="Create Service"><span class="fa fa-save"></span>&nbsp;SAVE</a></li>
+        </ul>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="~/Dashboard/">Home</a></li>
+            <li class="breadcrumb-item"><a href="~/PurchaseOrder/">Purchase Order</a></li>
+            <li class="breadcrumb-item actions">New Purchase Order</li>
+        </ol>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="ibox-content">
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true)
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page-header">
+                            <h4>General Information</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3 label-left">PO Number</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" readonly="readonly" class="form-control" placeholder="PO-00005" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6">
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3 label-left">Supplier</label>
+                                    <div class="col-sm-9">
+                                        @Html.DropDownList("SupplierId",
+                                         (SelectList)ViewBag.SupplierId,
+                                         "Select supplier . . .",
+                                         new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.ProductId)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3 label-left">Remarks</label>
+                                    <div class="col-sm-9">
+                                        <textarea class="form-control" style="resize:none"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page-header">
+                            <h4>Purchase Order Items</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3 label-left">Item</label>
+                                    <div class="col-sm-9">
+                                        @Html.DropDownListFor(model => model.ProductId,
+                                         (SelectList)ViewBag.ProductId,
+                                         "Select product . . .",
+                                         new { @class = "form-control", @id = "product" })
+                                        @Html.ValidationMessageFor(model => model.ProductId)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1" style="padding-left:0px;margin-left:-15px;">
+                                <button type="button" ng-click="purchaseOrder.addRow();" class="btn btn-default col-sm-4"><span class="fa fa-plus"></span></button>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Quantity</label>
+                                    <div class="col-sm-2">
+                                        <input type="number" min="0" ng-model="purchaseOrder.Quantity" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <table class="table table-hover table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th>Product Code</th>
+                                            <th>Quantity</th>
+                                            <th>Unit Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="purchaseOrderItem in purchaseOrder.itemList" ng-click="purchaseOrder.selectRow(purchaseOrderItem);" ng-dblclick="purchaseOrder.goToFakeReceiving(purchaseOrderItem.Status == 'Approved'); $event.preventDefault(); $event.stopPropagation();">                                           
+                                            <td ng-bind="purchaseOrderItem.ProductCode"></td>
+                                            <td ng-bind="purchaseOrderItem.Quantity"></td>
+                                            <td ng-bind="purchaseOrderItem.UnitPrice"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br />
+                @Html.Partial("~/Views/Shared/_RecordInformationCreate.cshtml")
+            </div>
+        </div>
+        <input id="submitButton" type="submit" class="hidden" />
+    }
+</div>
+@section Scripts {
+    <script>
+        $('#btnSaveTrigger').click(function () {
+            alert('succesfully saved!');
+            window.location.href = "/PurchaseOrder/"
+        });
+    </script>
+}

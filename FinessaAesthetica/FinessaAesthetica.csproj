@@ -188,12 +188,14 @@
     <Compile Include="Controllers\MainInventoryController.cs" />
     <Compile Include="Controllers\POSController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\PurchaseOrderController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Controllers\TemplateController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\WebApi\BaseApiController.cs" />
     <Compile Include="Controllers\WebApi\InventoryController.cs" />
+    <Compile Include="Controllers\WebApi\PurchaseOrderController.cs" />
     <Compile Include="Controllers\WebApi\SupplierController.cs" />
     <Compile Include="Customizations\CustomHtmlHelpers.cs" />
     <Compile Include="Customizations\Encryption.cs" />
@@ -216,9 +218,43 @@
     <Compile Include="Migrations\201703011052099_BranchInventory_Update1.Designer.cs">
       <DependentUpon>201703011052099_BranchInventory_Update1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703031545126_Initial_PurchaseOrder.cs" />
+    <Compile Include="Migrations\201703031545126_Initial_PurchaseOrder.Designer.cs">
+      <DependentUpon>201703031545126_Initial_PurchaseOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703031628395_PurchaseOrder_Update.cs" />
+    <Compile Include="Migrations\201703031628395_PurchaseOrder_Update.Designer.cs">
+      <DependentUpon>201703031628395_PurchaseOrder_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703031637442_PurchaseOrder_Update1.cs" />
+    <Compile Include="Migrations\201703031637442_PurchaseOrder_Update1.Designer.cs">
+      <DependentUpon>201703031637442_PurchaseOrder_Update1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703031638436_PurchaseOrder_Update2.cs" />
+    <Compile Include="Migrations\201703031638436_PurchaseOrder_Update2.Designer.cs">
+      <DependentUpon>201703031638436_PurchaseOrder_Update2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703031643050_PurchaseOrder_Update3.cs" />
+    <Compile Include="Migrations\201703031643050_PurchaseOrder_Update3.Designer.cs">
+      <DependentUpon>201703031643050_PurchaseOrder_Update3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703031645253_PurchaseOrder_Update4.cs" />
+    <Compile Include="Migrations\201703031645253_PurchaseOrder_Update4.Designer.cs">
+      <DependentUpon>201703031645253_PurchaseOrder_Update4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703031648007_PurchaseOrder_Update5.cs" />
+    <Compile Include="Migrations\201703031648007_PurchaseOrder_Update5.Designer.cs">
+      <DependentUpon>201703031648007_PurchaseOrder_Update5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703031651510_PurchaseOrder_Update6.cs" />
+    <Compile Include="Migrations\201703031651510_PurchaseOrder_Update6.Designer.cs">
+      <DependentUpon>201703031651510_PurchaseOrder_Update6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Audit.cs" />
+    <Compile Include="Models\BranchReceiving.cs" />
+    <Compile Include="Models\PurchaseOrder.cs" />
     <Compile Include="Models\ViewModels\Auth.cs" />
     <Compile Include="Models\BaseModels.cs" />
     <Compile Include="Models\Branch.cs" />
@@ -249,10 +285,13 @@
     <Content Include="dist\css\metro-bootstrap.min.css" />
     <Content Include="dist\css\site-template.css" />
     <Content Include="dist\js\angular\Controllers\globalController.js" />
+    <Content Include="dist\js\angular\Controllers\purchaseOrderController.js" />
+    <Content Include="dist\js\angular\Controllers\receivingController.js" />
     <Content Include="dist\js\angular\Controllers\supplierController.js" />
     <Content Include="dist\js\angular\Factories\filterFactory.js" />
     <Content Include="dist\js\angular\Filters\SelectedRecordFilter.js" />
     <Content Include="dist\js\angular\globalModule.js" />
+    <Content Include="dist\js\angular\purchaseOrderModule.js" />
     <Content Include="dist\js\angular\Services\serviceFactory.js" />
     <Content Include="dist\js\angular\supplierModule.js" />
     <Content Include="dist\js\app.js" />
@@ -377,11 +416,15 @@
     <Content Include="Views\LOV\Index.cshtml" />
     <Content Include="Views\Shared\_RecordInformationCreate.cshtml" />
     <Content Include="Views\Shared\_RecordInformationEdit.cshtml" />
-    <Content Include="Views\MainInventory\_TransferForm.cshtml" />
+    <Content Include="Views\PurchaseOrder\Index.cshtml" />
+    <Content Include="Views\PurchaseOrder\Create.cshtml" />
+    <Content Include="Views\PurchaseOrder\Receiving.cshtml" />
+    <Content Include="Views\MainInventory\Transfer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="dist\js\angular\Directives\" />
+    <Folder Include="Views\Receiving\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -399,6 +442,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703011052099_BranchInventory_Update1.resx">
       <DependentUpon>201703011052099_BranchInventory_Update1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703031545126_Initial_PurchaseOrder.resx">
+      <DependentUpon>201703031545126_Initial_PurchaseOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703031628395_PurchaseOrder_Update.resx">
+      <DependentUpon>201703031628395_PurchaseOrder_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703031637442_PurchaseOrder_Update1.resx">
+      <DependentUpon>201703031637442_PurchaseOrder_Update1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703031638436_PurchaseOrder_Update2.resx">
+      <DependentUpon>201703031638436_PurchaseOrder_Update2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703031643050_PurchaseOrder_Update3.resx">
+      <DependentUpon>201703031643050_PurchaseOrder_Update3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703031645253_PurchaseOrder_Update4.resx">
+      <DependentUpon>201703031645253_PurchaseOrder_Update4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703031648007_PurchaseOrder_Update5.resx">
+      <DependentUpon>201703031648007_PurchaseOrder_Update5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703031651510_PurchaseOrder_Update6.resx">
+      <DependentUpon>201703031651510_PurchaseOrder_Update6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

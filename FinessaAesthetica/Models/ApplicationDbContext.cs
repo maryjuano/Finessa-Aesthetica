@@ -13,7 +13,7 @@ namespace FinessaAesthetica.Models
         public DbSet<Users> Users { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
 
-        public DbSet<Status> Status { get; set; }
+        public DbSet<Status> Statuses { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
 
@@ -21,8 +21,12 @@ namespace FinessaAesthetica.Models
         public DbSet<Branch> Branches { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<MainInventory> MainInventories { get; set; }
-        public DbSet<BranchInventory> BranchInventory { get; set; }
-        public DbSet<Consignee> Consignees { get; set; }     
+        public DbSet<BranchInventory> BranchInventories { get; set; }
+        public DbSet<Consignee> Consignees { get; set; }
+
+        public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
+
+        public DbSet<PurchaseOrderItems> PurchaseOrderItems { get; set; } 
 
     }
 }

@@ -1,0 +1,87 @@
+﻿@model FinessaAesthetica.Models.MainInventory
+@{
+    ViewBag.Title = "New Stock Transfer";
+    ViewBag.CurrentEntity = "Stock Transfer";
+    ViewBag.WebPageTitle = "New Stock Transfer";
+}
+<div ng-controller="purchaseOrderCtrl as purchaseOrder">
+    <div class="navbar navbar-static-top toolbar">
+        <ul class="nav navbar-nav pull-right">
+            <li><a href="#" id="btnSaveTrigger" title="Create Service"><span class="fa fa-save"></span>&nbsp;SAVE</a></li>
+        </ul>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="~/Dashboard/">Home</a></li>
+            <li class="breadcrumb-item"><a href="~/MainInventor/">Inventory</a></li>
+            <li class="breadcrumb-item actions">Stock Transfer</li>
+        </ol>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="ibox-content">
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true)
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page-header">
+                            <h4>General Information</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3 label-left">Product</label>
+                                    <div class="col-sm-9">
+                                        @Html.DropDownList("ProductId",
+              (SelectList)ViewBag.ProductId,
+                                         "Select product . . .",
+                                         new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.ProductId)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3 label-left">Remarks</label>
+                                    <div class="col-sm-9">
+                                        <textarea class="form-control" style="resize:none"></textarea>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3 label-left">Branch</label>
+                                    <div class="col-sm-9">
+                                        @Html.DropDownList("BranchId",
+(SelectList)ViewBag.BranchId,
+                                         "Select branch . . .",
+                                         new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.ProductId)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 label-left">Quantity</label>
+                                    <div class="col-sm-9">
+                                        <input type="number" min="0" class="form-control" />
+                                    </div>
+                                </div>
+                          
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>              
+                @Html.Partial("~/Views/Shared/_RecordInformationCreate.cshtml")
+            </div>
+        </div>
+        <input id="submitButton" type="submit" class="hidden" />
+    }
+</div>
+@section Scripts {
+    <script>
+        $('#btnSaveTrigger').click(function () {
+            alert('succesfully saved!');
+            window.location.href = "/MainInventory/"
+        });
+    </script>
+}

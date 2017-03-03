@@ -26,7 +26,7 @@ namespace FinessaAesthetica.Controllers.WebApi
 
                 }
 
-                BranchInventory branchInventory = db.BranchInventory.SingleOrDefault(b => b.BranchId == data.BranchId && b.ProductId == mainInventory.ProductId);
+                BranchInventory branchInventory = db.BranchInventories.SingleOrDefault(b => b.BranchId == data.BranchId && b.ProductId == mainInventory.ProductId);
 
                 mainInventory.Quantity -= data.Quantity;
 
@@ -37,7 +37,7 @@ namespace FinessaAesthetica.Controllers.WebApi
                     branchInventory = Mapper.Map<BranchInventory>(mainInventory);
                     branchInventory.BranchId = data.BranchId;
                     branchInventory.Quantity = data.Quantity;
-                    db.BranchInventory.Add(branchInventory);                   
+                    db.BranchInventories.Add(branchInventory);                   
                 }
                 else
                 {                   

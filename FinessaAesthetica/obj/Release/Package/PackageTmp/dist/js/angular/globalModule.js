@@ -4,6 +4,8 @@
     angular.module('globalModule', [])
     .controller('globalCtrl', GlobalController)
     .controller('supplierCtrl', SupplierController)
-    .factory('supplierService', ServiceFactory);
+    .controller('purchaseOrderCtrl', PurchaseOrderController)
+    .controller('receivingCtrl', ReceivingController)
+    .factory('dataService', ServiceFactory);
 
 })();

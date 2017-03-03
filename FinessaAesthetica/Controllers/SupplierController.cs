@@ -39,7 +39,7 @@ namespace FinessaAesthetica.Controllers
         // GET: /Supplier/Create
         public ActionResult Create()
         {
-            ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description");
+            ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "Description");
             return View();
         }
 
@@ -58,7 +58,7 @@ namespace FinessaAesthetica.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description", supplier.StatusId);
+            ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "Description", supplier.StatusId);
             return View(supplier);
         }
 
@@ -77,7 +77,7 @@ namespace FinessaAesthetica.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description", supplier.StatusId);
+            ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "Description", supplier.StatusId);
             ViewBag.CreatedBy = db.Users.SingleOrDefaultAsync(u => u.UserId == supplier.CreatedById).Result.FullName;
             ViewBag.ModifiedBy = db.Users.SingleOrDefaultAsync(u => u.UserId == supplier.LastModifiedById).Result.FullName;
             
@@ -98,7 +98,7 @@ namespace FinessaAesthetica.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description", supplier.StatusId);
+            ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "Description", supplier.StatusId);
             return View(supplier);
         }
 

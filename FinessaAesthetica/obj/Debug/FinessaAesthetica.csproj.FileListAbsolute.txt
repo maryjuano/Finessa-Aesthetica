@@ -278,3 +278,11 @@ C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAes
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.pdb
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.BranchInventory_Update.resources
 C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.BranchInventory_Update1.resources
+C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.Initial_PurchaseOrder.resources
+C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.PurchaseOrder_Update.resources
+C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.PurchaseOrder_Update1.resources
+C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.PurchaseOrder_Update2.resources
+C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.PurchaseOrder_Update3.resources
+C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.PurchaseOrder_Update4.resources
+C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.PurchaseOrder_Update5.resources
+C:\Users\i-jcadiao\Documents\Gemo Ian\Clinic\Sol'n\Finessa-Aesthetica\FinessaAesthetica\obj\Debug\FinessaAesthetica.Migrations.PurchaseOrder_Update6.resources

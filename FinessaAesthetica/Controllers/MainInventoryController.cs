@@ -48,7 +48,7 @@ namespace FinessaAesthetica.Controllers
         public ActionResult Create()
         {
             ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductCode");
-            ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description");
+            ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "Description");
             return View();
         }
 
@@ -71,7 +71,7 @@ namespace FinessaAesthetica.Controllers
             }
 
             ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductCode", maininventory.ProductId);
-            ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description", maininventory.StatusId);
+            ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "Description", maininventory.StatusId);
             return View(maininventory);
         }
 
@@ -94,7 +94,7 @@ namespace FinessaAesthetica.Controllers
                 return HttpNotFound();
             }
             ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductCode", maininventory.ProductId);
-            ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description", maininventory.StatusId);
+            ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "Description", maininventory.StatusId);
             return View(maininventory);
         }
 
@@ -116,7 +116,7 @@ namespace FinessaAesthetica.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductCode", maininventory.ProductId);
-            ViewBag.StatusId = new SelectList(db.Status, "StatusId", "Description", maininventory.StatusId);
+            ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "Description", maininventory.StatusId);
             return View(maininventory);
         }
 
@@ -144,6 +144,13 @@ namespace FinessaAesthetica.Controllers
             db.MainInventories.Remove(maininventory);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Transfer()
+        {
+            ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductCode");
+            ViewBag.BranchId = new SelectList(db.Branches, "BranchId", "Name");
+            return View();
         }
 
         private async Task<MainInventory> SetTotalAmount(MainInventory inventory)
