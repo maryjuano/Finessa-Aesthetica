@@ -45,9 +45,9 @@ namespace FinessaAesthetica
             return new HtmlString(String.Format("<a class='text-red' href='/{0}/{1}/{2}'><span class='fa fa-trash'></span></a>", controller, action, id));
         }
 
-        public static void ActionLinkWithBootstrap(this AjaxHelper ajaxHelper, string linkText, string actionName, AjaxOptions ajaxOptions)
+        public static IHtmlString Table(this HtmlHelper html)
         {
-
-        }
+            return new HtmlString(String.Format("<a class='text-red' href='/{0}/{1}/{2}'><span class='fa fa-trash'></span></a>"));
+        }    
     }
 }

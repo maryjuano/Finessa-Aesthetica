@@ -16,9 +16,7 @@ namespace FinessaAesthetica.Controllers
         }
 
         public ActionResult Create()
-        {
-            ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductCode");
-            ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "Code");
+        {            
             return View();
         }
 

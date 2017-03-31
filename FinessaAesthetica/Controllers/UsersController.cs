@@ -11,10 +11,8 @@ using FinessaAesthetica.Models;
 namespace FinessaAesthetica.Controllers
 {
      [Authorize]
-    public class UsersController : Controller
-    {
-        private ApplicationDbContext db = new ApplicationDbContext();
-
+    public class UsersController : BaseController
+    {       
         // GET: /Users/
         public ActionResult Index()
         {
@@ -114,15 +112,6 @@ namespace FinessaAesthetica.Controllers
             db.Users.Remove(users);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

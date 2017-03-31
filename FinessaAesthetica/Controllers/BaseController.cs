@@ -31,8 +31,7 @@ namespace FinessaAesthetica.Controllers
                    return Request.Cookies["App"]["fullName"];
                 }
                 return string.Empty;
-            }
-            
+            }            
         }
         protected void SetUserCookie(Users data)
         {

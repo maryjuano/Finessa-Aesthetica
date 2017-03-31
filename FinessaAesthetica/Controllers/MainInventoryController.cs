@@ -18,8 +18,7 @@ namespace FinessaAesthetica.Controllers
         // GET: /MainInventory/
         public async Task<ActionResult> Index()
         {
-            var maininventories = db.MainInventories.Include(m => m.Product).Include(m => m.Status).Include(m => m.CreatedBy);
-            List<MainInventory> inventories = maininventories.ToList();
+            var maininventories = db.MainInventories.Include(m => m.Product).Include(m => m.Status).Include(m => m.CreatedBy);        
             return View(await maininventories.ToListAsync());
         }
 

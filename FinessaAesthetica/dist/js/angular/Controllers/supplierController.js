@@ -81,7 +81,8 @@
                 cache: false,
                 data: json
             }).then(function () {
-                supplierCtrl.initData();
+                alert('succesfully saved!');
+                window.location.href = "/PurchaseOrder/"
             });
                      
         }

@@ -26,6 +26,7 @@
 
             @Html.ValidationSummary(true)
             @Html.HiddenFor(model => model.ProductId)
+            @Html.HiddenFor(model => model.StatusId)
             @Html.HiddenFor(model => model.CreatedById)
             @Html.HiddenFor(model => model.CreatedOn)
 
@@ -58,17 +59,7 @@
                                          new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.CategoryId)
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.SupplierId, "SupplierId", new { @class = "control-label col-md-3 label-left" })
-                        <div class="col-md-9">
-                            @Html.DropDownListFor(model => model.SupplierId,
-                                         (SelectList)ViewBag.SupplierId,
-                                         new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.SupplierId)
-                        </div>
-                    </div>
+                    </div>                  
                 </div>
                 <div class="col-sm-6">
                     <div class="page-header">

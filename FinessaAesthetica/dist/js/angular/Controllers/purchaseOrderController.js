@@ -1,111 +1,202 @@
-﻿var PurchaseOrderController = function ($http) {
+﻿var PurchaseOrderController = function ($http, dataService) {
     var purchaseOrderCtrl = this;
+
     purchaseOrderCtrl.isAllRecordSelected = false;
     purchaseOrderCtrl.Quantity = 1;
-    var fakeProduct = [
-        { Id: 1, Quantity: 0 },
-        { Id: 2, Quantity: 0 },
-         { Id: 3, Quantity: 0 },
-          { Id: 4, ProductCode: 'Product-001', UnitPrice: 'P1,000', Quantity: 0 }, 
-        { Id: 5, ProductCode: 'Product-002', UnitPrice: 'P5,000', Quantity: 0  },
-        { Id: 6, ProductCode: 'Product-003', UnitPrice: 'P3,000', Quantity: 0 },
-        { Id: 7}];
     purchaseOrderCtrl.itemList = [];
+    purchaseOrderCtrl.remarks = "";
+    purchaseOrderCtrl.supplierId = 0;   
 
-purchaseOrderCtrl.list = [
-    { Id: 1, Number: 'PO-00001', Remarks: 'Sample Data 1', Status: 'Pending', Supplier: 'Supplier-01', TotalAmount: 'P25,000', TotalQuantity: 5, IsSelected: false },
-    { Id: 2, Number: 'PO-00002', Remarks: 'Sample Data 2', Status: 'Pending', Supplier: 'Supplier-02', TotalAmount: 'P5,000', TotalQuantity: 15, IsSelected: false },
-    { Id: 3, Number: 'PO-00003', Remarks: 'Sample Data 3', Status: 'Cancelled', Supplier: 'Supplier-03', TotalAmount: 'P2, 000', TotalQuantity: 5, IsSelected: false },
-    { Id: 4, Number: 'PO-00004', Remarks: 'Sample Data 4', Status: 'Approved', Supplier: 'Supplier-01', TotalAmount: 'P2, 000', TotalQuantity: 5, IsSelected: false },
-    { Id: 5, Number: 'PO-00005', Remarks: 'Sample Data 5', Status: 'Pending', Supplier: 'Supplier-101', TotalAmount: 'P2, 000', TotalQuantity: 5, IsSelected: false }
-];
+    purchaseOrderCtrl.initData = function () {
+        // get purchase order
+        dataService.get('/api/PurchaseOrder/').then(function (data) {
 
+            var obj = [];
+            for (var i = 0; i < data.length; i++) {
+                obj.push({ IsSelected: false });
+            }
 
-
-
-purchaseOrderCtrl.goToFakeReceiving = function (isApproved) {
-    if (isApproved) {
-        window.location.href = "/PurchaseOrder/Receiving";
+            purchaseOrderCtrl.list = angular.merge({}, data, obj);
+        });
     }
-}
 
-purchaseOrderCtrl.addRow = function () {
-    var selected = $('#product').val();
-
-    if (selected >= 3 && selected <= 5 && selected != "") {
-        fakeProduct[selected].Quantity = purchaseOrderCtrl.Quantity
-        purchaseOrderCtrl.itemList.push(fakeProduct[selected]);
+    purchaseOrderCtrl.getProducts = function () {
+        // get products 
+        dataService.get('/api/Product/').then(function (data) {
+            var obj = [];
+            for (var i = 0; i < data.length; i++) {
+                obj.push({ IsSelected: false });
+            }
+            purchaseOrderCtrl.productList = angular.merge({}, data, obj);
+        });
     }
- 
-}
 
-purchaseOrderCtrl.changeStatus = function (status) {
+    purchaseOrderCtrl.getSuppliers = function () {
+        // get products 
+        dataService.get('/api/Supplier/').then(function (data) {
+            var obj = [];
+            for (var i = 0; i < data.length; i++) {
+                obj.push({ IsSelected: false });
+            }
 
-    var list = []
+            purchaseOrderCtrl.supplierList = angular.merge({}, data, obj);
+        });
+    }
 
-    angular.forEach(purchaseOrderCtrl.list, function (item, index) {
+    purchaseOrderCtrl.goToFakeReceiving = function (isApproved) {
+        if (!isApproved) {
 
-        if (item.IsSelected == true) {
-            list.push(item);
+        }
+        //if (isApproved) {
+        //    window.location.href = "/PurchaseOrder/Receiving";
+        //}
+
+    }
+
+    purchaseOrderCtrl.addRowToItems = function (product, quantity) {
+
+        if (typeof product === 'undefined') return;
+
+        var result = false;
+
+        angular.forEach(purchaseOrderCtrl.itemList, function (value, index) {
+            if (value.ProductId == product.ProductId) {
+                result = true;
+                value.Quantity += quantity;
+            }
+        });
+
+        if (result) return;
+
+        purchaseOrderCtrl.itemList.push({
+            ProductId: product.ProductId,          
+            Quantity: quantity,
+            ProductCode: product.ProductCode,
+            UnitPrice: product.UnitPrice
+        });
+    }
+
+    purchaseOrderCtrl.removeRowToItems = function (index) {
+        purchaseOrderCtrl.itemList.splice(index, 1);
+    }
+
+    purchaseOrderCtrl.save = function () {
+
+        console.log(purchaseOrderCtrl.supplierId);
+
+        var newRecord = {
+            PurchaseOrderId: 0,
+            SupplierId: purchaseOrderCtrl.supplierId.SupplierId,
+            PurchaseOrderItems: purchaseOrderCtrl.itemList,
+            Remarks: purchaseOrderCtrl.remarks,
+            TotalAmount: 0,
+            TotalProductQuantity: 0
         }
 
-    });
+        angular.forEach(newRecord.PurchaseOrderItems, function (value, index) {
+            newRecord.TotalAmount += value.UnitPrice * value.Quantity;
+            newRecord.TotalProductQuantity += value.Quantity;
+        });     
 
-    if (list.length <= 0) {
-        alert('select a record first.');
-        return;
+
+        var json = JSON.stringify(newRecord);
+
+        $.ajax({
+            type: 'POST',
+            url: '/api/PurchaseOrder/CreatePurchaseOrder',
+            contentType: "application/json; charset=utf-8",
+            async: true,
+            cache: false,
+            data: json
+        }).then(function () {
+            alert('succesfully saved!');
+            window.location.href = '/PurchaseOrder/';
+        });
     }
 
-    angular.forEach(list, function (item, index) {
-        item.Status = status;
-    });
 
-    alert('Update Successful!');            
-}
+    purchaseOrderCtrl.changeStatus = function (status) {
 
-purchaseOrderCtrl.selectAll = function () {
-    var result = purchaseOrderCtrl.isAllRecordSelected;
+        var list = []
 
-    if (result == false) {
-        result == true;
-        purchaseOrderCtrl.isAllRecordSelected = result;
+        angular.forEach(purchaseOrderCtrl.list, function (item, index) {
+
+            if (item.IsSelected == true) {
+                list.push(item);
+            }
+
+        });
+
+        if (list.length <= 0) {
+            alert('select a record first.');
+            return;
+        }
+
+        angular.forEach(list, function (item, index) {
+            item.Status = status;
+        });
+
+        var json = JSON.stringify(list);
+
+        $.ajax({
+            type: 'PUT',
+            url: '/api/PurchaseOrder/UpdatePurchaseOrder',
+            contentType: "application/json; charset=utf-8",
+            async: true,
+            cache: false,
+            data: json
+        }).then(function () {
+            alert('Update Successful!');
+            window.location.reload(true);
+        });
+
+       
     }
-    else {
-        result == false;
-        purchaseOrderCtrl.isAllRecordSelected = result;
+
+    purchaseOrderCtrl.selectAll = function () {
+        var result = purchaseOrderCtrl.isAllRecordSelected;
+
+        if (result == false) {
+            result == true;
+            purchaseOrderCtrl.isAllRecordSelected = result;
+        }
+        else {
+            result == false;
+            purchaseOrderCtrl.isAllRecordSelected = result;
+        }
+
+        angular.forEach(purchaseOrderCtrl.list, function (item, index) {
+            item.IsSelected = result;
+        });
     }
 
-    angular.forEach(purchaseOrderCtrl.list, function (item, index) {
-        item.IsSelected = result;
-    });
-}
-purchaseOrderCtrl.selectSingle = function (item) {
-    if (item.IsSelected == true) {
-        item.IsSelected = false;
-    }
-    else {
-        item.IsSelected = true;
-    }
-}
-
-purchaseOrderCtrl.selectRow = function (data) {
-    data.IsSelected = true;
-    data.isAllRecordSelected = false;
-
-    angular.forEach(purchaseOrderCtrl.list, function (item, index) {
-
-        if (data.Id != item.Id) {
+    purchaseOrderCtrl.selectSingle = function (item) {
+        if (item.IsSelected == true) {
             item.IsSelected = false;
         }
-
-    });
-}
-
-purchaseOrderCtrl.deleteRecord = function (index) {
-    if (confirm('Are you sure you want to delete this record?')) {
-        purchaseOrderCtrl.list.splice(index, 1);
+        else {
+            item.IsSelected = true;
+        }
     }
-}
+
+    purchaseOrderCtrl.selectRow = function (data) {
+        data.IsSelected = true;
+        data.isAllRecordSelected = false;
+
+        angular.forEach(purchaseOrderCtrl.list, function (item, index) {
+
+            if (data.Id != item.Id) {
+                item.IsSelected = false;
+            }
+
+        });
+    }
+
+    purchaseOrderCtrl.deleteRecord = function (index) {
+        if (confirm('Are you sure you want to delete this record?')) {
+            purchaseOrderCtrl.list.splice(index, 1);
+        }
+    }
 };
 
-PurchaseOrderController.$inject = ['$http'];
+PurchaseOrderController.$inject = ['$http', 'dataService'];

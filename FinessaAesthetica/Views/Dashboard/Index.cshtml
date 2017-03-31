@@ -11,8 +11,56 @@
 }
 
 <div class="container-body">
-
+    
     <div class="row">
+        <div class="col-sm-6">
+            <div onclick="IconNavTo('/POS')" class="thumbnail tile tile-full-width tile-lime nav-icon">
+                <div class="fa-links">
+                    <h1>Point of Sales / Cashier</h1>
+                    <i class="fa fa-5x fa-shopping-cart"></i>
+                </div>
+            </div>
+
+            <div onclick="IconNavTo('/MainInventory')" class="thumbnail tile tile-full-width tile-pomegranate nav-icon">
+                <div class="fa-links">
+                    <h1>Inventory</h1>
+                    <i class="fa fa-5x fa-calculator"></i>
+                </div>
+            </div>
+
+            <div onclick="IconNavTo('/LOV')" class="thumbnail tile tile-full-width tile-yellow nav-icon">
+                <div class="fa-links">
+                    <h1>List of Values</h1>
+                    <i class="fa fa-5x fa-list"></i>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-6">
+
+            <div onclick="IconNavTo('/Users')" class="thumbnail tile tile-full-width tile-blue nav-icon">
+                <div class="fa-links">
+                    <h1>User Management</h1>
+                    <i class="fa fa-5x fa-users"></i>
+                </div>
+            </div>
+            <div onclick="IconNavTo('/PurchaseOrder')" class="thumbnail tile tile-full-width tile-blue nav-icon">
+                <div class="fa-links">
+                    <h1>Purchase Order</h1>
+                    <i class="fa fa-5x fa-file-archive-o"></i>
+                </div>
+            </div>
+            <div onclick="IconNavTo('/POS')" class="thumbnail tile tile-full-width tile-asbestos nav-icon">
+                <div class="fa-links">
+                    <h1>Configuration</h1>
+                    <i class="fa fa-5x fa-cog"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<div class="row">
         <div class="col-xs-8">
 
             <div class="row">
@@ -240,7 +288,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
 </div>
 
 @section scripts {

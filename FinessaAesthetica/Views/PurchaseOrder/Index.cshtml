@@ -6,11 +6,14 @@
     ViewBag.WebPageTitle = "Purchase Order List";
 }
 
-<div ng-controller="purchaseOrderCtrl as purchaseOrder">
+<div ng-controller="purchaseOrderCtrl as purchaseOrder" ng-init="purchaseOrder.initData();">
     <div class="navbar navbar-static-top toolbar">
         <ul class="nav navbar-nav pull-right">
-            <li><a href="~/PurchaseOrder/Create" title="New Purchase Order">
-                   <span class="fa fa-plus"></span>&nbsp;NEW</a></li>
+            <li>
+                <a href="~/PurchaseOrder/Create" title="New Purchase Order">
+                    <span class="fa fa-plus"></span>&nbsp;NEW
+                </a>
+            </li>
             <li><a href="#" title="Delete Records" ng-click="purchaseOrder.changeStatus('Approved');"><span class="fa fa-check"></span>&nbsp;APPROVE</a></li>
             <li><a href="#" title="Delete Records" ng-click="purchaseOrder.changeStatus('Cancelled');"><span class="fa fa-ban"></span>&nbsp;CANCEL</a></li>
         </ul>
@@ -30,6 +33,7 @@
                 <th>Supplier</th>
                 <th>Total Amount</th>
                 <th>Total Item Quantity</th>
+                <th>Created On</th>
                 <th>Status</th>
             </tr>
         </thead>
@@ -38,15 +42,17 @@
                 <td ng-click="purchaseOrder.selectSingle(purchaseOrderItem);$event.stopPropagation();" ng-dblclick="$event.stopPropagation();">
                     <input type="checkbox" ng-change="purchaseOrder.selectSingle(purchaseOrderItem);" ng-model="purchaseOrderItem.IsSelected" />
                 </td>
-                <td ng-bind="purchaseOrderItem.Number"></td>
+                <td ng-bind="purchaseOrderItem.PurchaseOrderNumber"></td>
                 <td ng-bind="purchaseOrderItem.Remarks"></td>
-                <td ng-bind="purchaseOrderItem.Supplier"></td>
-                <td ng-bind="purchaseOrderItem.TotalAmount"></td>
-                <td ng-bind="purchaseOrderItem.TotalQuantity"></td>
-                <td ng-bind="purchaseOrderItem.Status"></td>
+                <td ng-bind="purchaseOrderItem.Supplier.Name"></td>
+                <td ng-bind="purchaseOrderItem.TotalAmount | currency : 'P'"></td>
+                <td ng-bind="purchaseOrderItem.TotalProductQuantity"></td>
+                <td ng-bind="purchaseOrderItem.CreatedOn | date: 'MM-dd-yyyy' "></td>               
+                <td ng-bind="purchaseOrderItem.PurchaseOrderStatus"></td>
             </tr>
         </tbody>
     </table>
+    
 </div>
 
 @section Scripts {

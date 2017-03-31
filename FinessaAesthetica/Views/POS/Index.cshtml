@@ -1,157 +1,290 @@
-﻿@section ToolbarRight {
-    <li><a href="#" title="New User"><span class="fa fa-money"></span>&nbsp;PAYMENT</a></li>
-    <li><a href="#" title="New User"><span class="fa fa-ban"></span>&nbsp;CANCEL</a></li>
-}
+﻿<style>
+    body {
+        background: url('../../Images/pos-bg.jpg');
+        background-size: cover;
+    }
 
+    .modal-backdrop {
+        display:none;
+    }
 
-<h1 style="margin-top: 0px;margin-left:10px;margin-bottom: 10px;">
-    <span class="fa fa-cart-arrow-down"></span> Cashiering
-</h1>
+    .shotcuts > .btn > .fa {
+        display: block;
+        padding-bottom: 5px;
+        padding-top: 5px;
+    }
 
-<div class="col-md-8">
+    .item-list {
+        position: fixed;
+        width: 35vw;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        box-shadow: -1px 0px 10px #888888;
+    }
+
+    #DetailsBody {
+        height: 70vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    #LeftPane {
+        position: fixed;
+        top: 0;
+        width: 60vw;
+    }
+
+    .product-pane {
+        background-color: rgba(0, 0, 0, 0.14);
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .box-header {
+        color: white;
+        background-color: #ff6161;
+        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.48);
+    }
+</style>
+
+@model FinessaAesthetica.Models.POS
+
+<div class="box box-primary item-list ">
+    <div class="box-header" data-widget="collapse" style="cursor: pointer">
+        <button class="pull-right btn btn-danger" onclick="location.reload();"><i class="fa fa-trash"></i></button>
+        <button class="pull-right btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="fa fa-shopping-cart"></i></button>
+        <h4><i class="fa fa-list"></i>&nbsp;Product List</h4>
+    </div>
+    <div class="box-body">
+        <div class="row text-center page-header">
+            <div class="col-xs-2">
+                <label>Quantity</label>
+            </div>
+            <div class="col-xs-5">
+                <label>Item</label>
+            </div>
+            <div class="col-xs-3">
+                <label>Price</label>
+            </div>
+        </div>
+        <div id="DetailsBody">
+
+        </div>
+
+        <div class="row">
+            <div class="col-xs-6">
+                <h3>Total:</h3>
+            </div>
+            <div class="col-xs-6 text-right">
+                <h3>P <span id="txtTotal">0</span></h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="LeftPane">
+    <h3 class="page-header">
+        <span class="fa fa-cart-arrow-down"></span> <a href="../">Cosmetix Unlimited</a>
+    </h3>
     <div class="form-group">
         <div class="input-group input-group-sm search-input">
-            <input type="text" class="form-control" placeholder="Search service or product">
+            <input id="txtScanner" type="text" class="form-control" placeholder="Search service or product" onkeypress="scanBarcode(event);">
             <span class="input-group-addon"><i class="fa fa-search"></i></span>
         </div>
     </div>
     <div class="form-group">
-        <div class="box box-primary">
-            <div class="box-header with-border" data-widget="collapse" style="cursor: pointer">
-                <h3 class="box-title">Current Customer Availment</h3>
+        <div class="row">
+            <div class="col-xs-6">
+                <div id="imageContainer" class="text-center"><h1>No Product Selected</h1></div>
             </div>
-            <div class="box-body">
-                <div class="chart table-responsive">
-                    <table class="table table-condensed table-hover">
-                        <thead>
-                            <tr>
-                                <th>Product / Service</th>
-                                <th>Price</th>
-                                <th class="text-justified">Description</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Underarm Treatment</td>
-                                <td>P800</td>
-                                <td class="text-justified">Whitens Underarm and Protects it from Foul Smell</td>
-                                <td><button class="btn btn-link"><i class="fa fa-close text-danger"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td>Another Service</td>
-                                <td>P800</td>
-                                <td class="text-justified">Some other form of service.</td>
-                                <td><button class="btn btn-link"><i class="fa fa-close text-danger"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td>Facial Wash</td>
-                                <td>150</td>
-                                <td class="text-justified">Protects you from acne</td>
-                                <td><button class="btn btn-link"><i class="fa fa-close text-danger"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>P800</td>
-                                <td class="text-justified">Some other form of service.</td>
-                                <td><button class="btn btn-link"><i class="fa fa-close text-danger"></i></button></td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                        </tfoot>
-                    </table>
-                </div>
-                <div class="pull-left">
-                    <h6>Total Items: <b>3</b></h6>
-                </div>
-                <div class="pull-right">
-                    <button class="btn btn-primary" style="width:80px;">NEW : F1</button>
-                    <button class="btn btn-primary" style="width: 80px; ">INQ : F2</button>
-                    <button class="btn btn-primary" style="width: 80px;">VOID : F3</button>
-                    <button class="btn btn-primary" style="width: 80px; ">SUSR : F4</button>
-                    <button class="btn btn-primary" style="width: 80px;">CASH : F5</button>
-                    <button class="btn btn-primary" style="width: 80px; ">RET : F6</button>                    
-                </div>               
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <span style="font-size:16px;font-weight:bold;">Customer Details</span>
-    </div>
-    <div class="form-group">
-        <label for="fullname" class="control-label col-sm-3 label-left">Fullname:</label>
-        <span name="fullname" class="col-sm-3" style="font-size:14px;font-weight:400;">Joseph Fabillar Cadiao</span>
-        <label for="mobile" class="control-label col-sm-3">Mobile Number:</label>
-        <span name="mobile" class="col-sm-3" style="font-size:14px;font-weight:400;">09154660725</span>
-    </div>    
-</div>
-<div class="col-md-4">
-    <div class="box box-primary">
-        <div class="box-header with-border" data-widget="collapse" style="cursor: pointer">
-            <h3 class="box-title">Transaction Details</h3>
-        </div>
-        <div class="box-body">
-            <div class="chart">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Service</th>
-                            <th>Price</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Fat Loss Program</td>
-                            <td>P200</td>
-
-                            <td><button class="btn btn-link"><i class="fa fa-close text-danger"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td>Skin Whitening</td>
-                            <td>P400</td>
-
-                            <td><button class="btn btn-link"><i class="fa fa-close text-danger"></i></button></td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td><b>Sub-total</b></td>
-                            <td class="text-right" colspan="4">P9,999</td>
-                        </tr>
-                        <tr>
-                            <td><b>Discount</b></td>
-                            <td class="text-right" colspan="4">P10</td>
-                        </tr>
-                        <tr>
-                            <td><b>Vatable Sales</b></td>
-                            <td class="text-right" colspan="4">P0.25</td>
-                        </tr>
-                        <tr>
-                            <td><b>Vat</b></td>
-                            <td class="text-right" colspan="4">P150.25</td>
-                        </tr>
-                        <tr>
-                            <td><b>Vat Exempt Sales</b></td>
-                            <td class="text-right" colspan="4">P0</td>
-                        </tr>
-                        <tr>
-                            <td><b>Vat Exemption</b></td>
-                            <td class="text-right" colspan="4">P0</td>
-                        </tr>
-                        <tr>
-                            <td><b>Zero Rated Sales</b></td>
-                            <td class="text-right" colspan="4">P0</td>
-                        </tr>
-                        <tr class="">
-                            <td><b>Total</b></td>
-                            <td class="text-right" colspan="4"><b>P10,500.25</b></td>
-                        </tr>
-                    </tfoot>
-                </table>
+            <div class="col-xs-6 text-right">
+                <h1 id="productNameContainer"></h1>
+                <h2 id="productPriceContainer"></h2>
+                <p id="productDescriptionContainer"></p>
             </div>
         </div>
     </div>
 </div>
 
 
+
+<div class="shotcuts" style="position:fixed;bottom:0;left:15vw;">
+    <button class="btn btn-primary" style="width:80px;">
+        <i class="fa fa-file fa-2x"></i>
+        NEW : F1
+    </button>
+    <button class="btn btn-primary" style="width: 80px; ">
+        <i class="fa fa-question fa-2x"></i>
+        INQ : F2
+    </button>
+    <button class="btn btn-primary" style="width: 80px;">
+        <i class="fa fa-times-circle fa-2x"></i>
+        VOID : F3
+    </button>
+    <button class="btn btn-primary" style="width: 80px; ">
+        <i class="fa fa-list fa-2x"></i>
+        SUSR : F4
+    </button>
+    <button class="btn btn-primary" style="width: 80px;">
+        <i class="fa fa-money fa-2x"></i>
+        CASH : F5
+    </button>
+    <button class="btn btn-primary" style="width: 80px; ">
+        <i class="fa fa-reply fa-2x"></i>
+        RET : F6
+    </button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label label-left">Total Amount:</label>
+                        <div class="col-sm-8">
+                            <input class="form-control text-right" id="finalTotal" value="0" readonly />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label label-left">Discount %:</label>
+                        <div class="col-sm-8">
+                            <input class="form-control text-right" id="txtDiscount" value="0" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label label-left">Cash:</label>
+                        <div class="col-sm-8">
+                            <input class="form-control text-right" id="txtCash" value="0" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label label-left">Change:</label>
+                        <div class="col-sm-8">
+                            <input class="form-control text-right" id="txtChange" value="0" readonly />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" style="width: 150px;" onclick="payTransaction();"><span class="fa fa-money"></span> Pay Transaction</button>
+                <button type="button" class="btn btn-danger" style="width: 150px;"><span class="fa fa-print"></span> Print Receipt</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    window.onload = function () {
+        initProducts();
+        hideHtmlObjs();
+        document.getElementById("txtScanner").focus();
+    }
+
+    function hideHtmlObjs() {
+        $('.navbar').hide();
+    }
+
+    var Products = [];
+
+    function initProducts() {
+        Products = buildItems();
+    }
+
+    function buildItems() {
+        var items = [
+            {
+                barcode: '4800333161838',
+                name: 'Matte Lipstick',
+                price: 600.00,
+                description: 'A good quality Lipstick for you!',
+                imageUrl: 'Images/matte-lipstick.png'
+            },
+            {
+                barcode: '4806523124102',
+                name: 'Blush On',
+                price: 800.00,
+                description: 'A blush on that will make you blush!',
+                imageUrl: 'Images/blush-on.jpg'
+            },
+            {
+                barcode: '6955532315280',
+                name: 'Simple Lipstick',
+                price: 450.00,
+                description: 'A simple but elegant lipstick',
+                imageUrl: 'Images/simple-lipstick.jpg'
+            }
+        ];
+
+        return items;
+    }
+
+    function searchItem(barcode) {
+        var found = false;
+        Products.forEach(function (item) {
+            if (item.barcode == barcode) {
+                displayProduct(item);
+                insertToList(item);
+                found = true;
+            }
+        });
+        if (!found) {
+            alert('Product code not found!');
+        }
+    }
+
+    function scanBarcode(e) {
+        if (e.keyCode == 13) {
+            var code = document.getElementById("txtScanner");
+            searchItem(code.value);
+            code.value = '';
+        }
+    }
+
+    function displayProduct(item) {
+        $('#imageContainer').html('<img height="300" src="../' + item.imageUrl + '" />');
+        $('#productNameContainer').text(item.name);
+        $('#productDescriptionContainer').text(item.description);
+        $('#productPriceContainer').text(item.price);
+    }
+
+    function deleteItem(id) {
+        $('#' + id).remove();
+    }
+
+    function insertToList(item) {
+        var d = new Date();
+        var idStamp = (d.getHours() * 1000000) + (d.getMinutes() * 10000) + (d.getSeconds() * 100) + d.getMilliseconds();
+        var _construct = '<div id="item_' + idStamp + '" class="row text-center">'
+        _construct += '<div class="col-xs-2">1</div>';
+        _construct += '<div class="col-xs-5">' + item.name + '</div>';
+        _construct += '<div class="col-xs-3">' + item.price + '</div>';
+        _construct += '<div class="col-xs-2 text-right"><button class="btn btn-link btn-xs" onclick="deleteItem(\'item_' + idStamp + '\')"><i class="fa fa-close text-danger"></i></button></div>';
+        _construct += '</div>'
+        var _pendingItems = $('#DetailsBody').html();
+        $('#DetailsBody').html(_construct + _pendingItems);
+        var totalPrice = $('#txtTotal').text();
+        $('#txtTotal').text(+totalPrice + +item.price);
+        $('#finalTotal').val(+totalPrice + +item.price);
+    }
+
+    function payTransaction() {
+        var totalAmount = $('#finalTotal').val();
+        var discount = $('#txtDiscount').val();
+        var cash = $('#txtCash').val();
+        var computation = +totalAmount - (+totalAmount * (+discount / 100));
+        if (computation > cash) {
+            alert('Insufficient cash!');
+        } else {
+            var change = +cash - +computation;
+            $('#txtChange').val(change);
+            alert('Transaction completed!');
+        }
+    }
+</script>

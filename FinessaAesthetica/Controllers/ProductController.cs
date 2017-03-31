@@ -18,7 +18,7 @@ namespace FinessaAesthetica.Controllers
         // GET: /Product/
         public async Task<ActionResult> Index()
         {
-            var products = db.Products.Include(p => p.Category).Include(p => p.Color).Include(p => p.Status).Include(p => p.Supplier);
+            var products = db.Products.Include(p => p.Category).Include(p => p.Color).Include(p => p.Status);
             return View(await products.ToListAsync());
         }
 
@@ -64,8 +64,7 @@ namespace FinessaAesthetica.Controllers
 
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Code", product.CategoryId);
             ViewBag.ColorId = new SelectList(db.Colors, "ColorId", "Code", product.ColorId);
-            ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "Description", product.StatusId);
-            ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "Code", product.SupplierId);
+            ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "Description", product.StatusId);         
             return View(product);
         }
 
@@ -83,8 +82,7 @@ namespace FinessaAesthetica.Controllers
             }
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Code", product.CategoryId);
             ViewBag.ColorId = new SelectList(db.Colors, "ColorId", "Code", product.ColorId);
-            ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "Description", product.StatusId);
-            ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "Code", product.SupplierId);
+            ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "Description", product.StatusId);            
             return View(product);
         }
 
@@ -104,8 +102,7 @@ namespace FinessaAesthetica.Controllers
             }
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Code", product.CategoryId);
             ViewBag.ColorId = new SelectList(db.Colors, "ColorId", "Code", product.ColorId);
-            ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "Description", product.StatusId);
-            ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "Code", product.SupplierId);
+            ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "Description", product.StatusId);          
             return View(product);
         }
 

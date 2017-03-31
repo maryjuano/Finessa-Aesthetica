@@ -20,17 +20,14 @@ namespace FinessaAesthetica.Models
         public Category Category { get; set; }
         [Display(Name = "Color")]
         public int ColorId { get; set; }
-        public Color Color { get; set; }
-        public int SupplierId { get; set; }
-        [ForeignKey("SupplierId")]
-        public Supplier Supplier { get; set; }
+        public Color Color { get; set; }      
         [Display(Name = "Unit Measurement")]
-        public double UnitMeasurement { get; set; }
+        public string UnitMeasurement { get; set; }
         [DataType(DataType.Currency)]
         [Display(Name = "Unit Price")]
         public float UnitPrice { get; set; }
         [DataType(DataType.Currency)]       
         [Display(Name = "SRP")]
-        public float StandardRetailPrice { get; set; }
+        public float StandardRetailPrice { get; set; }     
     }
 }

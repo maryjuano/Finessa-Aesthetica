@@ -49,6 +49,7 @@ namespace FinessaAesthetica.Models
             }
         }
         public int BranchId { get; set; }
-        public Branch Branch { get; set; }
+        public Branch Branch { get; set; }                
+
     }
 }

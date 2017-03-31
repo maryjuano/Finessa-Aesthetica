@@ -1,13 +1,16 @@
-﻿@model FinessaAesthetica.Models.MainInventory
-@{
+﻿@{
     ViewBag.Title = "New Purchase Order";
     ViewBag.CurrentEntity = "Purchase Order";
     ViewBag.WebPageTitle = "New Purchase Order";
 }
-<div ng-controller="purchaseOrderCtrl as purchaseOrder">
+
+@section css {
+    <link href="~/dist/css/select2.min.css" rel="stylesheet" />
+}
+<div ng-controller="purchaseOrderCtrl as purchaseOrder" ng-init="purchaseOrder.getProducts();purchaseOrder.getSuppliers();">
     <div class="navbar navbar-static-top toolbar">
         <ul class="nav navbar-nav pull-right">
-            <li><a href="#" id="btnSaveTrigger" title="Create Service"><span class="fa fa-save"></span>&nbsp;SAVE</a></li>
+            <li><a href="#" ng-click="purchaseOrder.save(); $event.preventDefault();" title="Create Service"><span class="fa fa-save"></span>&nbsp;SAVE</a></li>
         </ul>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="~/Dashboard/">Home</a></li>
@@ -21,8 +24,7 @@
         @Html.AntiForgeryToken()
         <div class="ibox-content">
             <div class="form-horizontal">
-                @Html.ValidationSummary(true)
-
+                @Html.ValidationSummary(true)             
                 <div class="row">
                     <div class="col-md-12">
                         <div class="page-header">
@@ -33,27 +35,24 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-3 label-left">PO Number</label>
                                     <div class="col-sm-9">
-                                        <input type="text" readonly="readonly" class="form-control" placeholder="PO-00005" />
+                                        <input type="text" readonly="readonly" class="form-control" placeholder="System Generated" />
                                     </div>
                                 </div>
 
                             </div>
                             <div class="col-sm-6">
-
                                 <div class="form-group">
                                     <label class="control-label col-sm-3 label-left">Supplier</label>
                                     <div class="col-sm-9">
-                                        @Html.DropDownList("SupplierId",
-                                         (SelectList)ViewBag.SupplierId,
-                                         "Select supplier . . .",
-                                         new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.ProductId)
+                                        <select class="form-control" ng-options="item as item.Code for item in purchaseOrder.supplierList track by item.SupplierId" ng-model="purchaseOrder.supplierId">
+                                            <option value="" selected disabled="disabled">Select a Supplier</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-sm-3 label-left">Remarks</label>
                                     <div class="col-sm-9">
-                                        <textarea class="form-control" style="resize:none"></textarea>
+                                        <textarea ng-model="purchaseOrder.remarks" class="form-control" style="resize:none"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -68,43 +67,43 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label class="control-label col-sm-3 label-left">Item</label>
                                     <div class="col-sm-9">
-                                        @Html.DropDownListFor(model => model.ProductId,
-                                         (SelectList)ViewBag.ProductId,
-                                         "Select product . . .",
-                                         new { @class = "form-control", @id = "product" })
-                                        @Html.ValidationMessageFor(model => model.ProductId)
+                                        <select class="form-control" ng-options="item as item.ProductCode for item in purchaseOrder.productList track by item.ProductId" ng-model="purchaseOrder.productId">
+                                            <option value="" selected disabled="disabled">Select a Product</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-1" style="padding-left:0px;margin-left:-15px;">
-                                <button type="button" ng-click="purchaseOrder.addRow();" class="btn btn-default col-sm-4"><span class="fa fa-plus"></span></button>
-                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="control-label">Quantity</label>
-                                    <div class="col-sm-2">
-                                        <input type="number" min="0" ng-model="purchaseOrder.Quantity" class="form-control" />
+                                    <div class="col-sm-3">
+                                        <div class="input-group">
+                                            <input type="number" min="0" ng-model="purchaseOrder.Quantity" class="form-control input-sm">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default btn-sm" ng-click="purchaseOrder.addRowToItems(purchaseOrder.productId, purchaseOrder.Quantity);" type="button"><span class="fa fa-plus"></span></button>
+                                            </span>
+                                        </div><!-- /input-group -->
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-7">
-                                <table class="table table-hover table-condensed">
+                                <table class="table table-hover table-condensed table-bordered">
                                     <thead>
                                         <tr>
                                             <th>Product Code</th>
                                             <th>Quantity</th>
                                             <th>Unit Price</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr ng-repeat="purchaseOrderItem in purchaseOrder.itemList" ng-click="purchaseOrder.selectRow(purchaseOrderItem);" ng-dblclick="purchaseOrder.goToFakeReceiving(purchaseOrderItem.Status == 'Approved'); $event.preventDefault(); $event.stopPropagation();">                                           
+                                        <tr ng-repeat="purchaseOrderItem in purchaseOrder.itemList">
                                             <td ng-bind="purchaseOrderItem.ProductCode"></td>
                                             <td ng-bind="purchaseOrderItem.Quantity"></td>
-                                            <td ng-bind="purchaseOrderItem.UnitPrice"></td>
+                                            <td ng-bind="purchaseOrderItem.Product.UnitPrice | currency : 'P'"></td>
+                                            <td><a role="button" ng-click="purchaseOrder.removeRowToItems($index);"><span class="fa fa-trash-o"></span></a></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -112,8 +111,16 @@
                         </div>
                     </div>
                 </div>
-                <br />
-                <br />
+                <div class="row">
+                    @*<div class="col-md-2">
+                        <label class="control-label">Total Amount</label>
+                        <input type="text" readonly="readonly" ng-model="purchaseOrder.totalAmount" class="form-control input-sm" />
+                    </div>
+                    <div class="col-md-2">
+                        <label class="control-label">Total Product</label>
+                        <input type="text" readonly="readonly" ng-model="purchaseOrder.totalQuantity" class="form-control input-sm" />
+                    </div>*@
+                </div>
                 @Html.Partial("~/Views/Shared/_RecordInformationCreate.cshtml")
             </div>
         </div>
@@ -121,10 +128,8 @@
     }
 </div>
 @section Scripts {
-    <script>
-        $('#btnSaveTrigger').click(function () {
-            alert('succesfully saved!');
-            window.location.href = "/PurchaseOrder/"
-        });
+    <script src="~/dist/js/select2.full.min.js"></script>
+    <script>      
+        $('select.form-control').select2({ theme: 'classic' });
     </script>
 }

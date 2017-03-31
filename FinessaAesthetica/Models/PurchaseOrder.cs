@@ -9,11 +9,11 @@ namespace FinessaAesthetica.Models
 {
     public class PurchaseOrder : RecordInformation
     {
-        public PurchaseOrder() {
-            PurchaseOrderItems = new List<PurchaseOrderItems>();        
-        }
+     
         [Key]
         public int PurchaseOrderId { get; set; }
+
+        public string PurchaseOrderNumber { get; set; }
         public string Remarks { get; set; }
         public ICollection<PurchaseOrderItems> PurchaseOrderItems { get; set; }
         public string PurchaseOrderStatus { get; set; }
@@ -21,6 +21,16 @@ namespace FinessaAesthetica.Models
         public Supplier Supplier { get; set; }
         public float TotalAmount { get; set; }
         public int TotalProductQuantity { get; set; }
+
+        public override void SetOnCreate(int userId = 1)
+        {
+            this.CreatedOn = DateTime.UtcNow;
+            this.LastModifiedOn = DateTime.UtcNow;
+            this.CreatedById = userId;
+            this.LastModifiedById = userId;
+            this.PurchaseOrderStatus = "Pending";
+            this.StatusId = 1;  
+        } 
     }
 
     public class PurchaseOrderItems 
@@ -32,6 +42,7 @@ namespace FinessaAesthetica.Models
         [ForeignKey("ProductId")]
         public Product Product { get; set; }
         public int Quantity { get; set; }    
-        public int PurchaseOrderId { get; set; }      
+        public int PurchaseOrderId { get; set; }
+       
     }
 }

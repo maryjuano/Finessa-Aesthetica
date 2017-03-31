@@ -2,6 +2,7 @@
     'use strict';
 
     angular.module('purchaseOrderModule', [])
-    .controller('purchaseOrderCtrl', PurchaseOrderController);      
+    .controller('purchaseOrderCtrl', PurchaseOrderController)
+    .factory('dataService', ServiceFactory);
 
 })();

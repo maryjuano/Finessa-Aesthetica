@@ -85,7 +85,7 @@ namespace FinessaAesthetica.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include="BranchId,Name,Code,Address,Manager,Telephone,CreatedById,LastModifiedById,CreatedOn,LastModifiedOn,StatusId")] Branch branch)
-        {
+        {           
             if (ModelState.IsValid)
             {
                 branch.SetOnModified(CurrentUserId);

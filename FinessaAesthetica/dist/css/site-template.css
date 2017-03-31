@@ -661,12 +661,12 @@
 }
 
 .tile.tile-full-width {
-    height: 160px;
+    height: 180px;
     width: 100%;
 }
 
 .customgray-bg {
-    background-color: #ccc0c0;
+    background-color: rgb(241, 241, 241);
     color: #3e3e3e;
     box-shadow: 1px 1px 4px 0px;
 }

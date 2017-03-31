@@ -19,16 +19,7 @@ namespace FinessaAesthetica
             Mapper.CreateMap<BranchInventory, MainInventory>()
                 .ForMember(dest => dest.MaximumThreshold, opt => opt.MapFrom(src => src.MaximumThreshold))
                 .ForMember(dest => dest.MinimumThreshold, opt => opt.MapFrom(src => src.MinimumThreshold))
-                .ForMember(dest => dest.ProductId, opt => opt.MapFrom(src => src.ProductId));
-
-            //Mapper.CreateMap<SystemUser, PortalUser>()
-            //    .ForMember(dest => dest.Fullname, opt => opt.MapFrom(src => src.FullName))
-            //    .ForMember(dest => dest.Username, opt => opt.MapFrom(src => src.DomainName))
-            //    .ForMember(dest => dest.ID, opt => opt.MapFrom(src => src.SystemUserId))
-            //    .ForMember(dest => dest.BusinessUnitID, opt => opt.MapFrom(src => src.BusinessUnitId.Id))
-            //    .ForMember(dest => dest.BusinessUnit, opt => opt.MapFrom(src => src.BusinessUnitId))
-            //    .ForMember(dest => dest.PositionID, opt => opt.MapFrom(src => src.PositionId.Id))
-            //    .ForMember(dest => dest.Position, opt => opt.MapFrom(src => src.PositionId));
+                .ForMember(dest => dest.ProductId, opt => opt.MapFrom(src => src.ProductId));       
         }
     }
 }
