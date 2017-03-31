@@ -128,6 +128,7 @@ namespace FinessaAesthetica.Controllers.WebApi
             numberOnly = numberOnly.Remove(startIndex, numberResultLength);
 
             numberResult++;
+            numberResult++;
 
             return string.Format("PO-{0}{1}", numberOnly, numberResult.ToString());
         }
