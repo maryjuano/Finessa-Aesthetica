@@ -200,7 +200,6 @@
     <Compile Include="Controllers\WebApi\SupplierController.cs" />
     <Compile Include="Customizations\CustomHtmlHelpers.cs" />
     <Compile Include="Customizations\Encryption.cs" />
-    <Compile Include="Customizations\SalesOrderJek.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
